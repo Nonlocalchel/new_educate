@@ -1,0 +1,66 @@
+@import url("style.css");
+
+body{
+	zoom:100%;
+	
+}
+
+.wrapper{
+	display: block;
+
+}
+
+.error_container{
+	display:flex;
+	align-items: flex-end;
+	height:100vh;
+
+}
+
+.error__content {
+	padding-right: 75px;
+	margin:0px auto;
+	max-width:950px;
+	display:flex;
+	justify-content: space-around;
+	height: 100%;
+}
+
+.error__image {
+	align-self: flex-end;
+	/*подстройка под размер
+	scale:1.1;
+	transform:translate(0,-25px) ;
+	подстройка под размер*/
+}
+
+.error__text {
+	scale:0.9;
+	align-self: center;
+	display: flex;
+	flex-direction: column;
+	height: 120px;
+	justify-content: space-between;
+
+}
+
+.error__message {
+	color: var(--title-color);
+	font-size: 48px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 24px;
+}
+
+.error__desription {
+	color: var(--text--color);
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 40px;
+}
+
+.error__image__el{
+	height:550px;
+}
+

@@ -1,0 +1,143 @@
+:root{
+	--nav-padding:85px;
+	--main-color-gradient:red;
+}
+
+.profile{
+	margin-top: 25px;
+}
+
+.profile__row{
+	display: flex;
+	
+}
+
+.profile__info{ /*тут*/
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 300px;
+	align-self: flex-start;
+	margin-bottom: 10px;
+	border-radius: 0px 25px 25px 0px;
+	border-top: 1px solid var(--title-color);
+	border-right: 1px solid var(--title-color);
+	border-bottom: 1px solid var(--title-color);
+	padding: 15px 5px 30px 0px;
+	/*position: sticky;
+	top:100px;*/
+	margin-right: 35px;
+}
+
+
+
+.profile__info__row{
+	height: 350px;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	
+}
+.profile__name {
+	color: var(--title-color);
+	font-size: 26px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 24px;
+}
+.profile__status {
+	color: var(--text-color);
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+.btn__edit__profile {
+	align-self: stretch;
+
+}
+.btn {}
+
+.proile__results__title{
+	color: var(--title-color);
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 24px;
+	padding-bottom: 10px;
+}
+
+.profile__results{
+	width: 100%;
+}
+/*переписал прежние стили*/
+.results__column {
+	flex:0 1 33.333%;
+}
+
+.shelf__hat__title{
+	font-weight: 500;}
+
+
+/*переписал прежние стили*/
+
+.user__profile_link{
+  display: inline-block;
+  padding:0px 8px 0px 40px;
+  line-height: 36px;
+  font-size: 20px;
+  font-family: 'Noto Sans Display';
+  text-decoration: none;
+  color: white;
+  border: 1px solid var(--title-color);
+  text-align: center;
+  position: relative;
+  transition: all .35s;
+  border-radius:25px 25px 0px;
+  overflow:hidden;
+}
+
+.profile__avatarka__svg{
+  height:36px;
+  width:36px;
+  border-radius: 125px;
+  border:1px solid var(--title-color);
+  position:absolute;
+  left:-1px;
+  z-index:3;
+}
+
+.user__name{
+  position: relative;
+  z-index: 2;
+}
+
+.user__profile_link:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  border-radius:25px 25px 0px;
+  background:linear-gradient(var(--main-color), var(--main-color-gradient));
+  transition: all .35s;
+}
+
+.user__profile_link:hover:after{
+  width: 100%;
+}
+
+.big__avatarka__svg {
+	border-radius: 125px;
+	border:1px solid var(--title-color);
+	height: 202px;
+	width:202px;
+	position:static;
+}
+
+.user__profile_link:active{
+	overflow:visible;
+	 border: 1px solid transparent;
+}

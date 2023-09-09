@@ -1,0 +1,249 @@
+@import url("style.css");
+/*общее*/
+:root{
+	--focusout-color:#CCC;/*цвет вне фокуса(скорее всего white 80%),может зависеть от --text-color*/
+	--label-color:#7B7B7B;/*подсказки,может зависеть от --text-color*/
+	--focus-shadow:-2px 3px 10px 0px rgba(255, 185, 14, 0.4); /*тень от формы должна зависеть от --main-color*/
+}
+
+.form__page {     
+	
+}
+
+.container {} 
+
+.form__page__row{     
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin: 0px auto;
+}
+
+.first__man { 
+	
+}
+
+.form__all {             
+	width: 314px;
+	padding-bottom: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: space-between;
+	margin-right: 5px;
+}
+
+.form__title {      
+	align-self: center;     
+	color: var(--title-color);
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.form__group {         
+	position: relative;
+}
+
+.form__input {         
+	color: var(--focusout-color);
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	width: 100%;
+	height: 50px;
+	border-radius: 8px;
+	background-color: transparent;
+	padding-left: 10px;
+	padding-top: 13px;
+	position: relative;
+	z-index: 2;
+	border:1px solid var(--focusout-color);
+	transition: 0.5s;
+}
+
+.form__input:focus ~.form__label,                  
+.form__input:not(:placeholder-shown) ~ .form__label{  
+	color:var(--label-color);
+	font-size: 12px;
+	bottom:19px;
+}
+.form__input:focus{
+	border:1px solid var(--main-color);
+	box-shadow: var(--focus-shadow);
+	color:var(--title-color);
+}
+.form__input:focus ~.form__svg{
+	fill:var(--title-color);
+}
+
+.form__label {          
+	color: var(--label-color);
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	position: absolute;
+	bottom:4px;
+	left:0;
+	transition: 0.3s;
+	padding:10px;
+}
+   
+.form__email {}    
+.form__password {}    
+
+.btn__form {        
+	align-self: stretch;    
+	max-width: 314px;
+	height: 46px;
+}
+
+.form__svg{         
+	fill:var(--label-color);
+	position: absolute;
+	right:15px;
+	top:50%;
+	transform:translate(0%, -50%);
+	transition: 0.5s;
+}
+
+.form__svg{
+	cursor: pointer;
+	z-index: 3;
+
+}
+
+.btn {}       
+
+.second__man {}      
+
+/*общее*/
+
+/*вход начало*/
+
+.login__all__row {
+	max-width: 1080px;
+	height: 430px;
+}
+
+
+
+.login__sit__down{
+	width: 376px;
+	align-self: stretch;
+	position: relative;
+}
+
+.first__man__photo{        
+	position: absolute;
+	bottom:-161px;
+}
+
+.form__enter__all {
+	height:269px;
+	align-self: center;
+}
+
+
+
+ 
+/*вход конец*/
+/*регистрация начало*/
+
+.register__all__row {
+	margin-top:70px;
+	max-width: 1040px;
+	
+}
+
+.form__register__title{
+	margin-bottom: 8px;
+
+}
+
+.form__register__all {
+	height:380px;
+	align-self: flex-start;
+}
+
+.fake__photo {
+	align-self: stretch;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	
+}
+.fake__title {
+	color: var(--title-color);
+	font-size: 20px;
+	font-weight: 400;
+}
+.naebka {
+	padding:0px 0px;
+	width: 80%;
+	height: 30px;
+	cursor: pointer;
+	position: relative;
+	border:none;
+	background: transparent;
+	
+}
+
+
+.naebka__text{
+	color: var(--focusout-color);
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 28px;
+	padding-left:8px;
+	border: 1px solid var(--focusout-color);
+	border-radius: 5px;
+	background: transparent;
+	z-index: 2;
+	cursor: pointer;
+	transition: 0.3s;
+
+}
+
+.form__input-file-get{
+	background: var(--main-color);
+	color: var(--title-color);
+	border: none;
+}
+
+.camera__svg{
+	fill:var(--focusout-color);
+	width: 16px;
+	height: 15px;
+	position: absolute;
+	top:50%;
+	transform:translate(0%, -50%);
+	right:7px;
+	z-index: 0;
+	pointer-events: none;
+	transition: 0.3s;
+}
+
+.camera__svg-get{
+	fill:white;
+}
+
+.form__file {
+	width:0.1px;
+	height:0.1px;
+	opacity:0;
+	overflow:hidden;
+	position: absolute;
+	z-index: -1;
+
+}
+.form__file__label {}
+/*регистрация конец*/
+
