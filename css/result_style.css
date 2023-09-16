@@ -1,4 +1,5 @@
 @import url("style.css");
+
 /*страница входа*/
 .results {}
 
@@ -30,11 +31,12 @@
 .results-storages{
 	border-top:1px solid var(--title-color);
 }
-
+/*
 .results-storage__row {
 	padding-bottom: 30px;
 	
 }
+*/
 .result-shelf {
 	margin-top: 30px
 }
@@ -70,12 +72,12 @@
 }
 
 .result-cards__row {
-	margin: 0px 0px !important; 
+	margin: 0px 0px; 
 }
 .card {
-	margin: 0px 0px !important; 
+	margin: 0px 0px; 
 }
 
 .result-cards{
-	padding-bottom:25px !important; 
+	padding-bottom:40px; 
 }

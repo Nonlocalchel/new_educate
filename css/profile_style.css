@@ -54,7 +54,7 @@
 }
 
 .profile__photo{
-	border-radius: 125px !important;
+	border-radius: 125px;
 	height:200px;
   	width:200px;
 }
@@ -85,7 +85,7 @@
 }
 /*переписал прежние стили*/
 .result-cards__column{
-	flex:0 1 33.333% !important;
+	flex:0 1 33.333%;
 	
 }
 
