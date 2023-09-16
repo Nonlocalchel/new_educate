@@ -1,81 +1,91 @@
 @import url("style.css");
 /*страница входа*/
-.results {}
+.results__enter {}
 
 .container {}
 
-.results__container {
+.results__enter__all__container {
 	max-width: 95%;
 	display:flex;
 	justify-content: space-between;
 	align-items: center;
 
 }
-.results__image {
+.results__enter__image {
 	margin-top:9px;
 	position: relative;
 	top:15px}
 
-.results__body {}
+.results__enter__body {}
 
-.results__button {
+.results__enter__title {}
+
+.results__enter__content {
+	
+}
+.btn_enter {
 	width: 260px;
 }
 
+.btn {}
+
 /*profile*/
-.results-storage {}
+.result__storage {}
 
 .container {}
 
-.results-storages{
+.result__storage__raw {
+	padding-bottom: 30px;
 	border-top:1px solid var(--title-color);
 }
-
-.results-storage__row {
-	padding-bottom: 30px;
-	
-}
-.result-shelf {
+.shelf {
 	margin-top: 30px
 }
 
-.result-shelf__head {
+.shelf__hat {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 30px;
 }
 
-.result-shelf__title {
+.shelf__hat__title {
 	color: var(--title-color);
 	font-size: 36px;
 	font-style: normal;
 	font-weight: 700;
 	line-height: 24px;
 }
-.result-shelf__arrow-svg {
+.arrow__svg {
 	cursor: pointer;
 	transition: 0.45s;
 	border-radius: 25px;
 	height: 40px;
 }
 
-.result-shelf__arrow-svg:hover{
+.arrow__svg:hover{
 	fill:var(--back-color);
 	background: var(--title-color);
 }
 
-.result-shelf__arrow-svg:active{
+.arrow__svg:active{
 	background: var(--main-color);
 }
 
-.result-cards__row {
-	margin: 0px 0px !important; 
+.results__row {
+	margin: 0px 0px;
 }
-.card {
-	margin: 0px 0px !important; 
+.results__card {
+	margin: 0px 0px;
 }
 
-.result-cards{
-	padding-bottom:25px !important; 
+.results__section{
+	padding-bottom:25px;
 }
+
+/*
+.results__section{
+	padding-bottom:75px;
+	padding-top:75px
+}
+*/

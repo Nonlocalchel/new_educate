@@ -1,5 +1,5 @@
 try{
-	let formForPassword=document.querySelectorAll('.form__password');
+	let formForPassword=document.querySelectorAll('.form-group__input-password');
 	for(bin of formForPassword){
 		let eye=bin.nextElementSibling;
 		eye.addEventListener('click',function(event){
@@ -19,7 +19,7 @@ try{
 
 //поправить
 //меняет стиль при выюоре файла
-let inputFile=document.querySelectorAll('.form__file');
+let inputFile=document.querySelectorAll('.file-form__input');
 for(inputKey of inputFile){
 	let inputFileLabel=inputKey.nextElementSibling;
 	let svg= inputFileLabel.nextElementSibling;
@@ -29,12 +29,12 @@ for(inputKey of inputFile){
 			let fileName=this.files[0].name;
 			fileName=fileName.length<15?fileName:`${fileName.slice(0,13)}...`;
 			inputFileField.innerHTML=fileName;
-			inputFileField.classList.add('form__input-file-get');
-			svg.classList.add('camera__svg-get');
+			inputFileField.classList.add('file-form__input-get');
+			svg.classList.add('file-form__icon-get');
 		}catch(error){
 			inputFileField.innerHTML="Добавить";
-			inputFileField.classList.remove('form__input-file-get');;
-			svg.classList.remove('camera__svg-get');
+			inputFileField.classList.remove('file-form__input-get');;
+			svg.classList.remove('file-form__icon-get');
 		};
 	});
 };

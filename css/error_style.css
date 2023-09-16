@@ -10,7 +10,7 @@ body{
 
 }
 
-.error_container{
+.error__container{
 	display:flex;
 	align-items: flex-end;
 	height:100vh;
@@ -60,7 +60,7 @@ body{
 	line-height: 40px;
 }
 
-.error__image__el{
+.error__image-el{
 	height:550px;
 }
 

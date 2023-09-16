@@ -6,13 +6,13 @@
 	--focus-shadow:-2px 3px 10px 0px rgba(255, 185, 14, 0.4); /*тень от формы должна зависеть от --main-color*/
 }
 
-.form__page {     
+.form-page {     
 	
 }
 
 .container {} 
 
-.form__page__row{     
+.form-page__row{     
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
@@ -23,7 +23,7 @@
 	
 }
 
-.form__all {             
+.form-page__form-all {             
 	width: 314px;
 	padding-bottom: 5px;
 	display: flex;
@@ -33,7 +33,7 @@
 	margin-right: 5px;
 }
 
-.form__title {      
+.form-title {      
 	align-self: center;     
 	color: var(--title-color);
 	font-family: 'Noto Sans', sans-serif;
@@ -43,11 +43,11 @@
 	line-height: normal;
 }
 
-.form__group {         
+.form-group {         
 	position: relative;
 }
 
-.form__input {         
+.form-group__input-text {         
 	color: var(--focusout-color);
 	font-family: 'Noto Sans', sans-serif;
 	font-size: 16px;
@@ -66,22 +66,22 @@
 	transition: 0.5s;
 }
 
-.form__input:focus ~.form__label,                  
-.form__input:not(:placeholder-shown) ~ .form__label{  
+.form-group__input-text:focus ~.form-group__form-label,                  
+.form-group__input-text:not(:placeholder-shown) ~ .form-group__form-label{  
 	color:var(--label-color);
 	font-size: 12px;
 	bottom:19px;
 }
-.form__input:focus{
+.form-group__input-text:focus{
 	border:1px solid var(--main-color);
 	box-shadow: var(--focus-shadow);
 	color:var(--title-color);
 }
-.form__input:focus ~.form__svg{
+.form-group__input-text:focus ~.form-group__form-svg{
 	fill:var(--title-color);
 }
 
-.form__label {          
+.form-group__form-label {          
 	color: var(--label-color);
 	font-family: 'Noto Sans', sans-serif;
 	font-size: 16px;
@@ -95,16 +95,15 @@
 	padding:10px;
 }
    
-.form__email {}    
-.form__password {}    
+.form-group__input-password {}    
 
-.btn__form {        
+.form__button {        
 	align-self: stretch;    
 	max-width: 314px;
 	height: 46px;
 }
 
-.form__svg{         
+.form-group__form-svg{         
 	fill:var(--label-color);
 	position: absolute;
 	right:15px;
@@ -113,13 +112,11 @@
 	transition: 0.5s;
 }
 
-.form__svg{
+.form-group__form-svg{
 	cursor: pointer;
 	z-index: 3;
 
-}
-
-.btn {}       
+}     
 
 .second__man {}      
 
@@ -127,25 +124,25 @@
 
 /*вход начало*/
 
-.login__all__row {
+.login-container {
 	max-width: 1080px;
 	height: 430px;
 }
 
 
 
-.login__sit__down{
+.login__sit-down{
 	width: 376px;
 	align-self: stretch;
 	position: relative;
 }
 
-.first__man__photo{        
+.first__man-img{        
 	position: absolute;
 	bottom:-161px;
 }
 
-.form__enter__all {
+.login-form-all {
 	height:269px;
 	align-self: center;
 }
@@ -156,35 +153,35 @@
 /*вход конец*/
 /*регистрация начало*/
 
-.register__all__row {
+.register-container {
 	margin-top:70px;
 	max-width: 1040px;
 	
 }
 
-.form__register__title{
+.form-page__register-title{
 	margin-bottom: 8px;
 
 }
 
-.form__register__all {
+.register-all {
 	height:380px;
 	align-self: flex-start;
 }
 
-.fake__photo {
+.file-form {
 	align-self: stretch;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	
 }
-.fake__title {
+.file-form__title {
 	color: var(--title-color);
 	font-size: 20px;
 	font-weight: 400;
 }
-.naebka {
+.file-form__container {
 	padding:0px 0px;
 	width: 80%;
 	height: 30px;
@@ -196,7 +193,7 @@
 }
 
 
-.naebka__text{
+.file-form__label-text{
 	color: var(--focusout-color);
 	font-size: 14px;
 	font-style: normal;
@@ -212,13 +209,13 @@
 
 }
 
-.form__input-file-get{
+.file-form__input-get{
 	background: var(--main-color);
 	color: var(--title-color);
 	border: none;
 }
 
-.camera__svg{
+.file-form__icon{
 	fill:var(--focusout-color);
 	width: 16px;
 	height: 15px;
@@ -231,11 +228,11 @@
 	transition: 0.3s;
 }
 
-.camera__svg-get{
+.file-form__icon-get{
 	fill:white;
 }
 
-.form__file {
+.file-form__input {
 	width:0.1px;
 	height:0.1px;
 	opacity:0;
@@ -244,6 +241,6 @@
 	z-index: -1;
 
 }
-.form__file__label {}
+.file-form__label {}
 /*регистрация конец*/
 

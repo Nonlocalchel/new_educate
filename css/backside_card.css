@@ -1,7 +1,7 @@
 @import url("style.css");
 
 /*задняя сторона*/
-.results__card{
+.card{
 	position: relative;
 	--card-color: var(--main-color);
 	--scroll-margin:0px 21px;
@@ -9,7 +9,7 @@
 
 
 
-.glass{
+.card__backside-glass{
 	background: black;
 	height:136px;
 	width:100%;
@@ -19,13 +19,14 @@
 	transition: .26s;
 }
 
-.wrapperka{
+.card__backside-wrap{
+	background: var(--card-color);
 	border-radius: 0px 0px 0px 10px;
 	display: flex;
 	flex-direction: column;
 }
 
-.results__card__hat__back{
+.card__backside-head{
 	height:136px;
 	width:100%;
 	display: flex;
@@ -33,7 +34,7 @@
 	transition: .26s;
 }
 
-.results__card__hat__back__wall{
+.card__backside-wall{
 	z-index: 2;
 	width: 100%;
 	height: 100%;
@@ -42,7 +43,7 @@
 	
 }
 
-.results__card__hat__back__wall__row{
+.card__backside-wall-row{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -52,33 +53,33 @@
 
 }
 
-.had__back__function { 
+.card__backside-funcs { 
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 
 }
 
-.function__top {}
+.card__backside-funcs--top {}
 .functions__svg__top{}
 
-.back__card__svg{ /*общий*/
+.card__backside-svg{ /*общий*/
 	fill:var(--title-color);
 	cursor: pointer;
 	transition: .2s;
 }
 
-.back__card__svg:hover{ /*общий*/
+.card__backside-svg:hover{ /*общий*/
 	fill:var(--card-color);
 }
 
 
-.svg__top{		
+.card__backside-svg--top{		
 	width:18px;
 	height: 18px;
 }
 
-.zoom__img__text{
+.card__backside-zoom-text{
 	color: rgba(255, 255, 255, 0.8);
 	ont-size: 18px;
 	font-style: normal;
@@ -88,25 +89,25 @@
 	transition: .2s;
 }
 
-.zoom__img__text:hover{ /*общий*/
+.card__backside-zoom-text:hover{ /*общий*/
 	color:var(--card-color);
 }
 
 
-.function__down {transition: .2s;}
+.card__backside-funcs--down {transition: .2s;}
 
-.card__name__down{
+.card__backside-name{
 	margin-bottom: 0px;
 }
 
-.svg__down{	
+.card__backside-svg--down{	
 	width:16px;
 	height: 16px;
 	opacity: 0.8;
-	margin-left:2px ;
+	margin-left:2px;
 }
 
-.back__content{
+.card__backside-text{
 	width:100%;
 	position: relative;
 	display: flex;
@@ -114,13 +115,13 @@
 	background: var(--back-color);
 }
 
-.back__content__text {
+.card__backside-text-row {
 	max-height: 100px;
 	overflow-y: auto;
 	padding-bottom:25px;
 	transition: .56s;
 }
-.back__content__text__title {
+.card__backside-title {
 	color:  var(--title-color);
 	font-size: 14px;
 	font-style: normal;
@@ -130,7 +131,7 @@
 	cursor:pointer;
 }
 
-.back__content__text__description {
+.card__backside-description {
 	color:  var(--text-color);
 	font-size: 12px;
 	font-style: normal;
@@ -142,7 +143,7 @@
 
 
 /*кнопки*/
-.back__buttons__panel{
+.card__backside-buttons{
 	background:  var(--back-color);
 	height:50px;
 	width:100%;
@@ -152,7 +153,7 @@
 	padding-right:15px;
 }
 
-.back__buttons__panel__row{
+.card__backside-buttons-row{
 	display: flex;
 	height:100%;
 	width:100%;
@@ -160,7 +161,7 @@
 	justify-content: space-between;
 }
 
-.button__back__back{
+.card__backside-button-back{
 	border-radius: 25px;
 	background: #FFF;
  	width: 25px;
@@ -169,19 +170,19 @@
   	transition: 0.26s;
   	will-change: contents;
 }
-.button__back__back:hover{
+.card__backside-button-back:hover{
 	box-shadow: 2px 2px 0 -0.05em var(--back-color), 2px 2px #FFF;
 	transform:translate(2px,2px);
 	background: rgba(255, 255, 255, 0.8);
 }
 
-.button__back__back:active{
+.card__backside-button-back:active{
 	box-shadow: 0px 0px 0 -0.05em var(--back-color), 0px 0px #FFF;
 	transform:translate(5px,5px);
 	background: rgba(255, 255, 255, 0.6)
 }
 
-.button__back__comments{
+.card__backside-button-comments{
 	background: var(--card-color);
 	height: 25px;
 	color: var(--title-color);
@@ -194,7 +195,7 @@
 	transition:.12s;
 }
 
-.button__back__comments:hover{
+.card__backside-button-comments:hover{
 	opacity: 0.8;
 	background: var(--card-color);
 	box-shadow: 2px 2px 0 -0.05em var(--back-color), 2px 2px var(--card-color);
@@ -202,18 +203,18 @@
 
 }
 
-.button__back__comments:active{
+.card__backside-button-comments:active{
 	opacity: 0.6;
 	background: var(--card-color);
 	box-shadow: 0px 0px 0 -0.05em var(--back-color), 0px 0px var(--card-color);
 	transform:translate(5px,5px);
 }
 
-.like__svg{
+.card__backside-heart{
 	fill:white;
 }
 
-.button__back__like{
+.card__backside-button--like{
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
@@ -222,13 +223,13 @@
 
 }
 
-.button__back__like:hover{
+.card__backside-button--like:hover{
 	background: red;
 	opacity: 0.8;
 	box-shadow: 2px 2px 0 -0.05em var(--back-color), 2px 2px red;
 }
 
-.button__back__like:active{
+.card__backside-button--like:active{
 	background: red;
 	opacity: 0.6;
 	box-shadow: 0px 0px 0 -0.05em var(--back-color), 0px 0px red;
@@ -236,7 +237,7 @@
 
 /*кнопки*/
 /*задняя сторона*/
-.results__card {
+.card {
   max-width: 200px;
   margin: 0px auto;
   height: 300px;
@@ -247,7 +248,7 @@
   will-change:none;
 }
 
-.front{
+.card__frontside{
   background-color: var(--back-color);
   height: 300px;
   display:flex;
@@ -258,11 +259,11 @@
   transition: 0.3s;
 }
 
-.results__btn__show{
+.card__frontside-button{
   z-index: 5;
 }
 
-.back{
+.card__backside{
   background-color: var(--back-color);
   height: 300px;
   display:none;
@@ -277,7 +278,7 @@
 /*задняя сторона*/
 
 /*настрйки плеера*/
-.audio__result{
+.card__backside-audio{
 	background: var(--card-color);
 	border-radius: 0px 0px 0px 6px;
 	max-width: 100%;
@@ -286,7 +287,7 @@
 	transition: 0.26s;
 	
 }
-.audio__result::-webkit-media-controls-panel{
+.card__backside-audio::-webkit-media-controls-panel{
 	background: var(--card-color);
 	border-radius: 0px;
     margin-right: -38px;
@@ -349,88 +350,27 @@ audio::-webkit-media-controls-return-to-realtime-button
 /*настрйки плеера*/
 
 /*скролл*/
-.back__content__text::-webkit-scrollbar{
+.card__backside-text-row::-webkit-scrollbar{
 	width:20px;
 }
-.back__content__text::-webkit-scrollbar-track{
+.card__backside-text-row::-webkit-scrollbar-track{
 	margin-block:var(--scroll-margin);
 	
 } 
-.back__content__text::-webkit-scrollbar-thumb{
+.card__backside-text-row::-webkit-scrollbar-thumb{
 	background-color: #999999;
 	border-radius:10px;
 	border:6px solid var(--back-color);
 }
 
-.back__content__text::-webkit-scrollbar-thumb:hover{
+.card__backside-text-row::-webkit-scrollbar-thumb:hover{
 	background-color: var(--main-color);
 }
-.back__content__text::-webkit-scrollbar-corner{
+.card__backside-text-row::-webkit-scrollbar-corner{
 	background-color: var(--back-color);
 }
-.back__content__text::-webkit-scrollbar-thumb:active{
+.card__backside-text-row::-webkit-scrollbar-thumb:active{
 	background-color: var(--main-color);
 }
 /*скролл*/
-/*костыль с попапом*/
-.description{
-	font-weight: 300;
-}
 
-.fake__title{
-	font-weight: 300;
-}
-
-.naebka__text{
-	font-weight: 300;
-	font-family: Noto Sans;
-}
-.form__input{
-	font-weight: 300;
-}
-/*костыль с попапом*/
-
-/*popup*/
-.popup__wrapper {
-	position: fixed;
-	width: 100%;
-	height:100%;
-	background: rgba(0, 0, 0, 0.8);
-	top:0;
-	left:0;
-	z-index: 100;
-	font-family: Noto Sans ,sans-serif;
-	opacity: 0;
-	visibility: hidden;
-	overflow-y: auto;
-	overflow-x: hidden;
-	transition: 0.8s;
-}
-
-.popup__body {
-	min-height: 100%;
-	display:flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-}
-
-.popup{
-	transition: 0.8s;
-	transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
-	opacity: 0;
-}
-
-.popup__wrapper.open{
-	opacity: 1;
-	visibility: visible;
-}
-
-.popup__wrapper.open .popup{
-	transform: perspective(600px) translate(0px,0%) rotateX(0deg);
-	opacity: 1;
-}
-
-
-
-/*popup*/

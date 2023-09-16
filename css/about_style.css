@@ -8,7 +8,7 @@
 	overflow: hidden;
 }
 
-.about__person {
+.about__person-content {
 	height: 800px; /*рекомендуетс 900px*/
 	max-width: 100%;
 	padding-top: 000px; /*рекомендуетс 100px и подправить блоки с текстом*/
@@ -18,14 +18,14 @@
 .container {
 }
 
-.about__person__content{
+.about__person-content{
 	height: 800px;
 	display:flex;
 	justify-content: space-between;
 	align-items: flex-end;
 }
 
-.about__person__text{
+.about__person-text{
 	order:-1;
 	flex-shrink: 0;
 	align-self: baseline;
@@ -39,20 +39,20 @@
 	
 }
 
-.about__person__text:hover{
+.about__person-text:hover{
 	background: var(--back-color);
 }
 
-.about__person__photo{
+.about__person-photo{
 	position: relative;
 	z-index: 3;
 	transition: 0.6s;
 
 }
 
-.about__person__photo:hover{filter: drop-shadow(0px 10px 20px var(--main-color));}
+.about__person-photo:hover{filter: drop-shadow(0px 10px 20px var(--main-color));}
 
-.about__person__photo:hover ~.about__person__text{
+.about__person-photo:hover ~.about__person-text{
 	background: var(--back-color);
 }
 
@@ -60,37 +60,35 @@
 
 }
 
-.about__person__text__row{
+.about__person-text-row{
 	display: flex;
 	flex-direction:column;
 	font-size: 20px;
 	font-weight: 400;
 }
-.about__person__title {
+.about__person-title {
 	font-size: 26px;
 	font-weight: 700;
 	margin-bottom: 4vh;
 }
 
-.videli_menia {
+.about__person-text--width {
 	color:var(--title-color);
 	font-weight: 700;
 	margin-bottom: 1.6vh;
 }
 
-.about__person__href {
+.about__person-link {
 	margin-bottom: 4vh; /**/
 }
 
-.about__person__decsription{
+.about__person-text--low-light{color: var(--text-color)}
+
+.about__person-text-description{
 	line-height: normal;
 	display:flex;
 	flex-direction: column;
 	justify-content: space-between;
-	
+	color: var(--text-color);
 }
 
-.description {
-color: var(--text-color);
-
-}

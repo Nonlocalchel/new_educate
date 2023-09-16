@@ -24,7 +24,7 @@ const popupCloseIcons = document.querySelectorAll('.close-popup');//крести
 if(popupCloseIcons.length > 0){//если список крестиков не пустой
 	for(popupCloseIcon of popupCloseIcons){
 		popupCloseIcon.addEventListener('click',function(event){
-			popupClose(popupCloseIcon.closest('.popup__wrapper'));//ищем ближащего предка попапа для крестика и закрываем попап
+			popupClose(popupCloseIcon.closest('.popup-wrapper'));//ищем ближащего предка попапа для крестика и закрываем попап
 			event.preventDefault(); //отменяем базовое поведение(здеь модно и без этого)
 		});
 	}
@@ -35,7 +35,7 @@ if(popupCloseIcons.length > 0){//если список крестиков не �
 
 function popupOpen(currentPopup){ //функция закрытия
 	if(currentPopup && unlock){ //если выбран попап и переменная не лочит
-		const popupActive=document.querySelector('.popup__wrapper.open'); //ищем открытый попап
+		const popupActive=document.querySelector('.popup-wrapper.open'); //ищем открытый попап
 		if(popupActive){
 			popupClose(popupActive,false); //если есть открытый попап то его закрыть
 		}else{
@@ -44,8 +44,8 @@ function popupOpen(currentPopup){ //функция закрытия
 		currentPopup.classList.add('open'); //к выбранному попапу добавляем открывающий клсс тем самым открываем ее
 		currentPopup.addEventListener('click',function(event){ //вешаем на выбранный попап прослушку клика
 			console.log(event.target);
-			if(!event.target.closest('.popup_row') || !event.target.closest('.popup_row')){  //если нажатие не по попапу то закрыть 
-				popupClose(event.target.closest('.popup__wrapper')); //закрыть (через оболочку)
+			if(!event.target.closest('.popup__row') || !event.target.closest('.popup__row')){  //если нажатие не по попапу то закрыть 
+				popupClose(event.target.closest('.popup-wrapper')); //закрыть (через оболочку)
 			}
 		});
 	}
@@ -101,7 +101,7 @@ function bodyUnLock(){
 
 document.addEventListener('keydown',function(event){
 	if(event.which===27){
-		const popupActive = document.querySelector('.popup__wrapper.open');
+		const popupActive = document.querySelector('.popup-wrapper.open');
 		popupClose(popupActive);
 	}
 });

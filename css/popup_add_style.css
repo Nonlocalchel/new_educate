@@ -1,10 +1,47 @@
 @import url("style.css");
 
-.wrapper {}
-.popup {}
-.container {}
-.popup_row {
-	
+.popup-wrapper {
+	position: fixed;
+	width: 100%;
+	height:100%;
+	background: rgba(0, 0, 0, 0.8);
+	top:0;
+	left:0;
+	z-index: 100;
+	font-family: Noto Sans ,sans-serif;
+	opacity: 0;
+	visibility: hidden;
+	overflow-y: auto;
+	overflow-x: hidden;
+	transition: 0.8s;
+}
+
+.popup-wrapper__body {
+	min-height: 100%;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.popup{
+	transition: 0.8s;
+	transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+	opacity: 0;
+}
+
+.popup-wrapper.open{
+	opacity: 1;
+	visibility: visible;
+}
+
+.popup-wrapper.open .popup{
+	transform: perspective(600px) translate(0px,0%) rotateX(0deg);
+	opacity: 1;
+}
+
+
+.popup__row {
 	padding:0px 0px;}
 
 /*шапка*/
@@ -19,7 +56,7 @@
 	position: relative;
 }
 
-.add__title{
+.popup__head-title{
 	color: var(--title-color);
 font-size: 36px;
 font-style: normal;
@@ -28,8 +65,8 @@ line-height: 24px;
 position: relative;
 }
 
-.add__title:before,
-.add__title:after {
+.popup__head-title:before,
+.popup__head-title:after {
   content: "";
   position: absolute;
   top: calc(50% - 3px);
@@ -39,16 +76,16 @@ position: relative;
   background: var(--title-color);
 }
 
-.add__title:before {left: -32px;}
+.popup__head-title:before {left: -32px;}
 
-.add__title:after {right: -32px;}
+.popup__head-title:after {right: -32px;}
 
 /*шапка*/
 /*тело*/
 .popup__content {
 	padding-top:24px;
 }
-.popup__content__row{
+.popup__content-row{
 	display: flex;
 	width:100%;
 	max-width: 976px;
@@ -67,20 +104,20 @@ position: relative;
 	max-height: 390px;
 }
 
-.popup__form__group {
+.popup__text-form {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	position: relative;
 }
-.description {
+.popup__form-description {
 	color: var(--title-color);
 	font-size: 20px;
 	font-style: normal;
-	font-weight: 500;
 	line-height: normal;
+	font-weight: 300;
 }
-.form__input {
+.form-group__input-text {
 	height: 37px;
 	margin-left:10px ;
 	font-size: 20px;
@@ -92,28 +129,27 @@ position: relative;
 	padding-bottom:1px;
 
 }
-.form__email {}
 
-.form__svg {
+.form-group__form-svg {
 	right: 5px;
 	}
 
-.form__input:focus ~.form__svg path{
+.form-group__input-text:focus ~.form-group__form-svg path{
 	fill:var(--title-color);
 	fill-opacity:1.0;
 }
 
-.fake__photo {}
+.file-form {}
 
-.fake__title {}
+.file-form__title {}
 
-.naebka {
+.file-form__container {
 	margin-left: 10px;
 	border-radius: 10px;
 	height:37px;
 
 }
-.naebka__text {
+.file-form__label-text {
 	color: var(--title-color);
 	font-family: Noto Sans Display,sans-serif;
 	font-size: 20px;
@@ -122,19 +158,19 @@ position: relative;
 	line-height: 35px;
 }
 
-.camera__svg {
+.file-form__icon {
 	right:6px;
 	width: 24px;
 	height: 22px;
 }
 
-.note__svg{
+.file-form__note-icon{
 	right:5px;
 	width: 20px;
 	height: 20px;
 }
 
-.popup_textarea{
+.popup__textarea-form{
 	flex-direction: column;
 	align-items: stretch;
 }
@@ -177,7 +213,7 @@ position: relative;
 }
 /*скролл*/
 /*тело*/
-.svgshka{
+.popup__close-icon{
 	border-radius: 25px;
 	transition: 0.45s;
 	cursor: pointer;
@@ -187,14 +223,29 @@ position: relative;
 
 }
 
-.svgshka:hover{
+.popup__close-icon:hover{
 	fill:var(--main-color);
 	background: var(--title-color);
 	
 }
 
-.svgshka:active{
+.popup__close-icon:active{
 	fill:var(--main-color);
 	background: red;
 	
 }
+
+/*костыль с попапом*/
+
+.file-form__title{
+	font-weight: 300;
+}
+
+.file-form__label-text{
+	font-weight: 300;
+	font-family: Noto Sans;
+}
+.form-group__input-text{
+	font-weight: 300;
+}
+/*костыль с попапом*/

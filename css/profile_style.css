@@ -29,9 +29,7 @@
 	margin-right: 35px;
 }
 
-
-
-.profile__info__row{
+.profile__info-row{
 	height: 350px;
 	display:flex;
 	flex-direction: column;
@@ -46,6 +44,21 @@
 	font-weight: 700;
 	line-height: 24px;
 }
+
+.profile-link__photo{
+	height:36px;
+  	width:36px;
+  	position:absolute;
+  	left:-1px;
+  	z-index:3;
+}
+
+.profile__photo{
+	border-radius: 125px !important;
+	height:200px;
+  	width:200px;
+}
+
 .profile__status {
 	color: var(--text-color);
 	font-size: 20px;
@@ -53,13 +66,12 @@
 	font-weight: 400;
 	line-height: normal;
 }
-.btn__edit__profile {
+.profile__button-edit {
 	align-self: stretch;
 
 }
-.btn {}
 
-.proile__results__title{
+.profile-results__title{
 	color: var(--title-color);
 	font-size: 36px;
 	font-style: normal;
@@ -68,12 +80,13 @@
 	padding-bottom: 10px;
 }
 
-.profile__results{
+.profile-results{
 	width: 100%;
 }
 /*переписал прежние стили*/
-.results__column {
-	flex:0 1 33.333%;
+.result-cards__column{
+	flex:0 1 33.333% !important;
+	
 }
 
 .shelf__hat__title{
@@ -82,7 +95,7 @@
 
 /*переписал прежние стили*/
 
-.user__profile_link{
+.profile-link{
   display: inline-block;
   padding:0px 8px 0px 40px;
   line-height: 36px;
@@ -108,12 +121,12 @@
   z-index:3;
 }
 
-.user__name{
+.profile-link__name{
   position: relative;
   z-index: 2;
 }
 
-.user__profile_link:after{
+.profile-link:after{
   position: absolute;
   content: "";
   top: 0;
@@ -125,7 +138,7 @@
   transition: all .35s;
 }
 
-.user__profile_link:hover:after{
+.profile-link:hover:after{
   width: 100%;
 }
 
@@ -137,7 +150,7 @@
 	position:static;
 }
 
-.user__profile_link:active{
+.profile-link:active{
 	overflow:visible;
 	 border: 1px solid transparent;
 }
