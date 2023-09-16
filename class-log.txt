@@ -1,0 +1,177 @@
+﻿блок-название__элемент-название_модификатор(БЭМ)
+если элементу нудно быть блоком,то к нему добавлется класс
+для html меняем два класса для css только первый(есди он один и не идт через +)
+
+-------INDEXHTML------------
+2.MAIN
+	explain =>
+		explain__text =>
+			explain__text__row =>explain__text-row
+				explain__text__title =>explain__text-title
+				explain__text__content =>explain__text-description
+		results__section =>result-cards
+			results__row =>result-cards__row
+				results__column =>result-cards__column
+					results__card =>card
+						front =>card__frontside
+							results__card__hat =>card__frontside-head
+								bragos__card__data =>card__frontside-data
+								chelik__photo =>user__photo 
+								bragos__card__photo =>card__frontside-photo
+								results__card__time =>card__frontside-time
+								results__card__triangle =>card__frontside-triangle
+							results__card__name =>card__frontside-name
+							results__card__description =>card__frontside-description
+							results__btn__show =>card__frontside-button
+						back =>card__backside
+							wrapperka =>card__backside-wrap
+								results__card__hat__back =>card__backside-head
+									results__card__hat__back__wall =>card__backside-wall
+										results__card__hat__back__wall__row =>card__backside-wall-row
+											had__back__function =>card__backside-funcs
+												function__top =>card__backside-top-funcs
+													zoom__img__text =>card__backside-zoom-img-text
+													functions__svg =>card__backside-svgs
+														back__card__svg =>card__backside-svgs
+														svg__top =>card__backside-top-svgs
+															info__back__side =>card__backside-svg-info
+															zoom__back__side =>card__backside-svg-zoom
+												function__down =>card__backside-down-funcs
+													card__name__down =>card__backside-name
+														svg__down =>card__backside-down-svgs
+															edit =>card__backside-svg-edit
+															music =>card__backside-svg-music
+									glass =>card__backside-glass
+								audio__result =>card__backside-audio
+							back__content =>card__backside-text
+								back__content__text =>card__backside-text-row
+									back__content__text__title =>card__backside-title
+									back__content__text__description =>card__backside-description
+							back__buttons__panel =>card__backside-buttons
+								back__buttons__panel__row =>card__backside-buttons-row
+									button__back__back =>card__backside-button-back
+										back__arrow =>card__backside-arrow
+									button__back__comments =>card__backside-button-comments
+									button__back__like =>card__backside-button-like
+										back__heart =>card__backside-heart
+					add__result =>card-add
+					popup__button =>
+						add__result__icon =>card-add__icon
+						add__result__text =>card-add__text
+!POPUP
+	popup__wrapper =>popup-wrapper
+		popup__body =>popup-wrapper__body
+			popup =>popup
+				popup_row =>popup__row
+					popup__head =>
+						add__title =>popup__head-title
+						svgshka =>popup__close-icon
+						close-popup =>
+					popup__content =>
+						popup__content__row =>popup__content-row
+							first__image =>
+							popup__form =>popup__form
+								popup__form__group =>popup__text-form
+								description =>popup__form-description
+								form__input =>form-group__input-text
+								form__svg =>form-group__form-svg
+							fake__photo =>file-form
+								fake__title =>file-form__title
+								naebka =>file-form__container
+									form__file =>file-form__input
+									form__file__label =>file-form__label
+										naebka__text =>file-form__label-text
+										camera__svg =>file-form__icon
+										note__svg =>file-form__note-icon
+								popup_textarea =>popup__textarea-form
+									popup__mainform =>
+									btn__form__add =>popup__buton-add
+							second__image =>
+-------INDEXHTML------------
+
+-------ABOUTHTML------------
+about =>
+	about__person =>
+		container =>
+			about__person__content =>about__person-content
+				about__person__photo =>about__person-photo
+				about__person__text =>about__person-text
+					about__person__text__row =>about__person-text-row
+						about__person__title =>about__person-title
+							about__person__href =>about__person-link
+								videli_menia =>about__person-text--width
+						description => about__person-text--low-light-text
+						about__person__description =>about__person-text-description
+-------ABOUTHTML------------
+
+
+-------LOGINHTML---------
+form__page =>form-page
+	container =>
+		form__page__row =>form-page__row
+		login__all__row =>login-container
+			first__man =>
+			login__sit__down =>login__sit-down
+				first__man__photo =>first__man-img
+			form__enter__all =>login-form-all
+			form__all =>form-page__form-all
+			form__title =>form-title
+			form__group =>form-group
+				form__input =>form-group__input-text
+				form__email =>x
+				form__svg =>form-group__form-svg
+				form__label =>form-group__form-label
+				form__password =>form-group__input-password
+				btn__form =>form__button
+			second__man =>
+-------LOGINHTML---------
+
+
+-------REGISTERHTML------------
+form__page =>form-page
+	container =>
+		form__page__row =>form-page__row
+		register__all__row =>register-container
+			first__man =>
+			form__register__all =>register-form-all
+			form__all =>form-page__form-all
+				form__title =>form-title
+				form__register__title =>form-page__register-title
+				form__group =>form-group
+					form__input =>form-group__input-text
+					form__email =>x
+					form__svg =>form-group__form-svg
+					form__label =>form-group__form-label
+					form__password =>form-group__input-password
+				fake__photo =>file-form
+					fake__title =>file-form__title
+					naebka =>file-form__container
+						form__file =>file-form__input
+						form__file__label =>file-form__label
+							naebka__text =>file-form__label-text
+						camera__svg =>file-form__icon
+				btn__form =>form__button
+			second__man =>
+-------REGISTERHTML------------
+
+
+-------PROFILEHTML----------
+user__profile_link =>profile-link
+	profile__avatarka__svg =>profile-link__photo
+		user__name =>profile-link__name
+profile =>
+	container =>
+		profile__row =>
+			profile__info =>
+				profile__info__row =>profile__info-row
+					profile__photo =>
+					profile__name =>
+					profile__status =>
+					btn__edit__profile =>profile__button-edit
+			profile__results =>profile-results
+				proile__results__title =>profile-results__title
+					shelf =>profile-results__shelf
+						shelf__hat =>profile-results__shelf-hat
+							shelf__hat__title =>profile-results__shelf-title
+							arrow__svg =>profile-results__arrow-svg
+-------PROFILEHTML----------
