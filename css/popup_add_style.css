@@ -249,3 +249,10 @@ position: relative;
 	font-weight: 300;
 }
 /*костыль с попапом*/
+
+.popup__image{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	scale: 0.7;
+}

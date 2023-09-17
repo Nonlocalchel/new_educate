@@ -29,14 +29,14 @@ document.addEventListener('keydown', function(event) {
 });
 
 //кнопка помощь
-try{
+/*try{
 	let buttonSupport=document.querySelector('.support__button');
 	buttonSupport.onclick=()=>{
 		alert('Спасибо за поддержку)');
 	};
 }catch(err){
 	console.log('кнопка помощь не найдена');
-}
+}*/
 
 /*обработка нажатия на регистраия вход*/
 try{

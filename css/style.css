@@ -342,12 +342,12 @@ main{flex:1 1 auto;}
 	font-family: Noto Sans Display;
 	font-size: 20px;
 	text-align: center;
-	margin-bottom: 70px;
 	line-height: normal;
 }
 
 .result-cards {
 	padding-bottom: 75px;
+	padding-top:70px;
 }
 
 .result-cards__row {
@@ -690,6 +690,10 @@ main{flex:1 1 auto;}
 }
 
 
+.card__backside-svg--down:hover{ /*общий*/
+	fill:white;
+}
+
 .card__backside-svg--top{		
 	width:18px;
 	height: 18px;
@@ -979,13 +983,13 @@ audio::-webkit-media-controls-return-to-realtime-button
 }
 
 .card__backside-text-row::-webkit-scrollbar-thumb:hover{
-	background-color: var(--main-color);
+	background-color: var(--card-color);
 }
 .card__backside-text-row::-webkit-scrollbar-corner{
 	background-color: var(--back-color);
 }
 .card__backside-text-row::-webkit-scrollbar-thumb:active{
-	background-color: var(--main-color);
+	background-color: var(--card-color);
 }
 /*скролл*/
 

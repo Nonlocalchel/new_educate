@@ -16,6 +16,7 @@
 		<!-- Подключаем CSS -->
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/about_style.css" />
+		<link rel="stylesheet" href="css/popup_add_style.css" />
 		<!-- Кодировка страницы -->
 		<meta charset="UTF-8">
 	</head>
@@ -88,11 +89,11 @@
 									<div class="about__person-text-row">
 										<h2 class="about__person-title">Андрюха</h2>
 										<p class="about__person-link about__person-text--low-light">
-											<span class="videli_menia">Ссылка на профиль:</span>
+											<span class="about__person-text--width">Ссылка на профиль:</span>
 											<a class="about__person-text--low-light" href="#">*заглушка*</a>
 										</p>
 										<p class="about__person-text-description about__person-text--low-light">
-											<span class="videli_menia">Описание:</span>
+											<span class="about__person-text--width">Описание:</span>
 											Смышленый тип. Обычно обитает на стройке. Показывает результат не выходя из бытовки, любит покакать и пак-пак
 										</p>
 									</div>
@@ -177,7 +178,7 @@
 						<div class="support">
 							<h3 class="support__title">Поддержка</h3>
 							<p class="support__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare cursus sed nunc eget dictum  Sed ornare cursus sed nunc eget dictumd nunc eget dictum  Sed ornare cursus sed nunc eget dictum  </p>
-							<button class="main-button support__button">Поддержать</button>
+							<button class="main-button support__button popup__button" href="card">Поддержать</button>
 						</div>
 						<div class="plans">
 							<h3 class="plans__title">Планы проекта</h3>
@@ -190,10 +191,23 @@
 					</div>
 				</div>
 			</footer>
+			<div id="card" class="popup-wrapper">
+				<div class="popup-wrapper__body">
+					<div class="popup popup__image">
+						<div class="popup__img">
+							<img src="img/carta.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<script src="js/about_script.js">
 		</script>
 		<script src="js/main_script.js">
+		</script>
+		<script src="js/form_script.js">
+		</script>
+		<script src="js/popup_script.js">
 		</script>
 		<script src="js/scroll/scroll.js">
 		</script>

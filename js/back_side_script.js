@@ -1,57 +1,27 @@
 //обьект с функцими 
 let functionDict={
-	'card__frontside-button':choise_opacity,
-	'card__backside-svg card__backside-svg--top card__backside-svg--zoom':zoom_card,
-	'card__backside-svg card__backside-svg--down card__backside-svg--music':hide_music,
-	'card__backside-arrow':choise_opacity,
-	'main-button card__backside-button-back':choise_opacity,
-	'card__backside-title':hide_picture,
+	'card__frontside-button':choiseOpacity,
+	'card__backside-svg card__backside-svg--top card__backside-svg--zoom':zoomCard,
+	'card__backside-svg card__backside-svg--down card__backside-svg--music':hideMusic,
+	'card__backside-arrow':choiseOpacity,
+	'main-button card__backside-button-back':choiseOpacity,
+	'card__backside-title':hidePicture,
 };
 
 //делегирование и прослушка секций
-
-try{
-	let section=document.querySelector('.result-cards');
-	set_color();
-	section.addEventListener('click',function(event){
-		let targetForMouse=event.target;//обьект на котроый кликнули
-		let parent=targetForMouse.closest('.card');//родитель обьекта на котроый кликнули
-		if(parent){
-			let targetForMouseClass=event.target.getAttribute('class');//class того,на что кликнули дебаг-log:console.log('дед найден');
-			let parentId=parent.getAttribute('id');//id родителя(карточки) того,на что кликнули дебаг-log:console.log(targetForMouseClass);
-			try{
-				//если натыкаемся на path самой svg всплытие не срабатывает поэтому костыль
-				targetForMouseClass=='st0' ? targetForMouseClass=event.target.parentElement.getAttribute('class'):"1";
-				functionDict[targetForMouseClass](parentId);
-				return 0;
-			}catch(err){
-				console.log('функция не найдена') //функция не найдена в словаре 
-			}
-		}else{
-			console.log('дед не найден');//клик не по карточке
-		};
-	});
-}catch(err){
-	console.log('секции не найдены')//нет секций на странице
-};
-
-/*
 try{
 	let sections=document.querySelectorAll('.result-cards');
-	set_color();
-	for (section of sections){
+	for(section of sections){
+		setColor();
 		section.addEventListener('click',function(event){
 			let targetForMouse=event.target;//обьект на котроый кликнули
-			let parent=targetForMouse.closest('.card');//родитель обьекта на котроый кликнули
-			if(parent){
+			let card=targetForMouse.closest('.card');//родитель обьекта на котроый кликнули(card)
+			if(card){
 				let targetForMouseClass=event.target.getAttribute('class');//class того,на что кликнули дебаг-log:console.log('дед найден');
-				let parentId=parent.getAttribute('id');//id родителя(карточки) того,на что кликнули дебаг-log:console.log(targetForMouseClass);
 				try{
 					//если натыкаемся на path самой svg всплытие не срабатывает поэтому костыль
 					targetForMouseClass=='st0' ? targetForMouseClass=event.target.parentElement.getAttribute('class'):"1";
-					//let selectSection=event.target.closest('.result-cards');
-					//console.log(selectSection.getElementById(2));
-					functionDict[targetForMouseClass](parentId);
+					functionDict[targetForMouseClass](card);
 					return 0;
 				}catch(err){
 					console.log('функция не найдена') //функция не найдена в словаре 
@@ -59,18 +29,15 @@ try{
 			}else{
 				console.log('дед не найден');//клик не по карточке
 			};
-		});
+		});		
 	}
-	
 }catch(err){
 	console.log('секции не найдены')//нет секций на странице
 };
-*/
 
 /*zoom приближает карточку по клику на увеличительное стекло*/
-function zoom_card(number){
-	let card = document.getElementById(number);
-	streamline_card(card);
+function zoomCard(card){
+	streamlineCard(card);
 	let zoomButton = card.querySelector('.card__backside-svg--zoom');
 	let minus = zoomButton.children[1];
 	if(card.style.scale=="1.4"){
@@ -84,8 +51,7 @@ function zoom_card(number){
 /*zoom*/
 
 /*hide music прячет музыку при клике на соответствующую иконку*/
-function hide_music(number){
-	let card = document.getElementById(number);
+function hideMusic(card){
 	let audioPlayer = card.querySelector('.card__backside-audio');
 	let backText = card.querySelector('.card__backside-text-row');
 	let wrapperka= card.querySelector('.card__backside-wrap');
@@ -106,9 +72,8 @@ function hide_music(number){
 /*hide music*/
 
 //поправить(тернарнк)
-/*set img устанавливает картинку и помошает hide_picture ее убрать*/
-function set_img(number){
-	let card = document.getElementById(number);
+/*set img устанавливает картинку и помогает hidePicture ее убрать*/
+function setImg(card){
 	let backHead=card.querySelector('.card__backside-head');
 	let photo=card.getAttribute('source');
 	backHead.style.background=(backHead.style.background==photo)?'transparent':photo;
@@ -118,8 +83,7 @@ function set_img(number){
 
 //поправить
 /*hide pucture прячет картинку*/
-function hide_picture(number){
-	let card = document.getElementById(number);
+function hidePicture(card){
 	let backHead=card.querySelector('.card__backside-head');
 	let backTopFunction=card.querySelector('.card__backside-funcs');
 	let glass=card.querySelector('.card__backside-glass');
@@ -134,7 +98,7 @@ function hide_picture(number){
 		backTopFunction.style.zIndex = "-50000";
 		backWall.style.paddingTop="5px";
 		backText.style.maxHeight = '200px';
-		set_img(number);
+		setImg(card);
 	}else{
 		glass.style.opacity="0.3";
 		backTopFunction.style.position="static";
@@ -142,7 +106,7 @@ function hide_picture(number){
 		backTopFunction.style.opacity = "1";
 		backHead.style.height="136px";
 		glass.style.height="136px";
-		set_img(number);
+		setImg(card);
 		backText.style.maxHeight = '100px';
 		backWall.style.paddingTop="8px";
 	}
@@ -150,9 +114,8 @@ function hide_picture(number){
 /*hide pucture*/
 
 
-function choise_opacity(number){ 		/*show other side by choose opacity*/
-	let card=document.getElementById(number);
-	unZoom_card(card);
+function choiseOpacity(card){ 		/*show other side by choose opacity*/
+	unZoomCard(card);
 	let back=card.querySelector('.card__backside');
 	let front=card.querySelector('.card__frontside');
 	let styles = window.getComputedStyle(back);
@@ -175,27 +138,24 @@ function getTransition(element){ 	/*return transition time*/
 	return 400+styles.transition.slice(4,7)*1000;
 }
 
-function isEmpty(str) { /*check state of card of choosies */
-  if (str.trim() == '') 
-    return true;
-    
-  return false;
+function isEmpty(str) { /*check state of card of choosies */ 
+  return str.trim() == '';
 }
 
-function streamline_card(card){ /*unZoom other zoomed cards */
+function streamlineCard(card){ /*unZoom other zoomed cards */
 	let parent=card.parentNode;
 	let sectionParent=parent.parentNode;
 	let childrenCollection=sectionParent.children;
 	for (key of sectionParent.querySelectorAll('.card')){
 		if(key.style.scale=="1.4" && key!=card){
-			unZoom_card(key);
+			unZoomCard(key);
 			break;
 		};
 		//console.log(key);
 	};
 }
 
-function unZoom_card(card){ /*Zoom other zoomed cards */
+function unZoomCard(card){ /*Zoom other zoomed cards */
 	card.style.scale="1";
 	let zoomButton = card.querySelector('.card__backside-svg--zoom');
 	let minus = zoomButton.children[1];
@@ -204,11 +164,11 @@ function unZoom_card(card){ /*Zoom other zoomed cards */
 
 //поправить
  //передает color указанный в .results__card
-function set_color(){
+function setColor(){
 	let cardsNode=document.querySelectorAll('.card');
 	for(key of cardsNode){
-	if (key.getAttribute('class')=='card'){		//прослушка наведения мыши на карточку
-			set_img(key.getAttribute('id'));
+		if (key.getAttribute('class')=='card'){		//прослушка наведения мыши на карточку
+			setImg(key);
 			//достаем цвет
 			let color=key.getAttribute('color').slice(0,-6);
 			//тень

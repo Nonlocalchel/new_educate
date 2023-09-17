@@ -9,7 +9,9 @@ let unlock=true; //лок переменная
 const timeout = 800; //таймаут лока
 
 if (popupLinks.length>0){ //если открыашки для popupa существуют
-	for(popupLink of popupLinks){
+	/*for(popupLink of popupLinks){*/
+	for(let index = 0; index<popupLinks.length;index++){
+		const popupLink = popupLinks[index];
 		popupLink.addEventListener("click",function(event){ //прослушка клика на каждую открывашку
 			const popupName = popupLink.getAttribute('href'); //имя popapа
 			const currentPopup=document.getElementById(popupName); //выбранный popap
@@ -44,7 +46,7 @@ function popupOpen(currentPopup){ //функция закрытия
 		currentPopup.classList.add('open'); //к выбранному попапу добавляем открывающий клсс тем самым открываем ее
 		currentPopup.addEventListener('click',function(event){ //вешаем на выбранный попап прослушку клика
 			console.log(event.target);
-			if(!event.target.closest('.popup__row') || !event.target.closest('.popup__row')){  //если нажатие не по попапу то закрыть 
+			if(!event.target.closest('.popup__row')){  //если нажатие не по попапу то закрыть 
 				popupClose(event.target.closest('.popup-wrapper')); //закрыть (через оболочку)
 			}
 		});

@@ -15,6 +15,7 @@
 		<!-- Подключаем CSS -->
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/result_style.css" />
+		<link rel="stylesheet" href="css/popup_add_style.css" />
 		<!-- Кодировка страницы -->
 		<meta charset="UTF-8">
 	</head>
@@ -100,7 +101,7 @@
 						<div class="support">
 							<h3 class="support__title">Поддержка</h3>
 							<p class="support__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare cursus sed nunc eget dictum  Sed ornare cursus sed nunc eget dictumd nunc eget dictum  Sed ornare cursus sed nunc eget dictum  </p>
-							<button class="main-button support__button">Поддержать</button>
+							<button class="main-button support__button popup__button" href="card">Поддержать</button>
 						</div>
 						<div class="plans">
 							<h3 class="plans__title">Планы проекта</h3>
@@ -114,7 +115,20 @@
 				</div>
 			</footer>
 		</div>
+		<div id="card" class="popup-wrapper">
+				<div class="popup-wrapper__body">
+					<div class="popup popup__image">
+						<div class="popup__img">
+							<img src="img/carta.png" alt="">
+						</div>
+					</div>
+				</div>
+		</div>
 		<script src="js/main_script.js">
+		</script>
+		<script src="js/form_script.js">
+		</script>
+		<script src="js/popup_script.js">
 		</script>
 		<script src="js/scroll/scroll.js">
 		</script>
