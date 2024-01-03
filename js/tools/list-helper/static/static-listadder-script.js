@@ -21,7 +21,6 @@ function getDataQuery($itemsList){
 
 
 function getFillFragment(data,$template){
-    //const data = assembleObject(rowData,paramsStorage)
     const $templateClone = $template.cloneNode(true)
     const $fillFragment = fillFragment(data,$templateClone)
     return $fillFragment
@@ -30,7 +29,7 @@ function getFillFragment(data,$template){
 function assembleObject(rowData,paramsStorage){
     const data = new ItemsData(...rowData.split(' ,'))
     if(data.hasOwnProperty('attributes')){
-        data.attributes.selectorsList=paramsStorage.attributesParams.split(' ')
+        data.attributes.newParamsList=paramsStorage.attributesParams.split(' ')
     }
     return data
 }
