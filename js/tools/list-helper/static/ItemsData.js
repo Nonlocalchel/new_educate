@@ -3,15 +3,13 @@ export class ItemsData{
         this.selector = new InsertObject(selector,'.selector')
         this.title = new InsertObject(title.trim(),`[name="title"]`)
         this.description = new InsertObject(description,'[name="description"]')
-        if(attributes){
-            this.attributes = new ParamsList(attributes)
-        }
+        this.attributes = new ParamsList(attributes)
+        
     }
     addElement($place,field){
         const mode = this[field]
-        if(mode instanceof ParamsList){
+        if(field=='attributes' && mode.valuesList){
             let params = mode.paramsList
-            console.log(params)
             for (const param of params) {
                 let selector = param.selector
                 let nodeList = getAllElements(selector,$place)
@@ -24,7 +22,7 @@ export class ItemsData{
             }
         }
         if(mode){
-            const nodeList = getAllElements(mode.selector,$place)//attributes уже выадает
+            const nodeList = getAllElements(mode.selector,$place)
             nodeList.forEach($item=>{
                 if(field=='selector'){
                     $item.setAttribute( 'class', mode.value)
@@ -45,7 +43,7 @@ function InsertObject(value,selector){
 
 class ParamsList {
     constructor(values) {
-        this.valuesList = values.slice(1, -1).split(',')
+        this.valuesList = values!=undefined?values.slice(1, -1).split(','):false
         this.paramsList
 
     }
@@ -54,9 +52,4 @@ class ParamsList {
             (selector,selectorIndex) => new InsertObject(this.valuesList[selectorIndex],selector)
         )
     }
-}
-
-export function ParamsStorage($template){
-    this.attributesParams = $template.getAttribute('data-attrSelectors') //getAttribute-через статический метод
-    this.textParams = $template.getAttribute('data-textSelectors') //надо будет через foreach добавлять name
 }

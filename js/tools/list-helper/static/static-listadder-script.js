@@ -1,4 +1,4 @@
-import {ItemsData,ParamsStorage} from './ItemsData.js'
+import {ItemsData} from './ItemsData.js'
 
 const lists = getAllElements('[fill-me]')
 lists.forEach($list=>fillList($list))
@@ -19,6 +19,10 @@ function getDataQuery($itemsList){
     return dataQuery.split(';')
 }
 
+function ParamsStorage($template){
+    this.attributesParams = $template.getAttribute('data-attrSelectors') //getAttribute-через статический метод
+    this.textParams = $template.getAttribute('data-textSelectors') //надо будет через foreach добавлять name
+}
 
 function getFillFragment(data,$template){
     const $templateClone = $template.cloneNode(true)
@@ -28,7 +32,7 @@ function getFillFragment(data,$template){
 
 function assembleObject(rowData,paramsStorage){
     const data = new ItemsData(...rowData.split(' ,'))
-    if(data.hasOwnProperty('attributes')){
+    if(data.attributes.valuesList){
         data.attributes.newParamsList=paramsStorage.attributesParams.split(' ')
     }
     return data
