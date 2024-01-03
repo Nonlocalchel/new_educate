@@ -1,0 +1,48 @@
+@import url("reset.css");/*обнуляющие стили*/
+@import url("color-sceme.css");/*цветовая схема*/
+@import url("scroll/simplebar.css");/*кастомный скролл*/
+@import url("scroll/scroll.css");/*кастомный скролл,настройки*/
+@import url("font.css");/*текст,загололвки,типография*/
+@import url("typography.css");/*текст,загололвки,типография*/
+@import url("containers.css");/*контейнеры*/
+
+
+/*тело сайта*/
+body{
+	zoom:100%;
+	height:100%;
+	color:var(--title-color);
+	/*scroll-behavior: smooth;-сделать в js*/
+}
+
+body ::selection{
+	background: var(--user-color);
+}
+
+body.lock{
+	overflow: hidden;
+}
+
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color:var(--main-color);	
+	font-family: 'Noto Sans';
+	overflow:auto
+}
+
+/*контент сайта*/
+*[data-simplebar]{
+	overflow: auto;
+}
+
+/* Основная часть */
+main{flex:1 1 auto;}
+
+
+.container{
+	max-width: 1130px;
+	margin: 0px auto;
+}
+

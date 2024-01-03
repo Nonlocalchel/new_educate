@@ -64,8 +64,6 @@
 	border-radius: 10px;
 	border: 1px solid var(--title-color);
 	width: 500px;
-	
-	
 	overflow-y:auto;
 	overflow-x:hidden;
 }
@@ -124,7 +122,7 @@
 
 
 
-.popup__page-list::-webkit-scrollbar{
+[data-simplebar]::-webkit-scrollbar{
 	width:0px;
 	border-radius:25px;
 	position: absolute;

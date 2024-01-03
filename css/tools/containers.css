@@ -1,0 +1,55 @@
+/*блок-граница*/
+.brd-box{
+	border: 1px solid var(--title-color);
+	border-radius:10px;
+}
+
+/*блок-flex*/
+.fl-box{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.fl-box>.example-box{
+	margin:15px 20px;
+}
+
+.fl-box-col{
+	display: flex;
+	flex-direction: column;
+	align-items:  center;
+	justify-content: space-evenly;
+	height: 100%;
+}
+
+.fl-box-col>.example-box{
+	max-width: 160px;
+	height: 30px;
+}
+/*блок-flex*/
+
+/*блок-grid*/
+.gr-box{
+	display: grid;
+	align-items: center;
+	justify-content: space-between;
+	grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+		
+}
+
+.gr-box>.example-box{
+	justify-self: center;
+	margin:15px 20px;
+}
+/*блок-grid*/
+
+/*блок-пример*/
+.example-box{
+	width: 200px;
+	height:300px;
+}
+/*блок-пример*/
+
+

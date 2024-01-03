@@ -1,0 +1,51 @@
+/*цвета меняемые из js*/
+:root{
+	--main-color:rgba(0,0,0,1);
+	--title-color:rgba(255, 255, 255, 1.0);
+	--text-color: rgba(255, 255, 255, 0.8);
+	--unfocused-color:rgba(204, 204, 204, 1);
+	--description-color: rgba(255, 255, 255, 0.75);
+	--photo: url('/img/theme/moon.svg');
+	--font-weight:300;
+	--description-font-size:400;
+}
+
+
+.light-theme{
+	--main-color:rgba(255, 255, 255, 1.0);
+	--title-color:rgba(0,0,0,1);
+	--text-color: rgba(0,0,0,1);
+	--unfocused-color:rgba(0,0,0,0.6);
+	--description-color: rgba(0,0,0,0.8);
+	--photo: url('/img/theme/sun.svg');
+	--font-weight:400;
+	--description-font-size:500;
+}
+
+/*Основные цвета*/
+.color_back{
+	background: var(--main-color);
+}
+.color_main{
+	background: var(--user-color);
+}
+.color_title{
+	background: var(--title-color);
+}
+.color_text{
+	background: var(--text-color);
+}
+.color_unfocused{
+	background: var(--unfocused-color);
+}
+.color_description{
+	background: var(--description-color);
+}
+
+/*Основные цвета*/
+
+/*пользовательские оттенки*/
+
+:root{
+	--user-color:rgba(229, 167, 13, 1.0);
+}

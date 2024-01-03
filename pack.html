@@ -1,0 +1,239 @@
+<!-- Сообщаем браузеру как стоит обрабатывать эту страницу -->
+<!DOCTYPE html>
+<!-- Оболочка документа, указываем язык содержимого -->
+<html lang="ru">
+	<!-- Заголовок страницы, контейнер для других важных данных (не отображается) -->
+	<head>
+		<!-- Заголовок страницы в браузере -->
+		<title>BrAgos</title>
+		<link rel="shortcut icon" href="img/ytochka.png" type="image/x-icon">
+		<!-- шрифт -->
+		<!--<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display&family=Noto+Sans:wght@100;200;300;400;700&display=swap" rel="stylesheet">-->
+		<!-- Адаптив -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<!-- Подключаем CSS -->
+		<link rel="stylesheet" href="css/pack-page-styles.css"/>
+		<!-- Подключаем JS -->
+		<script src="js/tools/list-helper/static/static-listadder-script.js" type="module" defer></script> 
+		<script src="js/pack-script.js" defer></script>
+		<script src="js/tools/simplebar.js" defer></script>
+		<!-- Кодировка страницы -->
+		<meta charset="UTF-8">
+		<!-- Кастомизация браузера -->
+		<!-- Chrome, Firefox OS and Opera -->
+		<meta name="theme-color" content="red" />
+		<!-- Windows Phone -->
+		<meta name="msapplication-navbutton-color" content="red" />
+		<!-- iOS Safari -->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-transcluent" />
+		<!-- Яндекс.Браузер -->
+		<meta name="viewport" content="ya-title=red,ya-dock=fade" />
+	</head>
+	<!-- Отображаемое тело страницы -->
+	<body>
+		<div class="wrapper" >
+            <main>
+				<section class="pack-section" name="colors">
+					<div class="container">
+						<div class="pack-section__content" show-code>
+							<div class="fl-box color-head">
+								<h3 class="pack-section__subtitle">1.Цвета</h3>
+								<div class="color-head__theme-icon"></div>
+							</div>
+							<div class="pack-section__components">
+								<ul class="pack-section__list" fill-me>
+									<template data-attrSelectors="[href] [src] [style]">
+										<li class="pack-section__item fl-box">
+											<div class="fl-box pack-section__elem-color title">
+												<p class="pack-section__elem-text" name='title'></p>
+												<div class="circle-color">
+													<div class="selector" to-text></div>
+												</div>
+											</div>
+											<p class="pack-section__elem-text" href name='description'></p>
+										</li>
+									</template>
+									<data hidden>
+										Цвет фона ,var(--back-color) ,color_back  ,[vk.com, c:/desktop, background=red];
+										Цвет пользователя ,var(--main-color) ,color_main  ,[google.com, d:/root, background=yellow];
+										Цвет текста ,var(--text-color) ,color_text  ,[vk.com, c:/desktop, background=red];
+										Цвет заголовков ,var(--title-color) ,color_title  ,[vk.com, c:/desktop, background=red];
+										Цвет формы без фокуса ,var(--unfocused-color) ,color_unfocused  ,[vk.com, c:/desktop, background=red];
+										Цвет описания результата ,var(--description-color) ,color_description  ,[vk.com, c:/desktop, background=red]
+									</data>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="pack-section" name="titles">
+					<div class="container">
+						<div class="pack-section__content" show-code>
+							<h3 class="pack-section__subtitle">2.Заголовки</h3>
+							<div class="pack-section__components">
+								<ul class="pack-section__list" fill-me>
+									<template class="template-for-items" href>
+										<li class="pack-section__item fl-box">
+											<p class="pack-section__elem-title selector" name="title" to-text></p>
+											<p class="pack-section__elem-title selector" name="description"></p>
+										</li>
+									</template>
+									<data hidden>
+										h1.Название сайта ,Bold(700), 26px ,h1 ;
+										h2.Заголовок страницы ,Bold(700), 36px ,h2 ;
+										h3.Подзаголовок страницы ,Medium(500), 36px ,h3 ;
+										h4.Заголовок по умолчанию ,Bold(700), 26px ,h4 ;
+										h5.Заголовки на карточке ,Medium(500), 18px ,h5 ;
+										h6.Заголовок описания результата ,Medium(500), 14px ,h6 
+									</data>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="pack-section" name="paragraphs">
+					<div class="container">
+						<div class="pack-section__content" show-code>
+							<h3 class="pack-section__subtitle">3.Текст</h3>
+							<div class="pack-section__components">
+								<ul class="pack-section__list" fill-me>
+									<li class="pack-section__item fl-box">
+										<a href="#" to-text>
+											<p class="simple-text">Ссылка</p>
+										</a>
+										<a href="#">
+											<p class="simple-text">Medium(500), 16px</p>
+										</a>
+									</li>
+									<template class="template-for-items">
+										<li class="pack-section__item fl-box">
+											<p class="simple-text selector" name="title" to-text></p>
+											<p class="simple-text selector" name="description"></p>
+										</li>
+									</template>
+									<data hidden>
+										Текст ,Display Regular(400), 20px ,simple-text;
+										Текст в форме ,Regular(400), 20px ,form-text;
+										Описание результата ,Regular(400),12px ,result-text
+									</data>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="pack-section" name="containers">
+					<div class="container">
+						<div class="pack-section__content">
+							<h3 class="pack-section__subtitle">4.Контейнеры</h3>
+							<section class="pack-section__content" name="base-container" show-code>
+								<h3 class="pack-section__subtitle">4.1.Базовый контейнер</h3>
+								<div class="pack-section__components">
+									<ul class="pack-section__bordered-list">
+										<li class="pack-section__item">
+											<h3 class="pack-section__subtitle">Без скролла</h3>
+											<div class="high-setter-box width-setter-box">
+												<div class="brd-box" to-text>
+													<!-- Контент -->
+												</div>
+											</div>
+										</li>
+										<li class="pack-section__item">
+											<h3 class="pack-section__subtitle">Со скроллом (контент)</h3>
+											<div class="high-setter-box width-setter-box">
+												<div class="brd-box" data-simplebar> <!-- попробовать сделать через промежуточный контенер -->
+													<div class="bordered-box__content">
+														<p class="example-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio blanditiis ad
+															voluptatem, dolores quod officia quos aliquid asperiores nulla inventore consequatur magnam iure dolor ullam
+															suscipit harum nostrum voluptatibus? Asperiores.
+															Aperiam inventore voluptate vero fugit doloribus similique nemo odio soluta nesciunt? Iusto explicabo
+															adipisci enim non, nemo nostrum nisi velit saepe ab. Laboriosam quidem nobis, amet voluptatum velit ex
+															blanditiis.
+															Ipsum voluptate veritatis blanditiis itaque? Voluptatem, nostrum aspernatur? Veritatis similique quae sit
+															atque illum? Tempore, sunt nesciunt impedit accusantium laboriosam adipisci ex harum rem. Ratione quam
+															praesentium soluta animi consequuntur.
+															Aliquid eligendi blanditiis saepe nesciunt reprehenderit ea quos. Dolores, ea! Aut est nihil quasi labore
+															fugiat ex nemo, enim molestias in molestiae voluptas asperiores? Veritatis minima voluptatem repudiandae
+															accusantium voluptas.
+															Nesciunt quidem, magnam assumenda distinctio eaque a maiores nihil architecto. Commodi, repellat recusandae
+															explicabo accusamus deserunt quidem, quae doloribus voluptas nemo, totam ducimus animi quo quis corporis
+															maiores reprehenderit eveniet.
+														</p>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</section>
+							<section class="pack-section__content" name="flex-container">
+								<h3 class="pack-section__subtitle">4.2.Flex-контейнер</h3>
+								<div class="pack-section__components">
+									<section name="flex-container" show-code>
+										<h3 class="pack-section__subtitle">4.2.1.Горизонтальный</h3>
+										<div class="brd-box">
+											<div class="fl-box" fill-me to-text>
+												<template class="template-for-items">
+													<div class="brd-box fl-box example-box">
+														<p class="simple-text" name='title'></p>
+													</div>
+												</template>
+												<data hidden>
+													Блок 1;
+													Блок 2;
+													Блок 3;
+													Блок 4
+												</data>
+											</div>
+										</div>
+									</section>
+									<section name="flex-container-v" show-code>
+										<h3 class="pack-section__subtitle">4.2.2.Вертикальный</h3>
+										<div class="brd-box example-box">
+											<div class="fl-box-col" fill-me to-text>
+												<template class="template-for-items">
+													<div class="brd-box fl-box-col example-box">
+														<p class="simple-text" name='title'></p>
+													</div>
+												</template>
+												<data hidden>
+													Блок 1;
+													Блок 2;
+													Блок 3;
+													Блок 4;
+													Блок 5
+												</data>
+											</div>
+										</div>
+									</section>
+								</div>
+							</section>
+							<section name="grid-container" show-code>
+								<h3 class="pack-section__subtitle">4.3.Grid-контейнер</h3>
+								<div class="brd-box gr-box" fill-me to-text>
+									<template class="template-for-items">
+										<div class="brd-box example-box fl-box">
+											<p class="pack-section__elem-text" name='title'></p>
+										</div>
+									</template>
+									<data hidden>
+										Блок 1;
+										Блок 2;
+										Блок 3;
+										Блок 4
+									</data>
+								</div>
+							</section>
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+		<script src="js/tools/color_script.js">
+		</script>
+		<script src="js/tools/scroll/scroll.js"></script>
+		<script src="js/tools/scroll/scroll_params.js"></script>
+	</body>
+</html>
