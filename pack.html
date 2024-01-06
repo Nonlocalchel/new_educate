@@ -44,25 +44,25 @@
 								<div class="color-head__theme-icon"></div>
 							</div>
 							<div class="pack-section__components">
-								<ul class="pack-section__list" fill-me>
-									<template data-attrSelectors="[href] [src] [style]">
+								<ul class="pack-section__list" fill-me="static">
+									<template textNames="title description" classes="color_selector">
 										<li class="pack-section__item fl-box">
-											<div class="fl-box pack-section__elem-color title">
+											<div class="fl-box pack-section__elem-color title" style>
 												<p class="pack-section__elem-text" name='title'></p>
 												<div class="circle-color">
-													<div class="selector" to-text></div>
+													<div class="color_selector" to-text></div>
 												</div>
 											</div>
-											<p class="pack-section__elem-text" href name='description'></p>
+											<p class="pack-section__elem-text" name='description'></p>
 										</li>
 									</template>
 									<data hidden>
-										Цвет фона ,var(--back-color) ,color_back  ,[vk.com, c:/desktop, background=red];
-										Цвет пользователя ,var(--main-color) ,color_main  ,[google.com, d:/root, background=yellow];
-										Цвет текста ,var(--text-color) ,color_text  ,[vk.com, c:/desktop, background=red];
-										Цвет заголовков ,var(--title-color) ,color_title  ,[vk.com, c:/desktop, background=red];
-										Цвет формы без фокуса ,var(--unfocused-color) ,color_unfocused  ,[vk.com, c:/desktop, background=red];
-										Цвет описания результата ,var(--description-color) ,color_description  ,[vk.com, c:/desktop, background=red]
+										Цвет фона ,var(--main-color)| color_back;
+										Цвет пользователя ,var(--user-color)| color_main;
+										Цвет текста ,var(--text-color)| color_text;
+										Цвет заголовков ,var(--title-color)| color_title;
+										Цвет формы без фокуса ,var(--unfocused-color)| color_unfocused;
+										Цвет описания результата ,var(--description-color)| color_description
 									</data>
 								</ul>
 							</div>
@@ -74,20 +74,20 @@
 						<div class="pack-section__content" show-code>
 							<h3 class="pack-section__subtitle">2.Заголовки</h3>
 							<div class="pack-section__components">
-								<ul class="pack-section__list" fill-me>
-									<template class="template-for-items" href>
+								<ul class="pack-section__list" fill-me="static">
+									<template textNames="title description" classes="title_selector">
 										<li class="pack-section__item fl-box">
-											<p class="pack-section__elem-title selector" name="title" to-text></p>
-											<p class="pack-section__elem-title selector" name="description"></p>
+											<p class="title_selector" name="title" to-text></p>
+											<p class="title_selector" name="description"></p>
 										</li>
 									</template>
 									<data hidden>
-										h1.Название сайта ,Bold(700), 26px ,h1 ;
-										h2.Заголовок страницы ,Bold(700), 36px ,h2 ;
-										h3.Подзаголовок страницы ,Medium(500), 36px ,h3 ;
-										h4.Заголовок по умолчанию ,Bold(700), 26px ,h4 ;
-										h5.Заголовки на карточке ,Medium(500), 18px ,h5 ;
-										h6.Заголовок описания результата ,Medium(500), 14px ,h6 
+										h1.Название сайта ,Bold(700), 26px| h1;
+										h2.Заголовок страницы ,Bold(700), 36px| h2;
+										h3.Подзаголовок страницы ,Medium(500), 36px| h3;
+										h4.Заголовок по умолчанию ,Bold(700), 26px| h4;
+										h5.Заголовки на карточке ,Medium(500), 18px| h5;
+										h6.Заголовок описания результата ,Medium(500), 14px| h6
 									</data>
 								</ul>
 							</div>
@@ -99,7 +99,7 @@
 						<div class="pack-section__content" show-code>
 							<h3 class="pack-section__subtitle">3.Текст</h3>
 							<div class="pack-section__components">
-								<ul class="pack-section__list" fill-me>
+								<ul class="pack-section__list" fill-me="static">
 									<li class="pack-section__item fl-box">
 										<a href="#" to-text>
 											<p class="simple-text">Ссылка</p>
@@ -108,16 +108,16 @@
 											<p class="simple-text">Medium(500), 16px</p>
 										</a>
 									</li>
-									<template class="template-for-items">
+									<template textNames="title description" classes="text_selector">
 										<li class="pack-section__item fl-box">
-											<p class="simple-text selector" name="title" to-text></p>
-											<p class="simple-text selector" name="description"></p>
+											<p class="text_selector" name="title" to-text></p>
+											<p class="text_selector" name="description"></p>
 										</li>
 									</template>
 									<data hidden>
-										Текст ,Display Regular(400), 20px ,simple-text;
-										Текст в форме ,Regular(400), 20px ,form-text;
-										Описание результата ,Regular(400),12px ,result-text
+										Текст ,Display Regular(400), 20px| simple-text;
+										Текст в форме ,Regular(400), 20px| form-text;
+										Описание результата ,Regular(400),12px| result-text
 									</data>
 								</ul>
 							</div>
@@ -174,8 +174,8 @@
 									<section name="flex-container" show-code>
 										<h3 class="pack-section__subtitle">4.2.1.Горизонтальный</h3>
 										<div class="brd-box">
-											<div class="fl-box" fill-me to-text>
-												<template class="template-for-items">
+											<div class="fl-box" fill-me="static" to-text>
+												<template textNames="title">
 													<div class="brd-box fl-box example-box">
 														<p class="simple-text" name='title'></p>
 													</div>
@@ -192,8 +192,8 @@
 									<section name="flex-container-v" show-code>
 										<h3 class="pack-section__subtitle">4.2.2.Вертикальный</h3>
 										<div class="brd-box example-box">
-											<div class="fl-box-col" fill-me to-text>
-												<template class="template-for-items">
+											<div class="fl-box-col" fill-me="static" to-text>
+												<template textNames="title">
 													<div class="brd-box fl-box-col example-box">
 														<p class="simple-text" name='title'></p>
 													</div>
@@ -212,8 +212,8 @@
 							</section>
 							<section name="grid-container" show-code>
 								<h3 class="pack-section__subtitle">4.3.Grid-контейнер</h3>
-								<div class="brd-box gr-box" fill-me to-text>
-									<template class="template-for-items">
+								<div class="brd-box gr-box" fill-me="static" to-text>
+									<template textNames="title">
 										<div class="brd-box example-box fl-box">
 											<p class="pack-section__elem-text" name='title'></p>
 										</div>

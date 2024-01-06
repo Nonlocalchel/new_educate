@@ -60,7 +60,7 @@ function getCodeList($packContainer){
 
 function pasteText(list,place){
   if(list.length>0){
-    list.forEach($elem=>place.insertAdjacentText('beforeend',toText($elem)))
+    list.forEach($elem=>place.insertAdjacentHTML('beforeend',toText($elem)))
   }else{
     place.innerText='<nothing>\nTry add attribute "to-text" from your elements,which have to get there'
   }
@@ -70,7 +70,62 @@ function pasteText(list,place){
 function toText($elem){
   let text = new XMLSerializer().serializeToString($elem)+'\n'
   let fText = format(text)
-  return fText
+  let coloredText = colorText(fText)
+  return coloredText
+}
+
+function colorText(text){//распознает элементы разметки
+  let result = ""
+  let boofer = ''
+  let mode = 'empty'
+  for (const textSymbol of text) {
+    if(textSymbol=='<' && mode=='empty'){
+      mode='tag'
+      result+=boofer
+      boofer=""
+    }else if(mode=="comment" || textSymbol=='!'){
+      if(textSymbol=='>' && boofer.slice(-3,-1)==' -'){//+комментарий
+        mode='empty'
+        result+= `<span class='color-comment'><span><</span>${boofer}></span>`
+        boofer=''
+      }else{
+        mode="comment"
+        boofer+=textSymbol
+      }
+    }else if(textSymbol=='>' && mode=="tag"){
+      if(boofer!=''){//+закрывающий тэг
+        let tag = boofer.match(/\/(.*)/)[1]
+        result+=`<<span>/<span class="color-tag">${tag}</span>></span>`
+      }else{//+закрывающий >
+        mode='empty'
+        result+='>'
+        boofer = ''
+      }
+    }else if(textSymbol==' ' && mode=='tag'){//+открывающий тэг
+      let tag = boofer.match(/[\w]\w*/)[0]
+      result +=tag?`<<span class="color-tag">${tag}</span>`+" ":" "
+      mode='attribute'
+      boofer=''
+    }else if(textSymbol=='=' && mode=="attribute"){//+attribute
+      mode="tag"
+      result += `<span class='color-attr'>${boofer}</span>=`
+      boofer =""
+    }else if(textSymbol=="\""){
+      if(mode=="tag"){//+attributeValue
+        mode="attributeValue"
+      }else if(mode=="attributeValue"){
+        result+=`<span class="color-attrValue">"${boofer}"</span>`
+        mode="tag"
+      }
+      boofer=""
+    }else if(textSymbol=='\t' || textSymbol=='\n'){//табуляция и новая строка
+      result+=textSymbol
+      boofer=''
+    }else{//прибавляем textSymboll(итератор)
+      boofer+=textSymbol
+    }
+  }
+  return result
 }
 
 function format(text){
@@ -94,5 +149,3 @@ function getDistance(text){
     }
   }
 }
-
-

@@ -31,7 +31,6 @@
 	border:1px solid var(--title-color);
 	border-radius:10px;
 	padding:0px 20px;
-	
 }
 
 .pack-section__list>li {
@@ -68,8 +67,6 @@
 .large-item{
 	grid-column: span 2;
 }
-
-
 
 /*ограничительные контенеры*/
 .high-setter-box {
@@ -143,6 +140,22 @@
 
 .code-here:hover{
 	color:var(--title-color)
+}
+
+span.color-tag{
+	color:rgba(0, 191, 255, 0.8);
+}
+
+span.color-attr{
+	color:rgba(0, 191, 255, 1.0);
+}
+
+span.color-attrValue{
+	color:var(--user-color);
+}
+
+span.color-comment{
+	color:grey;
 }
 /*код*/
 /*общая*/
