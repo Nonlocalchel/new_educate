@@ -12,6 +12,13 @@
 	flex-wrap: wrap;
 }
 
+.fl-box-btwn{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
 .fl-box>.example-box{
 	margin:15px 20px;
 }

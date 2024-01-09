@@ -5,6 +5,7 @@
 	--text-color: rgba(255, 255, 255, 0.8);
 	--unfocused-color:rgba(204, 204, 204, 1);
 	--description-color: rgba(255, 255, 255, 0.75);
+	--red-color: rgba(255,0,0,1.0);
 	--photo: url('/img/theme/moon.svg');
 	--font-weight:300;
 	--description-font-size:400;

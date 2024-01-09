@@ -46,3 +46,96 @@ main{flex:1 1 auto;}
 	margin: 0px auto;
 }
 
+/*общие нстройки секций*/
+section:not(:last-child) [class*='content']:first-child{
+	border-bottom: 1px solid var(--title-color);
+}
+
+section h3{
+	margin:35px 0
+}
+/*общие нстройки секций*/
+
+/*кнопки*/
+.main-btn{
+	text-align: center;
+	border-radius: 10px;
+	background: var(--user-color);
+	padding:0px 20px;
+	height: 50px;
+  	box-shadow: 7px 7px 0 -0.05em var(--main-color), 7px 7px var(--user-color);
+  	color: var(--title-color);
+	font-size: 24px;
+	font-weight: 400;
+  	transition: 0.2s;
+ 	will-change: contents;
+	margin:5px 7px 7px 0px;
+}
+
+.main-btn:hover{
+	box-shadow: 4px 4px 0 -0.05em var(--main-color), 4px 4px var(--user-color);
+	transform:translate(3px,3px);
+	opacity: 0.8;
+}
+
+.main-btn:active{
+	box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--user-color);
+	transform:translate(7px,7px);
+	opacity: 0.6;
+}
+
+.sml-btn{
+	background: var(--title-color);
+	background-image: url('/svg/card-buttons/arrow-back.svg');
+	border-radius: 50px;
+	width:50px;
+	padding:0px;
+	box-shadow: 4px 7px 0 -0.05em var(--main-color), 4px 7px var(--title-color);
+}
+
+.sml-btn:hover{
+	transform:translate(2px,3px);
+	box-shadow: 2px 4px 0 -0.05em var(--main-color), 2px 4px var(--title-color);
+}
+
+.sml-btn:active{
+	transform:translate(4px,7px);
+	box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--title-color);
+}
+
+.sml-btn_red{
+	background: var(--red-color);
+	box-shadow: 4px 7px 0 -0.05em var(--main-color), 4px 7px var(--red-color);
+}
+
+
+.sml-btn_red:hover{
+	box-shadow: 2px 4px 0 -0.05em var(--main-color), 2px 4px var(--red-color);
+}
+
+.sml-btn_red:active{
+	box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--red-color);
+}
+
+.sml-btn[name]{
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+
+.sml-btn[name='like']{
+	background-image: url('/svg/card-buttons/heart/heart.svg');
+	background-size: 30px 30px;
+	transition: all .3s,background-image 0.3s ;
+}
+
+.sml-btn.fill-heart{
+	background-image: url('/svg/card-buttons/heart/heart-fill.svg');
+}
+
+.sml-btn[name='delete']{
+	background-image: url('/svg/card-buttons/cross.svg');
+	background-size: 40px 40px;
+}
+
+
+/*кнопки*/

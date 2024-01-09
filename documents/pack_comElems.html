@@ -6,7 +6,7 @@
 	<head>
 		<!-- Заголовок страницы в браузере -->
 		<title>BrAgos</title>
-		<link rel="shortcut icon" href="img/ytochka.png" type="image/x-icon">
+		<link rel="shortcut icon" href="/img/ytochka.png" type="image/x-icon">
 		<!-- шрифт -->
 		<!--<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,11 +14,12 @@
 		<!-- Адаптив -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 		<!-- Подключаем CSS -->
-		<link rel="stylesheet" href="css/pack-page-styles.css"/>
+		<link rel="stylesheet" href="/css/pack-page-styles.css"/>
 		<!-- Подключаем JS -->
-		<script src="js/tools/list-helper/static/static-listadder-script.js" type="module" defer></script> 
-		<script src="js/pack-script.js" defer></script>
-		<script src="js/tools/simplebar.js" defer></script>
+		<script src="/js/tools/list-helper/static/static-listadder-script.js" type="module" defer></script> 
+		<script src="/js/pack-script.js" defer></script>
+		<script src="/js/tools/textToCode_script.js" defer></script>
+		<script src="/js/tools/scroll/simpleBar/simplebar.js" defer></script>
 		<!-- Кодировка страницы -->
 		<meta charset="UTF-8">
 		<!-- Кастомизация браузера -->
@@ -45,7 +46,7 @@
 							</div>
 							<div class="pack-section__components">
 								<ul class="pack-section__list" fill-me="static">
-									<template textNames="title description" classes="color_selector">
+									<template data-texts="title description" data-classes="color_selector">
 										<li class="pack-section__item fl-box">
 											<div class="fl-box pack-section__elem-color title" style>
 												<p class="pack-section__elem-text" name='title'></p>
@@ -75,7 +76,7 @@
 							<h3 class="pack-section__subtitle">2.Заголовки</h3>
 							<div class="pack-section__components">
 								<ul class="pack-section__list" fill-me="static">
-									<template textNames="title description" classes="title_selector">
+									<template data-texts="title description" data-classes="title_selector">
 										<li class="pack-section__item fl-box">
 											<p class="title_selector" name="title" to-text></p>
 											<p class="title_selector" name="description"></p>
@@ -108,7 +109,7 @@
 											<p class="simple-text">Medium(500), 16px</p>
 										</a>
 									</li>
-									<template textNames="title description" classes="text_selector">
+									<template data-texts="title description" data-classes="text_selector">
 										<li class="pack-section__item fl-box">
 											<p class="text_selector" name="title" to-text></p>
 											<p class="text_selector" name="description"></p>
@@ -175,7 +176,7 @@
 										<h3 class="pack-section__subtitle">4.2.1.Горизонтальный</h3>
 										<div class="brd-box">
 											<div class="fl-box" fill-me="static" to-text>
-												<template textNames="title">
+												<template data-texts="title">
 													<div class="brd-box fl-box example-box">
 														<p class="simple-text" name='title'></p>
 													</div>
@@ -193,7 +194,7 @@
 										<h3 class="pack-section__subtitle">4.2.2.Вертикальный</h3>
 										<div class="brd-box example-box">
 											<div class="fl-box-col" fill-me="static" to-text>
-												<template textNames="title">
+												<template data-texts="title">
 													<div class="brd-box fl-box-col example-box">
 														<p class="simple-text" name='title'></p>
 													</div>
@@ -213,7 +214,7 @@
 							<section name="grid-container" show-code>
 								<h3 class="pack-section__subtitle">4.3.Grid-контейнер</h3>
 								<div class="brd-box gr-box" fill-me="static" to-text>
-									<template textNames="title">
+									<template data-texts="title">
 										<div class="brd-box example-box fl-box">
 											<p class="pack-section__elem-text" name='title'></p>
 										</div>
@@ -231,9 +232,9 @@
 				</section>
 			</main>
 		</div>
-		<script src="js/tools/color_script.js">
+		<script src="/js/tools/color_script.js">
 		</script>
-		<script src="js/tools/scroll/scroll.js"></script>
-		<script src="js/tools/scroll/scroll_params.js"></script>
+		<script src="/js/tools/scroll/smoothScrollbar/scroll.js"></script>
+		<script src="/js/tools/scroll/smoothScrollbar/scroll_params.js"></script>
 	</body>
 </html>

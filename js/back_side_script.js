@@ -20,7 +20,7 @@ try{
 				let targetForMouseClass=event.target.getAttribute('class');//class того,на что кликнули дебаг-log:console.log('дед найден');
 				try{
 					//если натыкаемся на path самой svg всплытие не срабатывает поэтому костыль
-					targetForMouseClass=='st0' ? targetForMouseClass=event.target.parentElement.getAttribute('class'):"1";
+					targetForMouseClass=='st0' ? targetForMouseClass=event.target.parentElement.getAttribute('class'):"1";//чепез classList
 					functionDict[targetForMouseClass](card);
 					return 0;
 				}catch(err){

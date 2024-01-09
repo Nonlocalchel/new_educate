@@ -1,8 +1,13 @@
 export class ItemsData{
-    constructor(text,classes,attributes){
-        this.texts = new ParamsData(text)
-        this.classes = new ParamsData(classes)
-        this.attributes = new ParamsData(attributes)   
+    constructor(params,...collect){
+        this.paramsNames=Object.keys(params)
+        this.texts = new ParamsData(collect[this.getParam('texts')])
+        this.classes = new ParamsData(collect[this.getParam('classes')])
+        this.attributes = new ParamsData(collect[this.getParam('attributes')])   
+    }
+    getParam(findingEllement){
+        let result =this.paramsNames.indexOf(findingEllement.toLowerCase())
+        return result!=-1?result:undefined
     }
 }
 

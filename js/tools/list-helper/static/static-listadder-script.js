@@ -10,7 +10,7 @@ function fillList($itemsList){
     rowDataQuery.forEach((rowData)=>$itemsList.append(
         getFillFragment(
             assembleObject(rowData,paramsStorage),$template)))
-    formatList($itemsList)
+    formatList($itemsList,$template)
 }
 
 function getDataQuery($itemsList){
@@ -20,9 +20,10 @@ function getDataQuery($itemsList){
 }
 
 function ParamsStorage($template){
-    this.attributesParams = $template.getAttribute('attrSelectors')
-    this.textsParams = $template.getAttribute('textNames')
-    this.classesParams = $template.getAttribute('classes')
+    this.fieldsList = $template.dataset
+    this.attributesParams = $template.getAttribute('data-attributes')
+    this.textsParams = $template.getAttribute('data-texts')
+    this.classesParams = $template.getAttribute('data-classes')
 }
 
 function getFillFragment(data,$template){
@@ -32,10 +33,10 @@ function getFillFragment(data,$template){
 }
 
 function assembleObject(rowData,paramsStorage){
-    const data = new ItemsData(...rowData.split('|'))
+    const data = new ItemsData(paramsStorage.fieldsList,...rowData.split('|'))//paramsStorage
     for (const field in data) {
         const object = data[field]
-        if(object.values && paramsStorage[`${field}Params`]){
+        if(object.values && !!paramsStorage[`${field}Params`]){
             object.newParams=paramsStorage[`${field}Params`].split(' ')
         }
     }
@@ -53,8 +54,7 @@ function fillFragment(data,$template){
 
 function addElement($place,field,data){
     const paramsOfField = data[field]
-
-        const params = paramsOfField.params
+        const params = paramsOfField.params?paramsOfField.params:[]
         for (const param of params){
             const selector = param.selector
             if(param.value){
@@ -79,7 +79,6 @@ function addElement($place,field,data){
                 }
             }
         }
-  
 }
 
 function getTemplateFragment($template){
@@ -88,14 +87,14 @@ function getTemplateFragment($template){
     return $templateContent
 }
 
-function formatList($itemsList){
+function formatList($itemsList,$template){
     $itemsList.append('\n')
-    if($itemsList.tagName=='DIV'){
-        let i=5;
+    let $start = $template.previousSibling
+        let i=4;
         while(i!=0){
-            $itemsList.removeChild($itemsList.firstChild)
+            $itemsList.removeChild($start.nextSibling)
             i -= 1
         }
-    }
+    $itemsList.removeChild($start)
     $itemsList.removeAttribute('fill-me')
 }
