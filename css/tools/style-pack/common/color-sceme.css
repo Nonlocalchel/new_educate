@@ -27,7 +27,7 @@
 .color_back{
 	background: var(--main-color);
 }
-.color_main{
+.color_user{
 	background: var(--user-color);
 }
 .color_title{

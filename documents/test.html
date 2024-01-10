@@ -16,11 +16,12 @@
 		<!-- Подключаем CSS -->
 		<link rel="stylesheet" href="/css/tools/style-pack/style-pack.css"/>
 		<link rel="stylesheet" href="/css/pack-page-styles.css"/>
+        <link rel="stylesheet" href="/css/tools/test.css"/>
 		<!-- Подключаем JS -->
 		<script src="/js/tools/list-helper/static/static-listadder-script.js" type="module" defer></script> 
-		<script src="/js/tools/main_script2.js" defer></script>
 		<script src="/js/pack-script.js" defer></script>
 		<script src="/js/tools/textToCode_script.js" defer></script>
+		<script src="/js/tools/scroll/simpleBar/simplebar.js" defer></script>
 		<!-- Кодировка страницы -->
 		<meta charset="UTF-8">
 		<!-- Кастомизация браузера -->
@@ -41,42 +42,17 @@
                 <section class="pack-section" name="buttons">
 					<div class="container">
 						<div class="pack-section__content">
-                        <h3 class="pack-section__subtitle">1.Кнопки</h3>
+                        <h3 class="pack-section__subtitle">Тест</h3>
                         <div class="pack-section__components">
-                            <ul class="pack-section__bordered-list">
-                                <li class="pack-section__item">
-                                    <h3 class="pack-section__subtitle">1.1.Фирменные</h3>
-                                    <ul class="fl-box-btwn btn-list"  fill-me="static">
-										<template data-classes="btn_selector" data-attributes="[name]" data-texts="title">
-											<li>
-												<div>
-													<button class="btn_selector" name title></button>
-												</div>
-											</li>
-										</template>
-										<data hidden>
-											main-btn| simple|Нажми на меня!!!;
-											main-btn sml-btn sml-btn_red|like;
-											main-btn sml-btn sml-btn_red|delete;
-											main-btn sml-btn|back
-										</data>
-                                    </ul>  
-                                </li>
-                                <li class="pack-section__item">
-                                    <h3 class="pack-section__subtitle">1.2.Добавить</h3>
-                                </li>
-                                <li class="pack-section__item">
-                                    <h3 class="pack-section__subtitle">1.3.Подробнее</h3>
-                                </li>
-                            </ul>
+							<button class="main-btn" name="simple">Нажми на меня!!!</button>
                         </div>	
 					</div>
 				</section>
 			</main>
 		</div>
 		<script src="/js/tools/color_script.js"></script>
+		<script src="/js/tools/test_script.js"></script>
 		<script src="/js/tools/scroll/smoothScrollbar/scroll.js"></script>
 		<script src="/js/tools/scroll/smoothScrollbar/scroll_params.js"></script>
-		<script src="/js/tools/scroll/simpleBar/simplebar.js"></script>
 	</body>
 </html>

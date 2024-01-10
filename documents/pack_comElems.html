@@ -50,17 +50,17 @@
 									<template data-texts="title description" data-classes="color_selector">
 										<li class="pack-section__item fl-box">
 											<div class="fl-box pack-section__elem-color title" style>
-												<p class="pack-section__elem-text" name='title'></p>
+												<p class="pack-section__elem-text" title></p>
 												<div class="circle-color">
 													<div class="color_selector" to-text></div>
 												</div>
 											</div>
-											<p class="pack-section__elem-text" name='description'></p>
+											<p class="pack-section__elem-text" description></p>
 										</li>
 									</template>
 									<data hidden>
-										Цвет фона ,var(--main-color)| color_back;
-										Цвет пользователя ,var(--user-color)| color_main;
+										Цвет фона ,var(--main-color)| color_main;
+										Цвет пользователя ,var(--user-color)| color_user;
 										Цвет текста ,var(--text-color)| color_text;
 										Цвет заголовков ,var(--title-color)| color_title;
 										Цвет формы без фокуса ,var(--unfocused-color)| color_unfocused;
@@ -79,8 +79,8 @@
 								<ul class="pack-section__list" fill-me="static">
 									<template data-texts="title description" data-classes="title_selector">
 										<li class="pack-section__item fl-box">
-											<p class="title_selector" name="title" to-text></p>
-											<p class="title_selector" name="description"></p>
+											<p class="title_selector" title to-text></p>
+											<p class="title_selector" description></p>
 										</li>
 									</template>
 									<data hidden>
@@ -112,8 +112,8 @@
 									</li>
 									<template data-texts="title description" data-classes="text_selector">
 										<li class="pack-section__item fl-box">
-											<p class="text_selector" name="title" to-text></p>
-											<p class="text_selector" name="description"></p>
+											<p class="text_selector" title to-text></p>
+											<p class="text_selector" description></p>
 										</li>
 									</template>
 									<data hidden>
@@ -179,7 +179,7 @@
 											<div class="fl-box" fill-me="static" to-text>
 												<template data-texts="title">
 													<div class="brd-box fl-box example-box">
-														<p class="simple-text" name='title'></p>
+														<p class="simple-text" title></p>
 													</div>
 												</template>
 												<data hidden>
@@ -197,7 +197,7 @@
 											<div class="fl-box-col" fill-me="static" to-text>
 												<template data-texts="title">
 													<div class="brd-box fl-box-col example-box">
-														<p class="simple-text" name='title'></p>
+														<p class="simple-text" title></p>
 													</div>
 												</template>
 												<data hidden>
@@ -217,7 +217,7 @@
 								<div class="brd-box gr-box" fill-me="static" to-text>
 									<template data-texts="title">
 										<div class="brd-box example-box fl-box">
-											<p class="pack-section__elem-text" name='title'></p>
+											<p class="pack-section__elem-text" title></p>
 										</div>
 									</template>
 									<data hidden>

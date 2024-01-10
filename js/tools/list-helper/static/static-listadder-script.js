@@ -1,29 +1,23 @@
 import {ItemsData} from './ItemsData.js'
 
-const lists = getAllElements('[fill-me=static]')
+const lists = document.querySelectorAll('[fill-me=static]')
 lists.forEach($list=>fillList($list))
 
 function fillList($itemsList){
     const rowDataQuery = getDataQuery($itemsList)
-    const $template = getElement('template',$itemsList)
-    const paramsStorage = new ParamsStorage($template)
+    const $template = $itemsList.querySelector('template')
+    const templateParams = $template.dataset
     rowDataQuery.forEach((rowData)=>$itemsList.append(
         getFillFragment(
-            assembleObject(rowData,paramsStorage),$template)))
+            assembleObject(rowData,templateParams),$template)
+        ))
     formatList($itemsList,$template)
 }
 
 function getDataQuery($itemsList){
-    const dataString = getElement('[hidden]',$itemsList).innerText
+    const dataString = $itemsList.querySelector('data[hidden]').innerText
     const dataQuery = dataString.replace(/\s+/g,' ')
     return dataQuery.split(';')
-}
-
-function ParamsStorage($template){
-    this.fieldsList = $template.dataset
-    this.attributesParams = $template.getAttribute('data-attributes')
-    this.textsParams = $template.getAttribute('data-texts')
-    this.classesParams = $template.getAttribute('data-classes')
 }
 
 function getFillFragment(data,$template){
@@ -32,53 +26,19 @@ function getFillFragment(data,$template){
     return $fillFragment
 }
 
-function assembleObject(rowData,paramsStorage){
-    const data = new ItemsData(paramsStorage.fieldsList,...rowData.split('|'))//paramsStorage
-    for (const field in data) {
-        const object = data[field]
-        if(object.values && !!paramsStorage[`${field}Params`]){
-            object.newParams=paramsStorage[`${field}Params`].split(' ')
-        }
-    }
+function assembleObject(rowData,templateParams){
+    const data = new ItemsData(templateParams,...rowData.split('|'))
     return data
 }
 
 function fillFragment(data,$template){
     const $templateFragment = getTemplateFragment($template);
     for (const key in data) {
-        if(data[key].values)
+        if(!!data[key]){
             addElement($templateFragment,key,data)
+        }
     }
     return $templateFragment
-}
-
-function addElement($place,field,data){
-    const paramsOfField = data[field]
-        const params = paramsOfField.params?paramsOfField.params:[]
-        for (const param of params){
-            const selector = param.selector
-            if(param.value){
-                const fValue = param.value.trim()
-                if(field=='attributes'){
-                    const node = getElement(selector,$place)
-                    let tagAttribute = selector.match(/\[(\w*)\W/)[1]
-                    try {
-                        node.setAttribute(tagAttribute,fValue)
-                    } catch (error) {
-                        console.log(`attribute ${tagAttribute} not found`)
-                    }
-                }else if(field=="texts"){
-                    const nodeList = getAllElements(`[name=${selector}]`,$place)
-                    nodeList.forEach(node=>{
-                        node.removeAttribute('name')
-                        node.innerText = fValue
-                        })
-                }else{
-                    const nodeList = getAllElements('.'+selector,$place)
-                    nodeList.forEach(node=>{node.classList.replace(selector,fValue)})
-                }
-            }
-        }
 }
 
 function getTemplateFragment($template){
@@ -87,9 +47,40 @@ function getTemplateFragment($template){
     return $templateContent
 }
 
+function addElement($place,field,data){
+    const paramsOfField = data.getParams(field)
+
+    for (const paramIndex in paramsOfField) {
+        const paramName = paramsOfField[paramIndex]
+        try {
+            const value = data[field][paramIndex].trim()
+            const nodeList = $place.querySelectorAll(getSelector(field,paramName))
+            nodeList.forEach(node=>
+                data[`add${capFirstLetter(field)}`](node,paramName,value)
+            )
+        } catch (error) {
+            console.log('error')
+        }
+
+    }
+}
+
+function capFirstLetter(word){
+    return word.charAt(0).toUpperCase()+ word.slice(1)
+}
+
+function getSelector(field,varName){
+    const selectors ={
+        classes: `.${varName}`,
+        texts: `[${varName}]`,
+        attributes : varName
+    }
+    return selectors[field]
+}
+
 function formatList($itemsList,$template){
     $itemsList.append('\n')
-    let $start = $template.previousSibling
+    const $start = $template.previousSibling
         let i=4;
         while(i!=0){
             $itemsList.removeChild($start.nextSibling)
