@@ -1,20 +1,51 @@
 /*кнопки*/
-.main-btn{
-	text-align: center;
+
+/*кнопка по умолчанию*/
+button{
 	border-radius: 10px;
+	padding:0px 10px;
+	font-size: 20px;
+	font-weight: 300;
+	color: var(--title-color);
+	background: var(--main-color);
+	height: 40px;
+	text-align: center;
+	border:1px solid var(--title-color);
+	transition: .3s;
+}
+
+button:hover{
+	border:1px solid var(--user-color);
 	background: var(--user-color);
+}
+/*кнопка по умолчанию*/
+
+/*ОГРОМНАЯ кнопка*/
+.btn-large{
+	font-weight: 300;
 	padding:0px 20px;
-	height: 50px;
-  	box-shadow: 7px 7px 0 -0.05em var(--main-color), 7px 7px var(--user-color);
-  	color: var(--title-color);
 	font-size: 24px;
+	height: 50px;
+}
+/*ОГРОМНАЯ кнопка*/
+
+/*Фирменные кнопки*/
+.main-btn{
+	padding:0px 20px;
+	font-size: 24px;
+	height: 50px;
 	font-weight: 400;
+	border:0px solid var(--title-color);
+	background: var(--user-color);
+  	box-shadow: 7px 7px 0 -0.05em var(--main-color), 7px 7px var(--user-color);
   	transition: 0.2s;
  	will-change: contents;
-	margin:5px 7px 7px 0px;
+	margin:7px 0px
 }
 
 .main-btn:hover{
+	border:0px solid var(--user-color);
+	background: var(--user-color);
 	box-shadow: 4px 4px 0 -0.05em var(--main-color), 4px 4px var(--user-color);
 	transform:translate(3px,3px);
 	opacity: 0.8;
@@ -26,7 +57,43 @@
 	opacity: 0.6;
 }
 
-.sml-btn{
+button[name='add']::before{
+	content:'+';
+	margin-right:6px;
+	margin-bottom: 1px;
+	transform: scale(1.5);
+}
+
+.fl-box-col[name='add']{
+	justify-content: center;
+}
+
+.fl-box-col[name='add']::before{
+	transform: scale(1.6);
+	content:'+';
+	margin:0px;
+	margin-bottom: 20px;
+	aspect-ratio: 1;
+	justify-content: center;
+	font-size: 36px;
+	line-height: 32px;
+	border-radius: 50px;
+	border: 1px solid var(--title-color);
+	transition: border .3s;
+}
+
+.fl-box-col[name='add']:hover{
+	color:var(--user-color);
+	background: transparent;
+}
+
+.fl-box-col[name='add']:hover::before{
+	border: 1px solid var(--user-color);
+
+}
+
+/*Круглые,фирменные кнопки*/
+.round-btn{
 	background: var(--title-color);
 	background-image: url('/svg/card-buttons/arrow-back.svg');
 	border-radius: 50px;
@@ -35,51 +102,55 @@
 	box-shadow: 4px 7px 0 -0.05em var(--main-color), 4px 7px var(--title-color);
 }
 
-.sml-btn:hover{
+.round-btn:hover{
+	background: var(--title-color);
+	background-image: url('/svg/card-buttons/arrow-back.svg');
 	transform:translate(2px,3px);
 	box-shadow: 2px 4px 0 -0.05em var(--main-color), 2px 4px var(--title-color);
 }
 
-.sml-btn:active{
+.round-btn:active{
 	transform:translate(4px,7px);
 	box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--title-color);
 }
 
-.sml-btn_red{
+.round-btn_red{
 	background: var(--red-color);
 	box-shadow: 4px 7px 0 -0.05em var(--main-color), 4px 7px var(--red-color);
 }
 
-
-.sml-btn_red:hover{
+.round-btn_red:hover{
+	background: var(--red-color);
 	box-shadow: 2px 4px 0 -0.05em var(--main-color), 2px 4px var(--red-color);
 }
 
-.sml-btn_red:active{
+.round-btn_red:active{
 	box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--red-color);
 }
-
-.sml-btn[name]{
+/*Кнопки с изображениями*/
+.round-btn[name]{
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 }
-
-.sml-btn[name='like']{
+/*Кнопка like*/
+.round-btn[name='like']{
 	background-image: url('/svg/card-buttons/heart/heart.svg');
 	background-size: 30px 30px;
 	transition: all .2s,background-image 0.3s ;
 }
 
-.sml-btn.fill-heart{
+.round-btn.fill-heart{
 	background-image: url('/svg/card-buttons/heart/heart-fill.svg');
 }
+/*Кнопка like*/
 
-
-
-.sml-btn[name='delete']{
+/*Кнопка delete*/
+.round-btn[name='delete']{
 	background-image: url('/svg/card-buttons/cross.svg');
 	background-size: 40px 40px;
 }
-
-
+/*Кнопка delete*/
+/*Кнопки с изображениями*/
+/*Круглые,фирменные кнопки*/
+/*Фирменные кнопки*/
 /*кнопки*/

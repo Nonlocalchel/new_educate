@@ -6,7 +6,7 @@
 	--unfocused-color:rgba(204, 204, 204, 1);
 	--description-color: rgba(255, 255, 255, 0.75);
 	--red-color: rgba(255,0,0,1.0);
-	--photo: url('/img/theme/moon.svg');
+	--photo: url('/svg/theme/moon.svg');
 	--font-weight:300;
 	--description-font-size:400;
 }
@@ -18,7 +18,7 @@
 	--text-color: rgba(0,0,0,1);
 	--unfocused-color:rgba(0,0,0,0.6);
 	--description-color: rgba(0,0,0,0.8);
-	--photo: url('/img/theme/sun.svg');
+	--photo: url('/svg/theme/sun.svg');
 	--font-weight:400;
 	--description-font-size:500;
 }

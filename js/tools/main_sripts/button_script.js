@@ -1,8 +1,8 @@
 //обработка клика на кнопки
-function addlisten(name,funcName){
+function addListen(name,funcName,event='mousedown'){
     try {
         const list = document.getElementsByName(name)
-        list.forEach($elem=>$elem.addEventListener('mousedown',funcName))
+        list.forEach($elem=>$elem.addEventListener(event,funcName))
     } catch (error) {
         console.log(console.error())
     }
@@ -19,13 +19,14 @@ function toggleClass(){
 }
 
 function alertMessage(){
-    alert('Это же просто пример')
+    setTimeout(() => alert('Это же просто пример'), 100);
 }
 
 const taskArray = [
-    ['like',toggleClass],
+    ['like',toggleClass,],
     ['delete',sendDeleteRequest],
     ['simple',alertMessage]
 ]
 
-taskArray.forEach((param)=>{addlisten(...param)})
+taskArray.forEach((param)=>{addListen(...param)})
+

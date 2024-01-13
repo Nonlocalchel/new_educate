@@ -1,7 +1,7 @@
 //кнопка скопировать 
 function copyText(event) {
   var copyText = event.target.nextElementSibling.firstElementChild.innerText;
-  navigator.clipboard.writeText(copyText)
+  navigator.clipboard.writeText(copyText.slice(0,-1))
   .then(() => {
     alert('Успешно скопировано!');
   })
@@ -17,7 +17,7 @@ const $containerCode=`
     <div class="pack-section__html color_back">
       <p>Html</p>
     </div>
-    <p class="copy" onclick="copyText(event)">Копировать</p>
+    <button class="btn-large copy" onclick="copyText(event)">Копировать</button>
     <div class="pack-section__code-text" data-simplebar>
       <div class="simple-container">
         <p class="code-here" id="myInput"></p>
@@ -25,19 +25,19 @@ const $containerCode=`
     </div>
   </div>`
 
-const packContainers = getAllElements('[show-code]')
+const packContainers = document.querySelectorAll('[show-code]')
 packContainers.forEach(pasteCodeToContainer)
 
 
 function pasteCodeToContainer($packContainer){
   $packContainer.insertAdjacentHTML('beforeend',$containerCode)
   const code = getCodeList($packContainer)
-  let $placeForCode = getElement('.code-here',$packContainer)
+  const $placeForCode = $packContainer.querySelector('.code-here')
   pasteText(code,$placeForCode)
 }
 
 function getCodeList($packContainer){
-  let codeList = getAllElements('[to-text]',$packContainer)
+  const codeList = $packContainer.querySelectorAll('[to-text]')
   codeList.forEach((element)=>element.removeAttribute('to-text'))
   return codeList
 }
@@ -52,9 +52,9 @@ function pasteText(list,place){
 }
 
 function toText($elem){
-  let text = new XMLSerializer().serializeToString($elem)+'\n'
-  let fText = format(text)
-  let coloredText = colorText(fText)
+  const text = new XMLSerializer().serializeToString($elem)+'\n'
+  const fText = format(text)
+  const coloredText = colorText(fText)
   return coloredText
 }
 
@@ -67,20 +67,28 @@ function colorText(text){//распознает элементы разметк�
       mode='tag'
       result+=boofer
       boofer=""
-    }else if(mode=="comment" || textSymbol=='!'){
+    }else if(mode=="comment" || textSymbol=='!' &&  mode=='tag'){
       if(textSymbol=='>' && boofer.slice(-3,-1)==' -'){//+комментарий
         mode='empty'
-        //result = result.slice(0, -1);если будет ошибка или то еще можно <> прибавлять раньше а тут удалять символ
-        result+= `<span class='color-comment'><span><</span>${boofer}></span>`
+        result+= `<span class='color-comment'><span><</span>${boofer}></span>`//result = result.slice(0, -1);если будет ошибка или то еще можно <> прибавлять раньше а тут удалять символ
         boofer=''
       }else{
         mode="comment"
         boofer+=textSymbol
       }
     }else if(textSymbol=='>' && mode=="tag"){
-      if(boofer!=''){//+закрывающий тэг
-        let tag = boofer.match(/\/(.*)/)[1]
-        result+=`<<span>/<span class="color-tag">${tag}</span>></span>`
+      if(boofer!=''){//+тэг
+        let tagMatch = boofer.match(/\/(.*)/)
+        let tag
+        if(tagMatch){//+закрывающий тэг
+          tag = boofer.match(/\/(.*)/)[1]
+          result+=`<<span>/<span class="color-tag">${tag}</span>></span>`
+        }else{//+открывающий тэг
+          tag = boofer
+          result+=`<<span class="color-tag">${tag}</span>>`
+          boofer = ''
+          mode='empty'
+        }
       }else{//+закрывающий >
         mode='empty'
         result+='>'
@@ -115,7 +123,7 @@ function colorText(text){//распознает элементы разметк�
 }
 
 function format(text){
-  let distance = getDistance(text)
+  const distance = getDistance(text)
   let ftext = text.replaceAll(' xmlns="http://www.w3.org/1999/xhtml"','')
   ftext =distance? ftext.replaceAll(`${distance}`,'<'):ftext
   return ftext

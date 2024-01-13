@@ -12,13 +12,16 @@ export class ItemsData{
         const paramsKeys = Object.keys(this.#params)
         const result = paramsKeys.indexOf(findingEllement.toLowerCase())
         const values = this.#values[result]
-        return values!=undefined?values.split(' ,'):false
+        return values!=undefined?values.split(' ,'):null
     }
     getParams(paramsType){
         return this.#params[paramsType].split(' ')
     }
-    addTexts($place,paramName,value){
+    addTexts($place,paramName,value,paramIndex){
         $place.removeAttribute(paramName)
+        if(!value){
+            return
+        }
         $place.innerText = value
     }
     addAttributes($place,paramName,value){
@@ -26,9 +29,14 @@ export class ItemsData{
         $place.setAttribute(tagAttribute, value)
     }
     addClasses($place,paramName,value){
-        const classes = value.split(' ')
         const listOfClasses = $place.classList
-        classes.forEach(className=>listOfClasses.add(className))
         listOfClasses.remove(paramName)
+        if(!value){
+            $place.removeAttribute('class')
+            return
+        }
+        const classes = value.split(' ')
+        classes.forEach(className=>listOfClasses.add(className))
+
     }
 }

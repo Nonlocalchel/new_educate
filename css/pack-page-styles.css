@@ -65,7 +65,7 @@
 	padding-bottom: 35px;
 }
 
-.pack-section__bordered-list .pack-section__item:nth-last-child(-2n+3){
+.pack-section__bordered-list .pack-section__item:nth-child(3n){
 	align-items: end;
 	justify-self: stretch;
 }
@@ -87,6 +87,7 @@
 	width:36px;
 	cursor: pointer;
 	background: var(--photo) 0 0/contain no-repeat;
+	/*filter: hue-rotate(90deg);*/
 }
 
 .circle-color {
@@ -139,15 +140,12 @@
 }
 
 .copy{
-	background: var(--main-color);
+	height: 50px;
+	font-size: 22px;
 	position: absolute;
 	right:25px;
 	top:130px;
-	padding:10px;
-	border: 1px solid var(--title-color);
-	border-radius: 8px;
-	transition:0.3s;
-	cursor:pointer;
+	padding:0px 10px 3px 13px;
 	z-index: 3;
 }
 
@@ -182,7 +180,12 @@ span.color-comment{
 	color:grey;
 }
 
-.btn-list{/*кнопка скопировать*/
+.btn-list button{
+	margin:5px 0px 7px 0px;
+}
+
+.btn-list .main-btn{
 	margin-right:10px;
 }
+
 /*код*/

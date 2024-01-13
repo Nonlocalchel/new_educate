@@ -49,17 +49,16 @@ function getTemplateFragment($template){
 
 function addElement($place,field,data){
     const paramsOfField = data.getParams(field)
-
     for (const paramIndex in paramsOfField) {
         const paramName = paramsOfField[paramIndex]
         try {
-            const value = data[field][paramIndex].trim()
+            const value = data[field][paramIndex]?data[field][paramIndex].trim():null
             const nodeList = $place.querySelectorAll(getSelector(field,paramName))
             nodeList.forEach(node=>
-                data[`add${capFirstLetter(field)}`](node,paramName,value)
+                data[`add${capFirstLetter(field)}`](node,paramName,value,paramIndex)//
             )
         } catch (error) {
-            console.log('error')
+            console.log(error)
         }
 
     }
