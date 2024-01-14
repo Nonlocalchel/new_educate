@@ -63,61 +63,60 @@ function colorText(text){//распознает элементы разметк�
   let boofer = ''
   let mode = 'empty'
   for (const textSymbol of text) {
-    if(textSymbol=='<' && mode=='empty'){
-      mode='tag'
-      result+=boofer
-      boofer=""
-    }else if(mode=="comment" || textSymbol=='!' &&  mode=='tag'){
-      if(textSymbol=='>' && boofer.slice(-3,-1)==' -'){//+комментарий
-        mode='empty'
-        result+= `<span class='color-comment'><span><</span>${boofer}></span>`//result = result.slice(0, -1);если будет ошибка или то еще можно <> прибавлять раньше а тут удалять символ
-        boofer=''
-      }else{
-        mode="comment"
-        boofer+=textSymbol
-      }
-    }else if(textSymbol=='>' && mode=="tag"){
-      if(boofer!=''){//+тэг
-        let tagMatch = boofer.match(/\/(.*)/)
-        let tag
-        if(tagMatch){//+закрывающий тэг
-          tag = boofer.match(/\/(.*)/)[1]
-          result+=`<<span>/<span class="color-tag">${tag}</span>></span>`
-        }else{//+открывающий тэг
-          tag = boofer
-          result+=`<<span class="color-tag">${tag}</span>>`
-          boofer = ''
-          mode='empty'
+      if(mode=='empty'){//empty
+        if(textSymbol=='<'){
+          boofer+=textSymbol
+          mode='tag'
+        }else{
+          result+=textSymbol
         }
-      }else{//+закрывающий >
-        mode='empty'
-        result+='>'
-        boofer = ''
+      }else if(mode=='tag'){//tag
+          if(textSymbol=='!' && boofer.slice(-1)=='<'){//comment
+              boofer=''+textSymbol
+              mode="comment"
+          }else if(textSymbol==' '){//attribute
+              let tag = boofer?boofer.match(/[\w]\w*/)[0]:''
+              result +=tag?`<<span class="color-tag">${tag}</span>`+" ":" "
+              mode='attributeName'
+              boofer=''
+          }else if(textSymbol=='>'){//end of tag
+            if(boofer.match(/\/(.*)/)){
+              let tag = boofer.match(/\/(.*)/)[1]
+              result+=tag?`<<span>/<span class="color-tag">${tag}</span>></span>`:'>'
+            }else{
+              let tag = boofer?boofer.slice(1,):''
+              result+=tag?`<<span class="color-tag">${tag}</span>`+'>':'>'
+            }
+            boofer=''
+            mode='empty'
+          }else{
+              boofer+=textSymbol
+          }
+      }else if(mode=='attributeName'){//attribute name
+          if(textSymbol=='='){
+              result += `<span class='color-attr'>${boofer}</span>=`
+              boofer =""
+              mode="attributeValue"
+          }else{
+              boofer+=textSymbol
+          }
+      }else if(mode=='attributeValue'){//attribute value
+          if(textSymbol=="\"" && boofer!=''){
+              result+=`<span class="color-attrValue">${boofer?'"'+boofer+'"':''}</span>`
+              boofer=''
+              mode="tag"
+          }else if(textSymbol!="\""){
+              boofer+=textSymbol
+          }
+      }else{//coment
+        if(textSymbol=='>' && boofer.slice(-3,-1)==' -'){//+комментарий
+          result+= `<span class='color-comment'><span><</span>${boofer}></span>`
+          boofer=''
+          mode='empty'
+      }else{
+          boofer+=textSymbol
       }
-    }else if(textSymbol==' ' && mode=='tag'){//+открывающий тэг
-      let tag = boofer?boofer.match(/[\w]\w*/)[0]:''
-      result +=tag?`<<span class="color-tag">${tag}</span>`+" ":" "
-      mode='attribute'
-      boofer=''
-    }else if(mode=="attribute" && textSymbol=='='){//+attribute
-      mode="tag"
-      result += `<span class='color-attr'>${boofer}</span>=`
-      boofer =""
-    }else if(textSymbol=="\""){
-      if(mode=="tag"){//+attributeValue
-        mode="attributeValue"
-      }else if(mode=="attributeValue"){
-        result = boofer?result:result.slice(0, -1);//удаление последнего символа из строки
-        result+=`<span class="color-attrValue">${boofer?'"'+boofer+'"':''}</span>`
-        mode="tag"
       }
-      boofer=""
-    }else if(textSymbol=='\t' || textSymbol=='\n'){//табуляция и новая строка
-      result+=textSymbol
-      boofer=''
-    }else{//прибавляем textSymboll(итератор)
-      boofer+=textSymbol
-    }
   }
   return result
 }

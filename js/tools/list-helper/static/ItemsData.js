@@ -17,26 +17,35 @@ export class ItemsData{
     getParams(paramsType){
         return this.#params[paramsType].split(' ')
     }
-    addTexts($place,paramName,value,paramIndex){
+    addTexts($place,paramName,valueIndex){
+        let value=this.texts[valueIndex]
         $place.removeAttribute(paramName)
         if(!value){
             return
+        }else{
+            $place.innerText = value.trim()
         }
-        $place.innerText = value
     }
-    addAttributes($place,paramName,value){
+    addAttributes($place,paramName,valueIndex){
+        let value=this.attributes[valueIndex]
         const tagAttribute = paramName.match(/\[(\w*)\W/)[1]
-        $place.setAttribute(tagAttribute, value)
+        if(!value){
+            $place.removeAttribute(tagAttribute)
+            return
+        }else{
+            $place.setAttribute(tagAttribute, value.trim())
+        }
     }
-    addClasses($place,paramName,value){
+    addClasses($place,paramName,valueIndex){
+        let value=this.classes[valueIndex]
         const listOfClasses = $place.classList
         listOfClasses.remove(paramName)
         if(!value){
             $place.removeAttribute('class')
             return
+        }else{
+            const classes = value.trim().split(' ')
+            classes.forEach(className=>listOfClasses.add(className))
         }
-        const classes = value.split(' ')
-        classes.forEach(className=>listOfClasses.add(className))
-
     }
 }

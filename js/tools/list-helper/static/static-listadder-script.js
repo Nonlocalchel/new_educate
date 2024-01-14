@@ -35,7 +35,7 @@ function fillFragment(data,$template){
     const $templateFragment = getTemplateFragment($template);
     for (const key in data) {
         if(!!data[key]){
-            addElement($templateFragment,key,data)
+            addElementsToFragment($templateFragment,key,data)
         }
     }
     return $templateFragment
@@ -47,15 +47,15 @@ function getTemplateFragment($template){
     return $templateContent
 }
 
-function addElement($place,field,data){
+function addElementsToFragment($place,field,data){
     const paramsOfField = data.getParams(field)
     for (const paramIndex in paramsOfField) {
         const paramName = paramsOfField[paramIndex]
         try {
-            const value = data[field][paramIndex]?data[field][paramIndex].trim():null
+            //const value = data[field][paramIndex]?data[field][paramIndex].trim():null
             const nodeList = $place.querySelectorAll(getSelector(field,paramName))
             nodeList.forEach(node=>
-                data[`add${capFirstLetter(field)}`](node,paramName,value,paramIndex)//
+                data[`add${capFirstLetter(field)}`](node,paramName,paramIndex)//
             )
         } catch (error) {
             console.log(error)
