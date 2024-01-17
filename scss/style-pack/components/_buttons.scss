@@ -12,12 +12,12 @@ button{
 	text-align: center;
 	border:1px solid var(--title-color);
 	transition: .3s;
+	&:hover{
+		border:1px solid var(--user-color);
+		background: var(--user-color);
+	}
 }
 
-button:hover{
-	border:1px solid var(--user-color);
-	background: var(--user-color);
-}
 /*кнопка по умолчанию*/
 
 /*ОГРОМНАЯ кнопка*/
@@ -40,21 +40,19 @@ button:hover{
   	box-shadow: 7px 7px 0 -0.05em var(--main-color), 7px 7px var(--user-color);
   	transition: 0.2s;
  	will-change: contents;
-	margin:7px 0px
-}
-
-.main-btn:hover{
-	border:0px solid var(--user-color);
-	background: var(--user-color);
-	box-shadow: 4px 4px 0 -0.05em var(--main-color), 4px 4px var(--user-color);
-	transform:translate(3px,3px);
-	opacity: 0.8;
-}
-
-.main-btn:active{
-	box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--user-color);
-	transform:translate(7px,7px);
-	opacity: 0.6;
+	margin:7px 0px;
+	&:hover{
+		border:0px solid var(--user-color);
+		background: var(--user-color);
+		box-shadow: 4px 4px 0 -0.05em var(--main-color), 4px 4px var(--user-color);
+		transform:translate(3px,3px);
+		opacity: 0.8;
+	}
+	&:active{
+		box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--user-color);
+		transform:translate(7px,7px);
+		opacity: 0.6;
+	}
 }
 
 button[name='add']::before{
@@ -66,30 +64,26 @@ button[name='add']::before{
 
 .fl-box-col[name='add']{
 	justify-content: center;
-}
-
-.fl-box-col[name='add']::before{
-	transform: scale(1.6);
-	content:'+';
-	margin:0px;
-	margin-bottom: 20px;
-	aspect-ratio: 1;
-	justify-content: center;
-	font-size: 36px;
-	line-height: 32px;
-	border-radius: 50px;
-	border: 1px solid var(--title-color);
-	transition: border .3s;
-}
-
-.fl-box-col[name='add']:hover{
-	color:var(--user-color);
-	background: transparent;
-}
-
-.fl-box-col[name='add']:hover::before{
-	border: 1px solid var(--user-color);
-
+	&::before{
+		transform: scale(1.6);
+		content:'+';
+		margin:0px;
+		margin-bottom: 20px;
+		aspect-ratio: 1;
+		justify-content: center;
+		font-size: 36px;
+		line-height: 32px;
+		border-radius: 50px;
+		border: 1px solid var(--title-color);
+		transition: border .3s;
+	}
+	&:hover{
+		color:var(--user-color);
+		background: transparent;
+	}
+	&:hover::before{
+		border: 1px solid var(--user-color);
+	}
 }
 
 /*Круглые,фирменные кнопки*/
@@ -100,33 +94,32 @@ button[name='add']::before{
 	width:50px;
 	padding:0px;
 	box-shadow: 4px 7px 0 -0.05em var(--main-color), 4px 7px var(--title-color);
-}
-
-.round-btn:hover{
-	background: var(--title-color);
-	background-image: url('/svg/card-buttons/arrow-back.svg');
-	transform:translate(2px,3px);
-	box-shadow: 2px 4px 0 -0.05em var(--main-color), 2px 4px var(--title-color);
-}
-
-.round-btn:active{
-	transform:translate(4px,7px);
-	box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--title-color);
+	&:hover{
+		background: var(--title-color);
+		background-image: url('/svg/card-buttons/arrow-back.svg');
+		transform:translate(2px,3px);
+		box-shadow: 2px 4px 0 -0.05em var(--main-color), 2px 4px var(--title-color);
+	}
+	&:active{
+		transform:translate(4px,7px);
+		box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--title-color);
+	}
+	
 }
 
 .round-btn_red{
 	background: var(--red-color);
 	box-shadow: 4px 7px 0 -0.05em var(--main-color), 4px 7px var(--red-color);
+	&:hover{
+		background: var(--red-color);
+		box-shadow: 2px 4px 0 -0.05em var(--main-color), 2px 4px var(--red-color);
+	}
+	&:active{
+		box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--red-color);
+	}
 }
 
-.round-btn_red:hover{
-	background: var(--red-color);
-	box-shadow: 2px 4px 0 -0.05em var(--main-color), 2px 4px var(--red-color);
-}
 
-.round-btn_red:active{
-	box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--red-color);
-}
 /*Кнопки с изображениями*/
 .round-btn[name]{
 	background-repeat: no-repeat;

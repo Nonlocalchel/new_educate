@@ -10,6 +10,9 @@
 	align-items: center;
 	justify-content: space-around;
 	flex-wrap: wrap;
+	>.example-box{
+		margin:15px 20px;
+	}
 }
 
 .fl-box-btwn{
@@ -19,22 +22,18 @@
 	justify-content: space-between;
 }
 
-.fl-box>.example-box{
-	margin:15px 20px;
-}
-
 .fl-box-col{
 	display: flex;
 	flex-direction: column;
 	align-items:  center;
 	justify-content: space-evenly;
 	height: 100%;
+	>.example-box{
+		max-width: 160px;
+		height: 30px;
+	}
 }
 
-.fl-box-col>.example-box{
-	max-width: 160px;
-	height: 30px;
-}
 /*блок-flex*/
 
 /*блок-grid*/
@@ -43,13 +42,12 @@
 	align-items: center;
 	justify-content: space-between;
 	grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-		
+	>.example-box{
+		justify-self: center;
+		margin:15px 20px;
+	}
 }
 
-.gr-box>.example-box{
-	justify-self: center;
-	margin:15px 20px;
-}
 /*блок-grid*/
 
 /*блок-пример*/

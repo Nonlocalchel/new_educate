@@ -1,0 +1,19 @@
+svg:hover path{
+    stroke:red;
+
+}
+
+svg:hover{
+    cursor: pointer;
+}
+
+svg{
+    width:36px;
+    height:36px
+}
+
+svg:hover use{
+    fill:green;
+    width:36px;
+    height:36px
+ }

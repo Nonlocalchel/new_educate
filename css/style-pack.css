@@ -1,0 +1,763 @@
+@charset "UTF-8";
+/*Обнуление*/
+.terfv {
+  color: green;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*--------------------*/
+/*сброс стилей*/
+/*цвета меняемые из js*/
+:root {
+  --main-color:rgba(0,0,0,1);
+  --title-color:rgba(255, 255, 255, 1.0);
+  --text-color: rgba(255, 255, 255, 0.8);
+  --unfocused-color:rgba(204, 204, 204, 1);
+  --description-color: rgba(255, 255, 255, 0.75);
+  --red-color: rgba(255,0,0,1.0);
+  --photo: url("/svg/theme/moon.svg");
+  --font-weight:300;
+  --description-font-size:400;
+}
+
+.light-theme {
+  --main-color:rgba(255, 255, 255, 1.0);
+  --title-color:rgba(0,0,0,1);
+  --text-color: rgba(0,0,0,1);
+  --unfocused-color:rgba(0,0,0,0.6);
+  --description-color: rgba(0,0,0,0.8);
+  --photo: url("/svg/theme/sun.svg");
+  --font-weight:400;
+  --description-font-size:500;
+}
+
+/*Основные цвета*/
+.color_back {
+  background: var(--main-color);
+}
+
+.color_user {
+  background: var(--user-color);
+}
+
+.color_title {
+  background: var(--title-color);
+}
+
+.color_text {
+  background: var(--text-color);
+}
+
+.color_unfocused {
+  background: var(--unfocused-color);
+}
+
+.color_description {
+  background: var(--description-color);
+}
+
+/*Основные цвета*/
+/*пользовательские оттенки*/
+:root {
+  --user-color:rgba(229, 167, 13, 1.0);
+}
+
+/*цветовая схема*/
+[data-simplebar] {
+  position: relative;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.simplebar-wrapper {
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+  max-width: inherit;
+  max-height: inherit;
+}
+
+.simplebar-mask {
+  direction: inherit;
+  position: absolute;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: auto !important;
+  height: auto !important;
+  z-index: 0;
+}
+
+.simplebar-offset {
+  direction: inherit !important;
+  box-sizing: inherit !important;
+  resize: none !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.simplebar-content-wrapper {
+  direction: inherit;
+  box-sizing: border-box !important;
+  position: relative;
+  display: block;
+  height: 100%; /* Required for horizontal native scrollbar to not appear if parent is taller than natural height */
+  width: auto;
+  max-width: 100%; /* Not required for horizontal scroll to trigger */
+  max-height: 100%; /* Needed for vertical scroll to trigger */
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.simplebar-content-wrapper::-webkit-scrollbar,
+.simplebar-hide-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.simplebar-content:before,
+.simplebar-content:after {
+  content: " ";
+  display: table;
+}
+
+.simplebar-placeholder {
+  max-height: 100%;
+  max-width: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+
+.simplebar-height-auto-observer-wrapper {
+  box-sizing: inherit !important;
+  height: 100%;
+  width: 100%;
+  max-width: 1px;
+  position: relative;
+  float: left;
+  max-height: 1px;
+  overflow: hidden;
+  z-index: -1;
+  padding: 0;
+  margin: 0;
+  pointer-events: none;
+  flex-grow: inherit;
+  flex-shrink: 0;
+  flex-basis: 0;
+}
+
+.simplebar-height-auto-observer {
+  box-sizing: inherit;
+  display: block;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1000%;
+  width: 1000%;
+  min-height: 1px;
+  min-width: 1px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.simplebar-track {
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+[data-simplebar].simplebar-dragging {
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+[data-simplebar].simplebar-dragging .simplebar-content {
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+[data-simplebar].simplebar-dragging .simplebar-track {
+  pointer-events: all;
+}
+
+.simplebar-scrollbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  min-height: 10px;
+}
+
+.simplebar-scrollbar:before {
+  position: absolute;
+  content: "";
+  background: black;
+  border-radius: 7px;
+  left: 2px;
+  right: 2px;
+  opacity: 0;
+  transition: opacity 0.2s 0.5s linear;
+}
+
+.simplebar-scrollbar.simplebar-visible:before {
+  opacity: 0.5;
+  transition-delay: 0s;
+  transition-duration: 0s;
+}
+
+.simplebar-track.simplebar-vertical {
+  top: 0;
+  width: 11px;
+}
+
+.simplebar-scrollbar:before {
+  top: 2px;
+  bottom: 2px;
+  left: 2px;
+  right: 2px;
+}
+
+.simplebar-track.simplebar-horizontal {
+  left: 0;
+  height: 11px;
+}
+
+.simplebar-track.simplebar-horizontal .simplebar-scrollbar {
+  right: auto;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  min-height: 0;
+  min-width: 10px;
+  width: auto;
+}
+
+/* Rtl support */
+[data-simplebar-direction=rtl] .simplebar-track.simplebar-vertical {
+  right: auto;
+  left: 0;
+}
+
+.simplebar-dummy-scrollbar-size {
+  direction: rtl;
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  height: 500px;
+  width: 500px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  -ms-overflow-style: scrollbar !important;
+}
+
+.simplebar-dummy-scrollbar-size > div {
+  width: 200%;
+  height: 200%;
+  margin: 10px 0;
+}
+
+.simplebar-hide-scrollbar {
+  position: fixed;
+  left: 0;
+  visibility: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/*кастомный скролл*/
+/* скролл */
+/* default скролл */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--main-color);
+  opacity: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #999999;
+  border-radius: 10px;
+  border: 5px solid var(--main-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--user-color);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: var(--main-color);
+}
+
+/* default скролл */
+/* кастомный скролл */
+[data-simplebar]::-webkit-scrollbar { /* убираем default скролл при наличии кастомного */
+  width: 0px;
+  border-radius: 25px;
+  position: absolute;
+}
+
+.simplebar-track.simplebar-vertical {
+  width: 10px;
+  margin: 10px 5px 10px;
+}
+
+.simplebar-scrollbar.simplebar-visible::before {
+  opacity: 1;
+  background-color: var(--user-color);
+}
+.simplebar-scrollbar:before {
+  opacity: 1;
+  background-color: #999999;
+}
+
+.simplebar-dragging .simplebar-scrollbar:before {
+  background-color: var(--user-color);
+}
+
+/* кастомный скролл */
+/* скролл */
+/*кастомный скролл,настройки*/
+/*подключаем шрифты*/
+@font-face {
+  font-family: "Noto Sans";
+  src: url("/fonts/NotoSans-Medium.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url("/fonts/NotoSans-Light.ttf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url("/fonts/NotoSans-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: url("/fonts/NotoSans-Bold.ttf");
+  font-weight: 700;
+}
+/*подключаем шрифты*/
+/*текст,загололвки,типография*/
+/*типография*/
+/*Заголовки*/
+h1, .h1 {
+  font-weight: 700;
+  font-size: 26px;
+}
+
+h2, .h2 {
+  font-weight: 700;
+  font-size: 36px;
+}
+
+h3, .h3 {
+  font-weight: 500;
+  font-size: 36px;
+}
+
+h4, .h4 {
+  font-weight: 700;
+  font-size: 26px;
+}
+
+h5, .h5 {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+h6, .h6 {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/*Заголовки*/
+/*текст*/
+p {
+  font-weight: var(--font-weight);
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.form-text {
+  font-weight: 400;
+}
+
+.result-text {
+  font-weight: var(--description-font-size);
+  font-size: 12px;
+  color: var(--description-color);
+}
+
+a {
+  border-bottom: 1px solid var(--title-color);
+  transition: 0.3s;
+  color: var(--title-color);
+}
+
+a:hover {
+  border-bottom: 1px solid var(--user-color);
+  color: var(--user-color);
+}
+
+/*текст*/
+/*типография*/
+/*текст,загололвки,типография*/
+/*блок-граница*/
+.brd-box {
+  border: 1px solid var(--title-color);
+  border-radius: 10px;
+}
+
+/*блок-flex*/
+.fl-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.fl-box > .example-box {
+  margin: 15px 20px;
+}
+
+.fl-box-btwn {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.fl-box-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+}
+.fl-box-col > .example-box {
+  max-width: 160px;
+  height: 30px;
+}
+
+/*блок-flex*/
+/*блок-grid*/
+.gr-box {
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.gr-box > .example-box {
+  justify-self: center;
+  margin: 15px 20px;
+}
+
+/*блок-grid*/
+/*блок-пример*/
+.example-box {
+  width: 200px;
+  height: 300px;
+}
+
+/*блок-пример*/
+/*контейнеры*/
+/*елементарные стили*/
+/*стили компонентов*/
+/*кнопки*/
+/*кнопка по умолчанию*/
+button {
+  border-radius: 10px;
+  padding: 0px 10px;
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--title-color);
+  background: var(--main-color);
+  height: 40px;
+  text-align: center;
+  border: 1px solid var(--title-color);
+  transition: 0.3s;
+}
+button:hover {
+  border: 1px solid var(--user-color);
+  background: var(--user-color);
+}
+
+/*кнопка по умолчанию*/
+/*ОГРОМНАЯ кнопка*/
+.btn-large {
+  font-weight: 300;
+  padding: 0px 20px;
+  font-size: 24px;
+  height: 50px;
+}
+
+/*ОГРОМНАЯ кнопка*/
+/*Фирменные кнопки*/
+.main-btn {
+  padding: 0px 20px;
+  font-size: 24px;
+  height: 50px;
+  font-weight: 400;
+  border: 0px solid var(--title-color);
+  background: var(--user-color);
+  box-shadow: 7px 7px 0 -0.05em var(--main-color), 7px 7px var(--user-color);
+  transition: 0.2s;
+  will-change: contents;
+  margin: 7px 0px;
+}
+.main-btn:hover {
+  border: 0px solid var(--user-color);
+  background: var(--user-color);
+  box-shadow: 4px 4px 0 -0.05em var(--main-color), 4px 4px var(--user-color);
+  transform: translate(3px, 3px);
+  opacity: 0.8;
+}
+.main-btn:active {
+  box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--user-color);
+  transform: translate(7px, 7px);
+  opacity: 0.6;
+}
+
+button[name=add]::before {
+  content: "+";
+  margin-right: 6px;
+  margin-bottom: 1px;
+  transform: scale(1.5);
+}
+
+.fl-box-col[name=add] {
+  justify-content: center;
+}
+.fl-box-col[name=add]::before {
+  transform: scale(1.6);
+  content: "+";
+  margin: 0px;
+  margin-bottom: 20px;
+  aspect-ratio: 1;
+  justify-content: center;
+  font-size: 36px;
+  line-height: 32px;
+  border-radius: 50px;
+  border: 1px solid var(--title-color);
+  transition: border 0.3s;
+}
+.fl-box-col[name=add]:hover {
+  color: var(--user-color);
+  background: transparent;
+}
+.fl-box-col[name=add]:hover::before {
+  border: 1px solid var(--user-color);
+}
+
+/*Круглые,фирменные кнопки*/
+.round-btn {
+  background: var(--title-color);
+  background-image: url("/svg/card-buttons/arrow-back.svg");
+  border-radius: 50px;
+  width: 50px;
+  padding: 0px;
+  box-shadow: 4px 7px 0 -0.05em var(--main-color), 4px 7px var(--title-color);
+}
+.round-btn:hover {
+  background: var(--title-color);
+  background-image: url("/svg/card-buttons/arrow-back.svg");
+  transform: translate(2px, 3px);
+  box-shadow: 2px 4px 0 -0.05em var(--main-color), 2px 4px var(--title-color);
+}
+.round-btn:active {
+  transform: translate(4px, 7px);
+  box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--title-color);
+}
+
+.round-btn_red {
+  background: var(--red-color);
+  box-shadow: 4px 7px 0 -0.05em var(--main-color), 4px 7px var(--red-color);
+}
+.round-btn_red:hover {
+  background: var(--red-color);
+  box-shadow: 2px 4px 0 -0.05em var(--main-color), 2px 4px var(--red-color);
+}
+.round-btn_red:active {
+  box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--red-color);
+}
+
+/*Кнопки с изображениями*/
+.round-btn[name] {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+/*Кнопка like*/
+.round-btn[name=like] {
+  background-image: url("/svg/card-buttons/heart/heart.svg");
+  background-size: 30px 30px;
+  transition: all 0.2s, background-image 0.3s;
+}
+
+.round-btn.fill-heart {
+  background-image: url("/svg/card-buttons/heart/heart-fill.svg");
+}
+
+/*Кнопка like*/
+/*Кнопка delete*/
+.round-btn[name=delete] {
+  background-image: url("/svg/card-buttons/cross.svg");
+  background-size: 40px 40px;
+}
+
+/*Кнопка delete*/
+/*Кнопки с изображениями*/
+/*Круглые,фирменные кнопки*/
+/*Фирменные кнопки*/
+/*кнопки*/
+/*контейнеры*/
+/*стили компонентов*/
+/*тело сайта*/
+body {
+  zoom: 100%;
+  height: 100%;
+  color: var(--title-color);
+  /*scroll-behavior: smooth;-сделать в js*/
+}
+body ::-moz-selection {
+  background: var(--user-color);
+}
+body ::selection {
+  background: var(--user-color);
+}
+
+body.lock {
+  overflow: hidden;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-color);
+  font-family: "Noto Sans";
+  overflow: auto;
+}
+
+/*контент сайта*/
+*[data-simplebar] {
+  overflow: auto;
+}
+
+/* Основная часть */
+main {
+  flex: 1 1 auto;
+}
+
+.container {
+  max-width: 1130px;
+  margin: 0px auto;
+}
+
+/*общие нстройки секций*/
+section:not(:last-child) [class*=__content]:first-child {
+  border-bottom: 1px solid var(--title-color);
+}
+section h3 {
+  margin: 35px 0;
+}
+
+/*общие нстройки секций*/
