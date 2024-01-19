@@ -1,33 +1,39 @@
 //изменение цветовой схемы
-let $themeButton = getElement('.color-head__theme-icon')
+let $themeSVG = document.querySelector('.color-theme')
 
 let localDataTheme = localStorage.getItem('theme')
 
 setTheme(localDataTheme)
 
-$themeButton.addEventListener('click',event=>{
-    event.preventDefault();
-    toggleTheme();
-})
+if($themeSVG){
+    $themeSVG.addEventListener('click',event=>{
+        event.preventDefault();
+        toggleTheme();
+    })
+}
 
 function toggleTheme(){
-    if(localStorage.getItem('theme')=='light-theme'){
-        setTheme('dark-theme')
+    if(localStorage.getItem('theme')!='light'){
+        setTheme('light')
     }else{
-        setTheme('light-theme')
+        setTheme('dark')
     }
 }
 
 function setTheme(theme){
-    document.querySelector('body').classList=theme
-    saveThemeInCache(theme)
-}
-
-function saveThemeInCache(theme){
+    document.querySelector('body').classList=`${theme}-theme`
+    $themeSVG?setSVG(theme):5
     localStorage.setItem('theme',theme)
 }
-//изменение цветовой схемы
 
+function setSVG(theme){
+    let $themeSVGName=theme=='dark'?'moon':'sun'
+    let $useThemeSVG=$themeSVG.firstElementChild
+    $useThemeSVG.setAttribute('xlink:href',`/svg/theme/${$themeSVGName}.svg#${$themeSVGName}`)
+}
+
+//изменение цветовой схемы
+/*
 let userColor=setUserColors(getPropertyValue('--user-color'))//основной цвет,пользовательский 
 
 function getAllColors(varName){
@@ -69,3 +75,4 @@ function getAllElements(elemSelector,$place=document){
     return $place.querySelectorAll(elemSelector)
 }
 
+*/

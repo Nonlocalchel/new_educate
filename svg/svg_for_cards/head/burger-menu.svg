@@ -1,0 +1,5 @@
+<svg id='burger_menu' viewBox="0 1 16 16" xmlns="http://www.w3.org/2000/svg"  stroke-width="1" stroke-linecap="round">
+    <path d="M2.25 5.25H15.75"/>
+    <path d="M2.25 9H15.75"/>
+    <path d="M2.25 12.75H15.75"/>
+</svg>

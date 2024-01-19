@@ -1,0 +1,59 @@
+/*svg иконки*/
+/*общие настройки*/
+svg{
+    width: 18px;
+    height:18px;
+    stroke:currentColor;
+    fill: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover{
+        stroke:var(--user-color);
+    }
+}
+
+svg.big{
+    width: 26px;
+    height:26px;
+}
+/*общие настройки*/
+/*индивидуальные настройки*/
+.color-theme{
+    width: 36px;
+    height:36px;
+    transition: 0s;
+    &:hover{
+        stroke:currentColor;
+    }
+}
+
+svg.large{
+    width: 38px;
+    height:38px;
+    border-radius: 25px;
+    transition: .45s;
+    fill: var(--title-color);
+    stroke:transparent;
+	cursor: pointer;
+    &:hover{
+        fill:var(--main-color);
+        stroke:transparent;
+        background: var(--title-color);
+    }
+    &[name='close']:active{
+        fill:var(--main-color);
+        background: var(--red-color);
+    }
+    &[name='show_more']:active{
+        fill:var(--main-color);
+        background: var(--user-color);
+        
+    }
+}
+
+a[name='svg_link']{
+    border-bottom: 0px solid green;
+}
+
+/*индивидуальные настройки*/
+/*svg иконки*/

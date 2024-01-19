@@ -17,7 +17,7 @@ const $containerCode=`
     <div class="pack-section__html color_back">
       <p>Html</p>
     </div>
-    <button class="btn-large copy" onclick="copyText(event)">Копировать</button>
+    <button class="simple-btn btn-large copy" onclick="copyText(event)">Копировать</button>
     <div class="pack-section__code-text" data-simplebar>
       <div class="simple-container">
         <p class="code-here" id="myInput"></p>
@@ -70,7 +70,7 @@ function colorText(text){//распознает элементы разметк�
         }else{
           result+=textSymbol
         }
-      }else if(mode=='tag'){//tag
+      }else if(mode=='tag' || mode=='attributeValue' && textSymbol=='>'){//tag
           if(textSymbol=='!' && boofer.slice(-1)=='<'){//comment
               boofer=''+textSymbol
               mode="comment"
@@ -123,7 +123,8 @@ function colorText(text){//распознает элементы разметк�
 
 function format(text){
   const distance = getDistance(text)
-  let ftext = text.replaceAll(' xmlns="http://www.w3.org/1999/xhtml"','')
+  let regex = /\sxmlns.*=\"http:\/\/www.w3.org\/\d*\/\w*\"/g
+  let ftext = text.replaceAll(regex,'').replaceAll('> <','><')
   ftext =distance? ftext.replaceAll(`${distance}`,'<'):ftext
   return ftext
 }

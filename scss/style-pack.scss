@@ -1,5 +1,6 @@
 @import "style-pack/reset";/*сброс стилей*/
 
+/*елементарные стили*/
 @import "style-pack/common/color-sceme";/*цветовая схема*/
 @import "style-pack/common/scroll/simplebar";/*кастомный скролл*/
 @import "style-pack/common/scroll/scroll";/*кастомный скролл,настройки*/
@@ -9,7 +10,9 @@
 /*елементарные стили*/
 
 /*стили компонентов*/
-@import "style-pack/components/buttons";/*контейнеры*/
+@import "style-pack/components/buttons";/*кнопки*/
+@import "style-pack/components/svgs";/*svg*/
+@import "style-pack/components/audio-player";/*svg*/
 /*стили компонентов*/
 
 /*тело сайта*/

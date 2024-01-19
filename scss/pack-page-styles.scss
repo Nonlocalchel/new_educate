@@ -1,3 +1,7 @@
+.color-theme{
+	margin-left: 6px;
+}
+
 .pack-section{
     .pack-section__content:first-child{
 	padding-bottom: 40px;
@@ -17,7 +21,7 @@
 	height: 300px;
 	>div:not([data-simplebar]){
 		height: 100%;
-		border-bottom: 1px solid var(--title-color);
+		border-bottom: 1px solid currentColor;
 	}
 	div[data-simplebar]{
 		height: 300px;
@@ -30,33 +34,37 @@
 /*ограничительные контенеры*/
 
 /*списки*/
-/*горизонтальный список*/
+/*вертикальный список*/
 .pack-section__list{
-	border:1px solid var(--title-color);
+	border:1px solid currentColor;
 	border-radius:10px;
 	padding:0px 20px;
 	>li {
 		padding:20px 0px 19px 0px;
-		border-bottom:1px solid var(--title-color);
+		border-bottom:1px solid currentColor;
 		justify-content: space-between;
 	}
-	>li:last-of-type{
+	>li:last-of-type{/*?*/
 		border-bottom:1px solid transparent;
 	}
 }
 
 
-/*горизонтальный*/
-
 /*вертикальный список*/
+
+/*горизонтальный список*/
 .pack-section__bordered-list{
 	display: grid;
 	grid-template-columns: repeat(auto-fit,minmax(300px,3fr));
 	.pack-section__item{
 		padding-bottom: 35px;
+		ul{
+			justify-content: start;
+		}
 	}
+	
 	.pack-section__item:not(:nth-child(3n+1)){
-		border-left: 1px solid var(--title-color);
+		border-left: 1px solid currentColor;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -64,14 +72,24 @@
 	}
 	.pack-section__item:nth-child(3n){
 		align-items: end;
+		justify-self: end;
+		ul{
+			justify-content: end;
+		}
+	}
+	.pack-section__item:last-child{
+		align-items: end;
 		justify-self: stretch;
+		ul{
+			justify-content: end;
+		}
 	}
 }
 
 .large-item{
 	grid-column: span 2;
 }
-/*вертикальный*/
+/*горизонтальный список*/
 /*списки*/
 
 /*Цвета*/
@@ -95,11 +113,17 @@
 	div{
 		max-width:100%;
 		height:100%;
-		border: 2px solid var(--title-color);
+		border: 2px solid currentColor;
 		border-radius: 10px;
 	}
 }
 /*Цвета*/
+
+/*SVG*/
+.svg-list svg{
+	margin: 5px;
+}
+/*SVG*/
 
 /* текст примера */
 .example-text{
@@ -116,7 +140,7 @@
 .pack-section__html {
 	display:inline-block;
 	padding:10px 20px;
-	border:1px solid var(--title-color);
+	border:1px solid currentColor;
 	border-bottom:0px;
 	border-radius: 10px 10px 0px 0px;
 	position: relative;
@@ -129,7 +153,7 @@
 }
 
 .pack-section__code-text{
-	border: 1px solid var(--title-color);
+	border: 1px solid currentColor;
 	border-radius:0px 10px 10px 10px;
 	padding:15px 20px;
 	max-height: 300px; 
@@ -146,7 +170,7 @@
 	padding:0px 10px 3px 13px;
 	z-index: 3;
 	&:hover{
-		border: 1px solid var(--user-color);
+		border: 1px solid transparent;
 		background: var(--user-color);
 	}
 }
@@ -182,7 +206,13 @@ span.color-comment{
 	} 
 	.main-btn{
 		margin-right:10px;
+		margin-left: 10px;
 	}
+
+}
+
+.add-buttons-list li:last-child {
+	margin-top:12px
 }
 
 /*код*/

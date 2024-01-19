@@ -28,11 +28,12 @@ export class ItemsData{
     }
     addAttributes($place,paramName,valueIndex){
         let value=this.attributes[valueIndex]
-        const tagAttribute = paramName.match(/\[(\w*)\W/)[1]
+        const tagAttribute = paramName.match('%')?paramName.match('%(.*)')[1]:paramName.match(/\[(.*)\]/)[1]
         if(!value){
             $place.removeAttribute(tagAttribute)
             return
         }else{
+
             $place.setAttribute(tagAttribute, value.trim())
         }
     }

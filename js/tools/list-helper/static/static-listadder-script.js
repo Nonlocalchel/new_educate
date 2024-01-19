@@ -68,11 +68,11 @@ function capFirstLetter(word){
     return word.charAt(0).toUpperCase()+ word.slice(1)
 }
 
-function getSelector(field,varName){
+function getSelector(field,dataString){
     const selectors ={
-        classes: `.${varName}`,
-        texts: `[${varName}]`,
-        attributes : varName
+        classes: `.${dataString}`,
+        texts: `[${dataString}]`,
+        attributes : dataString.match('%')?dataString.match('(.*)%')[1]:dataString
     }
     return selectors[field]
 }

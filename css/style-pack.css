@@ -1,9 +1,5 @@
 @charset "UTF-8";
 /*Обнуление*/
-.terfv {
-  color: green;
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -77,12 +73,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /*--------------------*/
 /*сброс стилей*/
+/*елементарные стили*/
 /*цвета меняемые из js*/
 :root {
   --main-color:rgba(0,0,0,1);
   --title-color:rgba(255, 255, 255, 1.0);
   --text-color: rgba(255, 255, 255, 0.8);
-  --unfocused-color:rgba(204, 204, 204, 1);
+  --unfocused-color:rgba(204, 204, 204, 1.0);
   --description-color: rgba(255, 255, 255, 0.75);
   --red-color: rgba(255,0,0,1.0);
   --photo: url("/svg/theme/moon.svg");
@@ -129,7 +126,8 @@ h1, h2, h3, h4, h5, h6 {
 /*Основные цвета*/
 /*пользовательские оттенки*/
 :root {
-  --user-color:rgba(229, 167, 13, 1.0);
+  --root-user-color:229 167 13;
+  --user-color:rgb(var(--root-user-color)/1.0);
 }
 
 /*цветовая схема*/
@@ -503,7 +501,7 @@ a:hover {
 /*текст,загололвки,типография*/
 /*блок-граница*/
 .brd-box {
-  border: 1px solid var(--title-color);
+  border: 1px solid currentColor;
   border-radius: 10px;
 }
 
@@ -563,19 +561,19 @@ a:hover {
 /*стили компонентов*/
 /*кнопки*/
 /*кнопка по умолчанию*/
-button {
+.simple-btn, .main-btn {
   border-radius: 10px;
   padding: 0px 10px;
   font-size: 20px;
   font-weight: 300;
   color: var(--title-color);
   background: var(--main-color);
-  height: 40px;
+  min-height: 40px;
   text-align: center;
   border: 1px solid var(--title-color);
   transition: 0.3s;
 }
-button:hover {
+.simple-btn:hover, .main-btn:hover {
   border: 1px solid var(--user-color);
   background: var(--user-color);
 }
@@ -583,7 +581,6 @@ button:hover {
 /*кнопка по умолчанию*/
 /*ОГРОМНАЯ кнопка*/
 .btn-large {
-  font-weight: 300;
   padding: 0px 20px;
   font-size: 24px;
   height: 50px;
@@ -601,7 +598,7 @@ button:hover {
   box-shadow: 7px 7px 0 -0.05em var(--main-color), 7px 7px var(--user-color);
   transition: 0.2s;
   will-change: contents;
-  margin: 7px 0px;
+  margin: 5px 0px 7px 0px;
 }
 .main-btn:hover {
   border: 0px solid var(--user-color);
@@ -616,6 +613,12 @@ button:hover {
   opacity: 0.6;
 }
 
+button[name=add] {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 button[name=add]::before {
   content: "+";
   margin-right: 6px;
@@ -623,10 +626,11 @@ button[name=add]::before {
   transform: scale(1.5);
 }
 
-.fl-box-col[name=add] {
+button.example-box {
+  flex-direction: column;
   justify-content: center;
 }
-.fl-box-col[name=add]::before {
+button.example-box::before {
   transform: scale(1.6);
   content: "+";
   margin: 0px;
@@ -634,23 +638,23 @@ button[name=add]::before {
   aspect-ratio: 1;
   justify-content: center;
   font-size: 36px;
-  line-height: 32px;
+  line-height: 30px;
   border-radius: 50px;
   border: 1px solid var(--title-color);
   transition: border 0.3s;
 }
-.fl-box-col[name=add]:hover {
+button.example-box:hover {
   color: var(--user-color);
   background: transparent;
 }
-.fl-box-col[name=add]:hover::before {
+button.example-box:hover::before {
   border: 1px solid var(--user-color);
 }
 
 /*Круглые,фирменные кнопки*/
 .round-btn {
   background: var(--title-color);
-  background-image: url("/svg/card-buttons/arrow-back.svg");
+  background-image: url("/svg/svg_for_cards/arrow-back.svg");
   border-radius: 50px;
   width: 50px;
   padding: 0px;
@@ -658,7 +662,7 @@ button[name=add]::before {
 }
 .round-btn:hover {
   background: var(--title-color);
-  background-image: url("/svg/card-buttons/arrow-back.svg");
+  background-image: url("/svg/svg_for_cards/arrow-back.svg");
   transform: translate(2px, 3px);
   box-shadow: 2px 4px 0 -0.05em var(--main-color), 2px 4px var(--title-color);
 }
@@ -687,19 +691,19 @@ button[name=add]::before {
 
 /*Кнопка like*/
 .round-btn[name=like] {
-  background-image: url("/svg/card-buttons/heart/heart.svg");
+  background-image: url("/svg/svg_for_cards/heart/heart.svg");
   background-size: 30px 30px;
   transition: all 0.2s, background-image 0.3s;
 }
 
 .round-btn.fill-heart {
-  background-image: url("/svg/card-buttons/heart/heart-fill.svg");
+  background-image: url("/svg/svg_for_cards/heart/heart-fill.svg");
 }
 
 /*Кнопка like*/
 /*Кнопка delete*/
 .round-btn[name=delete] {
-  background-image: url("/svg/card-buttons/cross.svg");
+  background-image: url("/svg/svg_for_cards/cross.svg");
   background-size: 40px 40px;
 }
 
@@ -708,7 +712,81 @@ button[name=add]::before {
 /*Круглые,фирменные кнопки*/
 /*Фирменные кнопки*/
 /*кнопки*/
-/*контейнеры*/
+/**/
+/*кнопки*/
+/*svg иконки*/
+/*общие настройки*/
+svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+svg:hover {
+  stroke: var(--user-color);
+}
+
+svg.big {
+  width: 26px;
+  height: 26px;
+}
+
+/*общие настройки*/
+/*индивидуальные настройки*/
+.color-theme {
+  width: 36px;
+  height: 36px;
+  transition: 0s;
+}
+.color-theme:hover {
+  stroke: currentColor;
+}
+
+svg.large {
+  width: 38px;
+  height: 38px;
+  border-radius: 25px;
+  transition: 0.45s;
+  fill: var(--title-color);
+  stroke: transparent;
+  cursor: pointer;
+}
+svg.large:hover {
+  fill: var(--main-color);
+  stroke: transparent;
+  background: var(--title-color);
+}
+svg.large[name=close]:active {
+  fill: var(--main-color);
+  background: var(--red-color);
+}
+svg.large[name=show_more]:active {
+  fill: var(--main-color);
+  background: var(--user-color);
+}
+
+a[name=svg_link] {
+  border-bottom: 0px solid green;
+}
+
+/*индивидуальные настройки*/
+/*svg иконки*/
+/*svg*/
+.audio-box {
+  align-self: stretch;
+  height: 30px;
+  border-radius: 0px 0px 0px 10px;
+  background: linear-gradient(rgb(var(--root-user-color)/1), rgb(var(--root-user-color)/0.65));
+}
+
+.audio-box__progress_bar {
+  height: 3px;
+  background: grey;
+}
+
+/*svg*/
 /*стили компонентов*/
 /*тело сайта*/
 body {

@@ -4,7 +4,7 @@ function addListen(name,funcName,event='mousedown'){
         const list = document.getElementsByName(name)
         list.forEach($elem=>$elem.addEventListener(event,funcName))
     } catch (error) {
-        console.log(console.error())
+        console.log(console.error)
     }
 }
 

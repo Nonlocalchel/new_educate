@@ -13,7 +13,9 @@
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display&family=Noto+Sans:wght@100;200;300;400;700&display=swap" rel="stylesheet">-->
 		<!-- Адаптив -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-	
+		<!-- Подключаем CSS -->
+		<link rel="preload" href="/svg/theme/sun.svg" as="image">
+		<link rel="preload" href="/svg/theme/moon.svg" as="image">
 		<!-- Подключаем CSS -->
 		<link rel="stylesheet" href="/css/style-pack.css"/>
 		<link rel="stylesheet" href="/css/pack-page-styles.css"/>
@@ -44,7 +46,9 @@
 						<div class="pack-section__content" show-code>
 							<div class="fl-box color-head">
 								<h3 class="pack-section__subtitle">1.Цвета</h3>
-								<div class="color-head__theme-icon"></div>
+								<svg class="color-theme" viewBox="0 0 24 24">
+									<use xlink:href="/svg/theme/moon.svg#moon">
+								</svg>
 							</div>
 							<div class="pack-section__components">
 								<ul class="pack-section__list" fill-me="static">

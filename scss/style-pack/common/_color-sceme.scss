@@ -3,7 +3,7 @@
 	--main-color:rgba(0,0,0,1);
 	--title-color:rgba(255, 255, 255, 1.0);
 	--text-color: rgba(255, 255, 255, 0.8);
-	--unfocused-color:rgba(204, 204, 204, 1);
+	--unfocused-color:rgba(204, 204, 204, 1.0);
 	--description-color: rgba(255, 255, 255, 0.75);
 	--red-color: rgba(255,0,0,1.0);
 	--photo: url('/svg/theme/moon.svg');
@@ -48,5 +48,6 @@
 /*пользовательские оттенки*/
 
 :root{
-	--user-color:rgba(229, 167, 13, 1.0);
+	--root-user-color:229 167 13;
+	--user-color:rgb(var(--root-user-color)/1.0);
 }

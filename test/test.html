@@ -18,8 +18,6 @@
 		<link rel="stylesheet" href="/css/style-pack.css"/>
 		<link rel="stylesheet" href="/css/pack-page-styles.css"/>
         <link rel="stylesheet" href="css/test.css"/>
-		<!-- Подгружаем svg -->
-		<link rel="preload" href="test2.svg" as="image">
 		<!-- Подключаем JS -->
 		<script src="/js/tools/list-helper/static/static-listadder-script.js" type="module" defer></script> 
 		<script src="/js/pack-script.js" defer></script>
@@ -47,13 +45,9 @@
 						<div class="pack-section__content">
                         <h3 class="pack-section__subtitle">Тест</h3>
                         <div class="pack-section__components">
-							<div class="color-head__theme-icon"></div>
-							<object type="image/svg+xml" data="test.svg" class="svg-test" style="width:36px;margin-left:8px"></object>
-							
-								<svg  class="marker" viewBox="0 0 24 24">
-									<use xlink:href="test.svg#me">
-								</svg>
-							
+							<div class="slider_container">
+								 <input type="range" min="1" max="100" value="0" class="seek_slider">
+							</div>
 						</div>	
 					</div>
 				</section>
