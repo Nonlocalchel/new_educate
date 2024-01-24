@@ -631,16 +631,17 @@ button.example-box {
   justify-content: center;
 }
 button.example-box::before {
+  font-weight: 300;
   transform: scale(1.6);
   content: "+";
   margin: 0px;
   margin-bottom: 20px;
   aspect-ratio: 1;
   justify-content: center;
-  font-size: 36px;
-  line-height: 30px;
+  font-size: 30px;
+  line-height: 28px;
   border-radius: 50px;
-  border: 1px solid var(--title-color);
+  border: 0.25px solid var(--title-color);
   transition: border 0.3s;
 }
 button.example-box:hover {
@@ -648,7 +649,7 @@ button.example-box:hover {
   background: transparent;
 }
 button.example-box:hover::before {
-  border: 1px solid var(--user-color);
+  border: 0.25px solid var(--user-color);
 }
 
 /*Круглые,фирменные кнопки*/
@@ -714,6 +715,37 @@ button.example-box:hover::before {
 /*кнопки*/
 /**/
 /*кнопки*/
+input[type=range] {
+  width: 200px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  height: 3px;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  height: 3px;
+  background: grey;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  background: var(--user-color);
+  border: 1px solid var(--title-color);
+  border-radius: 150px;
+  cursor: pointer;
+  width: 7px;
+  height: 7px;
+  -webkit-appearance: none;
+  margin-top: -2px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+input[type=range]::-webkit-slider-thumb:hover {
+  transform: scale(1.5);
+}
+
+/*input*/
 /*svg иконки*/
 /*общие настройки*/
 svg {
@@ -750,7 +782,8 @@ svg.large {
   border-radius: 25px;
   transition: 0.45s;
   fill: var(--title-color);
-  stroke: transparent;
+  stroke: var(--main-color);
+  stroke-width: 0.25;
   cursor: pointer;
 }
 svg.large:hover {
@@ -786,7 +819,7 @@ a[name=svg_link] {
   background: grey;
 }
 
-/*svg*/
+/*audio-player*/
 /*стили компонентов*/
 /*тело сайта*/
 body {
@@ -836,6 +869,9 @@ section:not(:last-child) [class*=__content]:first-child {
 }
 section h3 {
   margin: 35px 0;
+}
+section [name=titleList] h3 {
+  margin: 0;
 }
 
 /*общие нстройки секций*/

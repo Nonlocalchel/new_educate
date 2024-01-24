@@ -11,8 +11,10 @@
 
 /*стили компонентов*/
 @import "style-pack/components/buttons";/*кнопки*/
+@import "style-pack/components/inputs";/*input*/
 @import "style-pack/components/svgs";/*svg*/
-@import "style-pack/components/audio-player";/*svg*/
+@import "style-pack/components/audio-player";/*audio-player*/
+
 /*стили компонентов*/
 
 /*тело сайта*/
@@ -60,6 +62,9 @@ section{
 	}
 	h3{
 		margin:35px 0
+	}
+	& [name="titleList"] h3{
+		margin:0
 	}
 }
 

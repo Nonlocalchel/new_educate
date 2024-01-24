@@ -51,7 +51,7 @@
 								</svg>
 							</div>
 							<div class="pack-section__components">
-								<ul class="pack-section__list" fill-me="static">
+								<ul class="pack-section__list" name="colorList" fill-me="static">
 									<template data-texts="title description" data-classes="color_selector">
 										<li class="pack-section__item fl-box">
 											<div class="fl-box pack-section__elem-color title" style>
@@ -81,21 +81,31 @@
 						<div class="pack-section__content" show-code>
 							<h3 class="pack-section__subtitle">2.Заголовки</h3>
 							<div class="pack-section__components">
-								<ul class="pack-section__list" fill-me="static">
-									<template data-texts="title description" data-classes="title_selector">
-										<li class="pack-section__item fl-box">
-											<p class="title_selector" title to-text></p>
-											<p class="title_selector" description></p>
-										</li>
-									</template>
-									<data hidden>
-										h1.Название сайта ,Bold(700), 26px| h1;
-										h2.Заголовок страницы ,Bold(700), 36px| h2;
-										h3.Подзаголовок страницы ,Medium(500), 36px| h3;
-										h4.Заголовок по умолчанию ,Bold(700), 26px| h4;
-										h5.Заголовки на карточке ,Medium(500), 18px| h5;
-										h6.Заголовок описания результата ,Medium(500), 14px| h6
-									</data>
+								<ul class="pack-section__list" name="titleList">
+									<li class="pack-section__item fl-box">
+										<h1 to-text>h1.Название сайта</h1>
+										<h1>Bold(700), 26px</h1>
+									</li>
+									<li class="pack-section__item fl-box">
+										<h2 to-text>h2.Заголовок страницы</h2>
+										<h2>Bold(700), 36px</h2>
+									</li>
+									<li class="pack-section__item fl-box">
+										<h3 to-text>h3.Подзаголовок страницы</h3>
+										<h3>Medium(500), 36px</h3>
+									</li>
+									<li class="pack-section__item fl-box">
+										<h4 to-text>h4.Заголовок по умолчанию</h4>
+										<h4>Bold(700), 26px</h4>
+									</li>
+									<li class="pack-section__item fl-box">
+										<h5 to-text>h5.Заголовки на карточке</h5>
+										<h5>Medium(500), 18px</h5>
+									</li>
+									<li class="pack-section__item fl-box">
+										<h6 to-text>h6.Заголовок описания результата</h6>
+										<h6>Medium(500), 14px</h6>
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -106,7 +116,7 @@
 						<div class="pack-section__content" show-code>
 							<h3 class="pack-section__subtitle">3.Текст</h3>
 							<div class="pack-section__components">
-								<ul class="pack-section__list" fill-me="static">
+								<ul class="pack-section__list" name="textList" fill-me="static">
 									<li class="pack-section__item fl-box">
 										<a href="#" to-text>
 											<p class="simple-text">Ссылка</p>
@@ -138,7 +148,7 @@
 							<section class="pack-section__content" name="base-container" show-code>
 								<h3 class="pack-section__subtitle">4.1.Базовый контейнер</h3>
 								<div class="pack-section__components">
-									<ul class="pack-section__bordered-list">
+									<ul class="pack-section__bordered-list" name="basicBoxList">
 										<li class="pack-section__item">
 											<h3 class="pack-section__subtitle">Без скролла</h3>
 											<div class="high-setter-box width-setter-box">

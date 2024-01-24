@@ -16,12 +16,11 @@
 		<!-- Подключаем CSS -->
 		<link rel="stylesheet" href="/css/style-pack.css"/>
 		<link rel="stylesheet" href="/css/pack-page-styles.css"/>
-		<link rel="stylesheet" href="/css/pack-page-styles.css"/>
 		<!-- Подгружаем svg -->
 		<link rel="preload" href="/svg/svg_for_cards/heart/heart-fill.svg" as="image">
 		<!-- Подключаем JS -->
 		<script src="/js/tools/list-helper/static/static-listadder-script.js" type="module" defer></script> 
-		<script src="/js/tools/main_sripts/button_script.js" defer></script>
+		<script src="/js/event_sripts/events_main_script.js" type="module" defer></script>
 		<script src="/js/pack-script.js" defer></script>
 		<script src="/js/tools/textToCode_script.js" defer></script>
 		<!-- Кодировка страницы -->
@@ -44,141 +43,165 @@
                 <section class="pack-section" name="buttons">
 					<div class="container">
 						<div class="pack-section__content" show-code>
-                        <h3 class="pack-section__subtitle">1.Кнопки</h3>
-                        <div class="pack-section__components">
-                            <ul class="pack-section__bordered-list">
-								<li class="pack-section__item">
-									<h3 class="pack-section__subtitle">1.1.Обычные</h3>
-									<ul class="btn-list" fill-me="static">
-										<template data-texts="title" data-classes="btn_selector">
-											<li>
-												<div>
-													<button class="btn_selector" title  to-text ></button>
-												</div>
-											</li>
-										</template>
-										<data hidden>
-											Обычная кнопка | simple-btn;
-											Большая кнопка | simple-btn btn-large
-										</data>
-                                    </ul> 
-								</li>
-								<li class="pack-section__item">
-                                    <h3 class="pack-section__subtitle">1.2.Добавить</h3>
-									<ul class="btn-list add-buttons-list" fill-me="static">
-										<template data-classes="btn_selector" data-attributes="[name]">
-											<li>
-												<div>
-													<button class="btn_selector" name to-text>Добавить результат</button>
-												</div>
-											</li>
-										</template>
-										<data hidden>
-											simple-btn btn-add| add;
-											simple-btn btn-add example-box| add
-										</data>
-                                    </ul> 
-                                </li>
-								<li class="pack-section__item">
-                                    <h3 class="pack-section__subtitle">1.3.Фирменные</h3>
-                                    <ul class="fl-box-btwn btn-list" fill-me="static">
-										<template data-classes="btn_selector" data-attributes="[name]" data-texts="title">
-											<li>
-												<div>
-													<button class="btn_selector" name title to-text></button>
-												</div>
-											</li>
-										</template>
-										<data hidden>
-											main-btn| simple|Нажми на меня!!!;
-											main-btn round-btn|back|;
-											main-btn round-btn round-btn_red|like|;
-											main-btn round-btn round-btn_red|delete|
-										</data>
-                                    </ul>  
-                                </li>
-                            </ul>
-                        </div>	
-					</div>
-				</section>                
+							<h3 class="pack-section__subtitle">1.Кнопки</h3>
+							<div class="pack-section__components">
+								<ul class="pack-section__bordered-list">
+									<li class="pack-section__item">
+										<h3 class="pack-section__subtitle"  to-text="comment">1.1.Обычные</h3>
+										<ul class="btn-list" fill-me="static">
+											<template data-texts="title" data-classes="btn_selector">
+												<li>
+													<div>
+														<button class="btn_selector" title to-text></button>
+													</div>
+												</li>
+											</template>
+											<data hidden>
+												Обычная кнопка | simple-btn;
+												Большая кнопка | simple-btn btn-large
+											</data>
+										</ul>
+									</li>
+									<li class="pack-section__item">
+										<h3 class="pack-section__subtitle" to-text="comment">1.2.Добавить</h3>
+										<ul class="btn-list add-buttons-list" fill-me="static">
+											<template data-classes="btn_selector" data-attributes="[name]">
+												<li>
+													<div>
+														<button class="btn_selector" name to-text>Добавить результат</button>
+													</div>
+												</li>
+											</template>
+											<data hidden>
+												simple-btn btn-add| add;
+												simple-btn btn-add example-box| add
+											</data>
+										</ul>
+									</li>
+									<li class="pack-section__item">
+										<h3 class="pack-section__subtitle" to-text="comment">1.3.Фирменные</h3>
+										<ul class="fl-box-btwn btn-list" fill-me="static">
+											<template data-classes="btn_selector" data-attributes="[name]" data-texts="title">
+												<li>
+													<div>
+														<button class="btn_selector" name title to-text></button>
+													</div>
+												</li>
+											</template>
+											<data hidden>
+												main-btn| simple|Нажми на меня!!!;
+												main-btn round-btn|back|;
+												main-btn round-btn round-btn_red|like|;
+												main-btn round-btn round-btn_red|delete|
+											</data>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+				</section> 
 				<section class="pack-section" name="audio_and_media">
 					<div class="container">
 						<div class="pack-section__content">
-                        <h3 class="pack-section__subtitle">2.Аудио,изображения,SVG</h3>
-						<div class="pack-section__components" show-code>
-							<h3 class="pack-section__subtitle">2.1.Аудио-плеер</h3>
-							<div class="fl-box-col example-box brd-box">
-								<div class="audio-box">
-									<div class="audio-box__progress_bar"></div>
-									<button class="audio__box"></button>
+							<h3 class="pack-section__subtitle">2.Аудио,изображения,SVG</h3>
+							<div class="pack-section__components" show-code>
+								<h3 class="pack-section__subtitle">2.1.Аудио-плеер</h3>
+								<div class="fl-box-col example-box brd-box">
+									<div class="audio-box">
+										<div class="audio-box__progress_bar"></div>
+										<button class="audio__box"></button>
+									</div>
 								</div>
-
 							</div>
-                        </div>
-                        <div class="pack-section__components" show-code>
-							<h3 class="pack-section__subtitle">2.1.SVG</h3>
-							<ul class="pack-section__bordered-list">
-								<li class="pack-section__item">
-                                    <h3 class="pack-section__subtitle">2.1.1.Маленькие</h3>
-									<ul class="fl-box-btwn svg-list" fill-me="static">
-										<svg to-text>
-											<use name="svg" xlink:href="/svg/svg_for_cards/head/burger-menu.svg#burger_menu"> </use>
-										</svg>
-										<template data-attributes="[name='svg']%xlink:href">
-											<li>
-												<div>
-													<svg>
-														<use name='svg' xlink:href=""> </use>
-													</svg>
-												</div>
-											</li>
-										</template>
-										<data hidden>
-											/svg/svg_for_cards/head/edit.svg#edit;
-											/svg/svg_for_cards/head/music.svg#show_music;
-											/svg/svg_for_cards/head/photo.svg#show_photo;
-											/svg/svg_for_cards/head/zoom.svg#zoom;
-											/svg/svg_for_cards/head/info.svg#info;
-										</data>
-                                    </ul>
-                                </li>
-								<li class="pack-section__item">
-                                    <h3 class="pack-section__subtitle">2.1.2.Большие</h3>
-									<ul class="fl-box-btwn svg-list" fill-me="static">
-										<svg class="big" to-text>
-											<use name="svg" xlink:href="/svg/header_nav/result.svg#result"> </use>
-										</svg>
-										<template data-attributes="[name='svg']%xlink:href">
-											<li>
-												<div>
-													<svg class='big'>
-														<use name='svg' xlink:href=""> </use>
-													</svg>
-												</div>
-											</li>
-										</template>
-										<data hidden>
-											/svg/header_nav/bragos.svg#bragos;
-											/svg/header_nav/chats.svg#chats
-										</data>
-                                    </ul>
-                                </li>
-								<li class="pack-section__item">
-                                    <h3 class="pack-section__subtitle">2.1.3.Огромные</h3>
-									<ul class="fl-box-btwn svg-list">
-										<svg class="large" name="close" to-text>
-											<use name="svg" xlink:href="/svg/link/close.svg#close"> </use>
-										</svg>
-										<a name="svg_link" href="https:/google.com" target="_blank"  to-text>
-											<svg class="large" name="show_more">
-												<use name="svg" xlink:href="/svg/link/show_more.svg#show_more"> </use>
+							<div class="pack-section__components" show-code>
+								<h3 class="pack-section__subtitle">2.1.SVG</h3>
+								<ul class="pack-section__bordered-list">
+									<li class="pack-section__item">
+										<h3 class="pack-section__subtitle" to-text="comment">2.1.1.Маленькие</h3>
+										<ul class="fl-box-btwn svg-list" fill-me="static">
+											<svg to-text>
+												<use name="svg" xlink:href="/svg/svg_for_cards/head/burger-menu.svg#burger_menu"></use>
 											</svg>
-										</a>
-                                    </ul>
-                                </li>
+											<template data-attributes="[name='svg']%xlink:href">
+												<li>
+													<div>
+														<svg>
+															<use name='svg' xlink:href=""></use>
+														</svg>
+													</div>
+												</li>
+											</template>
+											<data hidden>
+												/svg/svg_for_cards/head/edit.svg#edit;
+												/svg/svg_for_cards/head/music.svg#show_music;
+												/svg/svg_for_cards/head/photo.svg#show_photo;
+												/svg/svg_for_cards/head/zoom.svg#zoom;
+												/svg/svg_for_cards/head/info.svg#info;
+											</data>
+										</ul>
+									</li>
+									<li class="pack-section__item">
+										<h3 class="pack-section__subtitle" to-text="comment">2.1.2.Большие</h3>
+										<ul class="fl-box-btwn svg-list" fill-me="static">
+											<svg class="big" to-text>
+												<use name="svg" xlink:href="/svg/header_nav/result.svg#result"></use>
+											</svg>
+											<template data-attributes="[name='svg']%xlink:href">
+												<li>
+													<div>
+														<svg class='big'>
+															<use name='svg' xlink:href=""></use>
+														</svg>
+													</div>
+												</li>
+											</template>
+											<data hidden>
+												/svg/header_nav/bragos.svg#bragos;
+												/svg/header_nav/chats.svg#chats
+											</data>
+										</ul>
+									</li>
+									<li class="pack-section__item">
+										<h3 class="pack-section__subtitle" to-text="comment">2.1.3.Огромные</h3>
+										<ul class="fl-box-btwn svg-list">
+											<svg class="large" name="close" to-text>
+												<use name="svg" xlink:href="/svg/link/close.svg#close"></use>
+											</svg>
+											<p hidden to-text="comment">Завернутые в ссылку</p>
+											<a name="svg_link" href="https:/google.com" target="_blank" to-text>
+												<svg class="large" name="show_more">
+													<use name="svg" xlink:href="/svg/link/show_more.svg#show_more"></use>
+												</svg>
+											</a>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+				</section>
+				<section class="pack-section" name="inputs">
+					<div class="container">
+						<div class="pack-section__content" show-code>
+							<h3 class="pack-section__subtitle">2.Пользовательский ввод</h3>
+							<ul>
+								<h3 class="pack-section_subtitle">2.1.Ввод текста</h3>
+								<li class="pack-section__item">
+									<ul class="pack-section__bordered-list input-list" fill-me="static">
+										<template data-texts="title" data-attributes="[type]">
+											<li class="pack-section__item">
+												<h3 class="pack-section__subtitle" title to-text="comment"></h3>
+												<input class="form_correct" type to-text>
+											</li>
+										</template>
+										<data hidden>
+											1.Text | text;
+											2.Password | password;
+											3.Email | email
+										</data>
+									</ul>
+								</li>
 							</ul>
-                        </div>
-					</div>
+						</div>
 				</section>
 			</main>
 		</div>

@@ -1,6 +1,6 @@
 /*svg иконки*/
 /*общие настройки*/
-svg{
+svg {
     width: 18px;
     height:18px;
     stroke:currentColor;
@@ -34,7 +34,8 @@ svg.large{
     border-radius: 25px;
     transition: .45s;
     fill: var(--title-color);
-    stroke:transparent;
+    stroke:var(--main-color);
+    stroke-width: 0.25;
 	cursor: pointer;
     &:hover{
         fill:var(--main-color);

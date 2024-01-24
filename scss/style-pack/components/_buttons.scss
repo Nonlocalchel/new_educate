@@ -69,20 +69,20 @@ button[name='add']{
 
 
 button.example-box{
-
 	flex-direction: column;
 	justify-content: center;
 	&::before{
+		font-weight:300 ;
 		transform: scale(1.6);
 		content:'+';
 		margin:0px;
 		margin-bottom: 20px;
 		aspect-ratio: 1;
 		justify-content: center;
-		font-size: 36px;
-		line-height: 30px;
+		font-size: 30px;
+		line-height: 28px;
 		border-radius: 50px;
-		border: 1px solid var(--title-color);
+		border: 0.25px solid var(--title-color);
 		transition: border .3s;
 	}
 	&:hover{
@@ -90,7 +90,7 @@ button.example-box{
 		background: transparent;
 	}
 	&:hover::before{
-		border: 1px solid var(--user-color);
+		border: 0.25px solid var(--user-color);
 	}
 }
 

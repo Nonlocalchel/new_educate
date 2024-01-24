@@ -31,28 +31,44 @@ packContainers.forEach(pasteCodeToContainer)
 
 function pasteCodeToContainer($packContainer){
   $packContainer.insertAdjacentHTML('beforeend',$containerCode)
-  const code = getCodeList($packContainer)
+  const codeList = getCodeList($packContainer)
   const $placeForCode = $packContainer.querySelector('.code-here')
-  pasteText(code,$placeForCode)
+  pasteText(codeList,$placeForCode)
 }
 
 function getCodeList($packContainer){
-  const codeList = $packContainer.querySelectorAll('[to-text]')
-  codeList.forEach((element)=>element.removeAttribute('to-text'))
-  return codeList
+  return $packContainer.querySelectorAll('[to-text]')
 }
 
-function pasteText(list,place){
-  if(list.length>0){
-    list.forEach($elem=>place.insertAdjacentHTML('beforeend',toText($elem)))
+function pasteText(codeList,$placeForCode){
+  if(codeList.length>0){
+    codeList.forEach($codeItem=>$placeForCode.insertAdjacentHTML('beforeend',toText($codeItem)))
   }else{
-    place.innerText='<nothing>\nTry add attribute "to-text" from your elements,which have to get there'
+    $placeForCode.innerText='<nothing>\nTry add attribute "to-text" from your elements,which have to get there'
   }
   
 }
 
-function toText($elem){
-  const text = new XMLSerializer().serializeToString($elem)+'\n'
+function toText($codeItem){
+  const flagComment =$codeItem.getAttribute('to-text')
+  $codeItem.removeAttribute('to-text')
+  const result = flagComment?getComment($codeItem):getFakeMarkup($codeItem)
+  return result
+}
+
+function getComment($codeItem){
+  try{
+    const regExp = /[^A-Za-zА-Яа-я\s]+/g
+    const content = $codeItem.innerText.replaceAll(regExp,'')
+    return `<span class='color-comment'><span><</span>!--${content}--></span>\n`
+  }catch(error){
+    console.log(error)
+  }
+
+}
+
+function getFakeMarkup($codeItem){
+  const text = new XMLSerializer().serializeToString($codeItem)+'\n'
   const fText = format(text)
   const coloredText = colorText(fText)
   return coloredText
@@ -124,7 +140,7 @@ function colorText(text){//распознает элементы разметк�
 function format(text){
   const distance = getDistance(text)
   let regex = /\sxmlns.*=\"http:\/\/www.w3.org\/\d*\/\w*\"/g
-  let ftext = text.replaceAll(regex,'').replaceAll('> <','><')
+  let ftext = text.replaceAll(regex,'').replaceAll('\" />','\">')//replaceAll('> <','><').
   ftext =distance? ftext.replaceAll(`${distance}`,'<'):ftext
   return ftext
 }
