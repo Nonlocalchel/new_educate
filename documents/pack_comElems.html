@@ -65,11 +65,13 @@
 									</template>
 									<data hidden>
 										Цвет фона ,var(--main-color)| color_main;
+										Цвет контраста ,var(--contrast-color)| color_contrast;
 										Цвет пользователя ,var(--user-color)| color_user;
-										Цвет текста ,var(--text-color)| color_text;
-										Цвет заголовков ,var(--title-color)| color_title;
+										Цвет удаления ,var(--red-color)| color_red;
 										Цвет формы без фокуса ,var(--unfocused-color)| color_unfocused;
-										Цвет описания результата ,var(--description-color)| color_description
+										Цвет заголовков ,var(--title-color)| color_title;
+										Цвет описания результата ,var(--description-color)| color_description;
+										Цвет текста ,var(--text-color)| color_text
 									</data>
 								</ul>
 							</div>
@@ -132,8 +134,9 @@
 										</li>
 									</template>
 									<data hidden>
-										Текст ,Display Regular(400), 20px| simple-text;
-										Текст в форме ,Regular(400), 20px| form-text;
+										Простой текст ,Display Regular(400), 20px|;
+										Текст описания ,Display Regular(400), 20px| description-text;
+										Текст примера ,Display Regular(300), 20px| example-text;
 										Описание результата ,Regular(400),12px| result-text
 									</data>
 								</ul>
@@ -162,7 +165,7 @@
 											<div class="high-setter-box width-setter-box">
 												<div class="brd-box" data-simplebar> <!-- попробовать сделать через промежуточный контенер -->
 													<div class="bordered-box__content">
-														<p class="example-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio blanditiis ad
+														<p class="description-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio blanditiis ad
 															voluptatem, dolores quod officia quos aliquid asperiores nulla inventore consequatur magnam iure dolor ullam
 															suscipit harum nostrum voluptatibus? Asperiores.
 															Aperiam inventore voluptate vero fugit doloribus similique nemo odio soluta nesciunt? Iusto explicabo
@@ -194,7 +197,7 @@
 											<div class="fl-box" fill-me="static" to-text>
 												<template data-texts="title">
 													<div class="brd-box fl-box example-box">
-														<p class="simple-text" title></p>
+														<p class="example-text" title></p>
 													</div>
 												</template>
 												<data hidden>
@@ -212,7 +215,7 @@
 											<div class="fl-box-col" fill-me="static" to-text>
 												<template data-texts="title">
 													<div class="brd-box fl-box-col example-box">
-														<p class="simple-text" title></p>
+														<p class="example-text" title></p>
 													</div>
 												</template>
 												<data hidden>
@@ -232,7 +235,7 @@
 								<div class="brd-box gr-box" fill-me="static" to-text>
 									<template data-texts="title">
 										<div class="brd-box example-box fl-box">
-											<p class="pack-section__elem-text" title></p>
+											<p class="example-text" title></p>
 										</div>
 									</template>
 									<data hidden>

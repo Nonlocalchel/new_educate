@@ -11,7 +11,7 @@
 
 /*стили компонентов*/
 @import "style-pack/components/buttons";/*кнопки*/
-@import "style-pack/components/inputs";/*input*/
+@import "style-pack/components/inputs";/*вводы*/
 @import "style-pack/components/svgs";/*svg*/
 @import "style-pack/components/audio-player";/*audio-player*/
 
@@ -25,6 +25,11 @@ body{
 	/*scroll-behavior: smooth;-сделать в js*/
 	::selection{
 		background: var(--user-color);
+		color:var(--title-color)
+	}
+	::-moz-selection {
+		background: var(--user-color);
+		color:var(--title-color)
 	}
 }
 
@@ -58,8 +63,11 @@ main{flex:1 1 auto;}
 /*общие нстройки секций*/
 section{
 	&:not(:last-child) [class*='__content']:first-child{
-	border-bottom: 1px solid var(--title-color);
+	border-bottom: 1px solid var(--contrast-color);
 	}
+	&:not(:last-child) [class*='bordered-box__content']:first-child{
+		border-bottom: 0px solid var(--contrast-color);
+		}
 	h3{
 		margin:35px 0
 	}

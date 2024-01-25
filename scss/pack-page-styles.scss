@@ -21,7 +21,7 @@
 	height: 300px;
 	>div:not([data-simplebar]){
 		height: 100%;
-		border-bottom: 1px solid currentColor;
+		border-bottom: 1px solid var(--contrast-color);
 	}
 	div[data-simplebar]{
 		height: 300px;
@@ -36,12 +36,12 @@
 /*списки*/
 /*вертикальный список*/
 .pack-section__list{
-	border:1px solid currentColor;
+	border:1px solid var(--contrast-color);
 	border-radius:10px;
 	padding:0px 20px;
 	>li {
 		padding:20px 0px 19px 0px;
-		border-bottom:1px solid currentColor;
+		border-bottom:1px solid var(--contrast-color);
 		justify-content: space-between;
 	}
 	>li:last-of-type{/*?*/
@@ -64,7 +64,7 @@
 	}
 	
 	.pack-section__item:not(:nth-child(3n+1)){
-		border-left: 1px solid currentColor;
+		border-left: 1px solid var(--contrast-color);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -72,7 +72,7 @@
 	}
 	.pack-section__item:nth-child(3n){
 		align-items: end;
-		justify-self: end;
+
 		ul{
 			justify-content: end;
 		}
@@ -89,6 +89,13 @@
 .large-item{
 	grid-column: span 2;
 }
+
+li:has(.large-item){
+	grid-column: span 2;
+}
+
+
+
 /*горизонтальный список*/
 /*списки*/
 
@@ -113,7 +120,7 @@
 	div{
 		max-width:100%;
 		height:100%;
-		border: 2px solid currentColor;
+		border: 2px solid var(--contrast-color);
 		border-radius: 10px;
 	}
 }
@@ -127,11 +134,7 @@
 
 /* текст примера */
 .example-text{
-    color:var(--text-color);
-	transition:0.3s;
-	&:hover{
-		color:var(--title-color)
-	}
+
 }
 
 /* текст примера */
@@ -140,7 +143,7 @@
 .pack-section__html {
 	display:inline-block;
 	padding:10px 20px;
-	border:1px solid currentColor;
+	border:1px solid var(--contrast-color);
 	border-bottom:0px;
 	border-radius: 10px 10px 0px 0px;
 	position: relative;
@@ -153,7 +156,7 @@
 }
 
 .pack-section__code-text{
-	border: 1px solid currentColor;
+	border: 1px solid var(--contrast-color);
 	border-radius:0px 10px 10px 10px;
 	padding:15px 20px;
 	max-height: 300px; 
@@ -175,12 +178,12 @@
 	}
 }
 
-.code-here{
+.code-here.example-text{
 	color:var(--text-color);
 	transition:0.3s;
 	white-space:pre-wrap;
 	&:hover{
-		color:var(--title-color)
+		color:var(--contrast-color)
 	}
 }
 

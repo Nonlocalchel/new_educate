@@ -41,6 +41,10 @@ input::-ms-clear {
   display: none;
 }
 
+input[type=search]::-webkit-search-cancel-button {
+  display: none !important;
+}
+
 button {
   cursor: pointer;
 }
@@ -77,25 +81,23 @@ h1, h2, h3, h4, h5, h6 {
 /*цвета меняемые из js*/
 :root {
   --main-color:rgba(0,0,0,1);
-  --title-color:rgba(255, 255, 255, 1.0);
+  --contrast-color:rgba(255, 255, 255, 1.0);
+  --title-color:var(--contrast-color);
   --text-color: rgba(255, 255, 255, 0.8);
-  --unfocused-color:rgba(204, 204, 204, 1.0);
+  --unfocused-color:rgba(204, 204, 204, 0.8);
   --description-color: rgba(255, 255, 255, 0.75);
-  --red-color: rgba(255,0,0,1.0);
-  --photo: url("/svg/theme/moon.svg");
-  --font-weight:300;
-  --description-font-size:400;
+  --color-red: rgba(255,0,0,1.0);
+  --description-font-weight:400;
 }
 
 .light-theme {
   --main-color:rgba(255, 255, 255, 1.0);
-  --title-color:rgba(0,0,0,1);
+  --contrast-color:rgba(0,0,0,1);
+  --title-color:var(--contrast-color);
   --text-color: rgba(0,0,0,1);
   --unfocused-color:rgba(0,0,0,0.6);
   --description-color: rgba(0,0,0,0.8);
-  --photo: url("/svg/theme/sun.svg");
-  --font-weight:400;
-  --description-font-size:500;
+  --description-font-weight:500;
 }
 
 /*Основные цвета*/
@@ -121,6 +123,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .color_description {
   background: var(--description-color);
+}
+
+.color_contrast {
+  background: var(--contrast-color);
+}
+
+.color_red {
+  background: var(--color-red);
 }
 
 /*Основные цвета*/
@@ -470,13 +480,21 @@ h6, .h6 {
 /*Заголовки*/
 /*текст*/
 p {
-  font-weight: var(--font-weight);
+  font-weight: 400;
   font-size: 20px;
   line-height: 24px;
 }
 
-.form-text {
-  font-weight: 400;
+.description-text {
+  color: var(--description-color);
+  transition: 0.3s;
+}
+.description-text:hover {
+  color: var(--contrast-color);
+}
+
+.example-text {
+  font-weight: 300;
 }
 
 .result-text {
@@ -485,13 +503,13 @@ p {
   color: var(--description-color);
 }
 
-a {
-  border-bottom: 1px solid var(--title-color);
+a p {
+  border-bottom: 1px solid var(--contrast-color);
   transition: 0.3s;
-  color: var(--title-color);
+  color: var(--contrast-color);
 }
 
-a:hover {
+a p:hover {
   border-bottom: 1px solid var(--user-color);
   color: var(--user-color);
 }
@@ -501,7 +519,7 @@ a:hover {
 /*текст,загололвки,типография*/
 /*блок-граница*/
 .brd-box {
-  border: 1px solid currentColor;
+  border: 1px solid var(--contrast-color);
   border-radius: 10px;
 }
 
@@ -570,7 +588,7 @@ a:hover {
   background: var(--main-color);
   min-height: 40px;
   text-align: center;
-  border: 1px solid var(--title-color);
+  border: 1px solid var(--contrast-color);
   transition: 0.3s;
 }
 .simple-btn:hover, .main-btn:hover {
@@ -673,15 +691,15 @@ button.example-box:hover::before {
 }
 
 .round-btn_red {
-  background: var(--red-color);
-  box-shadow: 4px 7px 0 -0.05em var(--main-color), 4px 7px var(--red-color);
+  background: var(--color-red);
+  box-shadow: 4px 7px 0 -0.05em var(--main-color), 4px 7px var(--color-red);
 }
 .round-btn_red:hover {
-  background: var(--red-color);
-  box-shadow: 2px 4px 0 -0.05em var(--main-color), 2px 4px var(--red-color);
+  background: var(--color-red);
+  box-shadow: 2px 4px 0 -0.05em var(--main-color), 2px 4px var(--color-red);
 }
 .round-btn_red:active {
-  box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--red-color);
+  box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--color-red);
 }
 
 /*Кнопки с изображениями*/
@@ -713,39 +731,91 @@ button.example-box:hover::before {
 /*Круглые,фирменные кнопки*/
 /*Фирменные кнопки*/
 /*кнопки*/
-/**/
 /*кнопки*/
-input[type=range] {
-  width: 200px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  outline: none;
-  height: 3px;
+.form_correct {
+  padding: 0px 10px;
+  height: 35px;
+  border-radius: 10px;
+  font-size: 20px;
+  background: transparent;
+  color: var(--title-color);
+  font-weight: 300;
+  border: 1px solid var(--unfocused-color);
+  transition: border 0.45s, box-shadow 0.45s;
+}
+.form_correct:focus {
+  border: 1px solid var(--user-color);
+  box-shadow: 0px 3px 10px 0px rgb(var(--root-user-color)/0.45); /*-2px 3px 10px 0px rgb(var(--root-user-color)/0.4)*/
+}
+.form_correct:-webkit-autofill {
+  -webkit-text-fill-color: var(--title-color);
+  -webkit-transition: background-color 5000s ease-in-out 0s, border 0.45s, box-shadow 0.45s;
+  transition: background-color 5000s ease-in-out 0s, border 0.45s, box-shadow 0.45s;
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 174, 255, 0.04) 50%, rgba(255, 255, 255, 0) 51%, rgba(0, 174, 255, 0.03) 100%);
+}
+
+textarea.form_correct {
+  width: 100%;
+  min-height: 100px;
+  padding: 5px 10px;
+  resize: none;
+}
+textarea.form_correct::-webkit-scrollbar-track { /*скролл сделать надо прозрачным*/
+  background: transparent;
+  margin-block: 1px;
+}
+
+input[type=submit] {
+  cursor: pointer;
+}
+
+input[type=reset] {
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-image: url("/svg/svg_for_cards/cross.svg");
+  background-size: 40px 40px;
+}
+
+/*
+.brd-box{
+    transition: 0.45s;
+    &:focus-within{
+        border: 1px solid var(--user-color);
+        box-shadow:-2px 3px 10px 0px rgb(var(--root-user-color)/0.4);
+    }
+}
+*/
+/*input[type=range]  {
+    width: 200px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    height: 3px;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
-  height: 3px;
-  background: grey;
+    height: 3px;
+    background: grey;
 }
 
 input[type=range]::-webkit-slider-thumb {
-  background: var(--user-color);
-  border: 1px solid var(--title-color);
-  border-radius: 150px;
-  cursor: pointer;
-  width: 7px;
-  height: 7px;
-  -webkit-appearance: none;
-  margin-top: -2px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+    background: var(--user-color);
+    border: 1px solid var(--title-color);
+    border-radius: 150px;
+    cursor: pointer;
+    width:7px;
+    height: 7px;
+    -webkit-appearance: none;
+    margin-top: -2px;
+    transition: 0.3s;
+    &:hover{
+        transform: scale(1.5);
+    }
 }
-input[type=range]::-webkit-slider-thumb:hover {
-  transform: scale(1.5);
-}
-
-/*input*/
+*/
+/*вводы*/
 /*svg иконки*/
 /*общие настройки*/
 svg {
@@ -830,9 +900,15 @@ body {
 }
 body ::-moz-selection {
   background: var(--user-color);
+  color: var(--title-color);
 }
 body ::selection {
   background: var(--user-color);
+  color: var(--title-color);
+}
+body ::-moz-selection {
+  background: var(--user-color);
+  color: var(--title-color);
 }
 
 body.lock {
@@ -865,7 +941,10 @@ main {
 
 /*общие нстройки секций*/
 section:not(:last-child) [class*=__content]:first-child {
-  border-bottom: 1px solid var(--title-color);
+  border-bottom: 1px solid var(--contrast-color);
+}
+section:not(:last-child) [class*=bordered-box__content]:first-child {
+  border-bottom: 0px solid var(--contrast-color);
 }
 section h3 {
   margin: 35px 0;

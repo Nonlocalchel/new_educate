@@ -1,6 +1,6 @@
 /*блок-граница*/
 .brd-box{
-	border: 1px solid currentColor;
+	border: 1px solid var(--contrast-color);
 	border-radius:10px;
 }
 

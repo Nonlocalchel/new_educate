@@ -29,13 +29,21 @@ h6,.h6{
 
 /*текст*/
 p{
-	font-weight: var(--font-weight);
+	font-weight: 400;
 	font-size:20px;
-	line-height:24px
+	line-height:24px;
 }
 
-.form-text{
-	font-weight: 400;
+.description-text{
+	color:var(--description-color);
+	transition:0.3s;
+	&:hover{
+		color:var(--contrast-color)
+	}
+}
+
+.example-text{
+	font-weight: 300;
 }
 
 .result-text{
@@ -44,13 +52,13 @@ p{
 	color:var(--description-color)
 }
 
-a{
-	border-bottom:1px solid var(--title-color);
+a p{
+	border-bottom:1px solid var(--contrast-color);
 	transition: 0.3s;
-    color:var(--title-color);
+    color:var(--contrast-color);
 }
 
-a:hover{
+a p:hover{
 	border-bottom:1px solid var(--user-color);
 	color:var(--user-color)
 }

@@ -1,26 +1,25 @@
 /*цвета меняемые из js*/
 :root{
 	--main-color:rgba(0,0,0,1);
-	--title-color:rgba(255, 255, 255, 1.0);
+	--contrast-color:rgba(255, 255, 255, 1.0);
+	--title-color:var(--contrast-color);
 	--text-color: rgba(255, 255, 255, 0.8);
-	--unfocused-color:rgba(204, 204, 204, 1.0);
+	--unfocused-color:rgba(204, 204, 204, 0.8);
 	--description-color: rgba(255, 255, 255, 0.75);
-	--red-color: rgba(255,0,0,1.0);
-	--photo: url('/svg/theme/moon.svg');
-	--font-weight:300;
-	--description-font-size:400;
+
+	--color-red: rgba(255,0,0,1.0);
+	--description-font-weight:400;
 }
 
 
 .light-theme{
 	--main-color:rgba(255, 255, 255, 1.0);
-	--title-color:rgba(0,0,0,1);
+	--contrast-color:rgba(0,0,0,1);
+	--title-color:var(--contrast-color);
 	--text-color: rgba(0,0,0,1);
 	--unfocused-color:rgba(0,0,0,0.6);
 	--description-color: rgba(0,0,0,0.8);
-	--photo: url('/svg/theme/sun.svg');
-	--font-weight:400;
-	--description-font-size:500;
+	--description-font-weight:500;
 }
 
 /*Основные цвета*/
@@ -41,6 +40,14 @@
 }
 .color_description{
 	background: var(--description-color);
+}
+
+.color_contrast{
+	background: var(--contrast-color);
+}
+
+.color_red{
+	background: var(--color-red);
 }
 
 /*Основные цвета*/

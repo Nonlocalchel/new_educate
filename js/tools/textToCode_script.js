@@ -15,12 +15,12 @@ const $containerCode=`
   <div class="pack-section__code">
     <h3 class="pack-section__subtitle">Код:</h3>
     <div class="pack-section__html color_back">
-      <p>Html</p>
+      <p class='example-text'>Html</p>
     </div>
     <button class="simple-btn btn-large copy" onclick="copyText(event)">Копировать</button>
     <div class="pack-section__code-text" data-simplebar>
       <div class="simple-container">
-        <p class="code-here" id="myInput"></p>
+        <p class="code-here example-text" id="myInput"></p>
       </div>
     </div>
   </div>`

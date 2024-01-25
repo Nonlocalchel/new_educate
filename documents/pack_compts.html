@@ -182,25 +182,43 @@
 				<section class="pack-section" name="inputs">
 					<div class="container">
 						<div class="pack-section__content" show-code>
-							<h3 class="pack-section__subtitle">2.Пользовательский ввод</h3>
-							<ul>
+							<h3 class="pack-section__subtitle">2.Примитивные вводы</h3>
+							<form method="get">
 								<h3 class="pack-section_subtitle">2.1.Ввод текста</h3>
-								<li class="pack-section__item">
-									<ul class="pack-section__bordered-list input-list" fill-me="static">
-										<template data-texts="title" data-attributes="[type]">
-											<li class="pack-section__item">
-												<h3 class="pack-section__subtitle" title to-text="comment"></h3>
-												<input class="form_correct" type to-text>
-											</li>
-										</template>
-										<data hidden>
-											1.Text | text;
-											2.Password | password;
-											3.Email | email
-										</data>
-									</ul>
-								</li>
-							</ul>
+								<ul class="pack-section__bordered-list input-list" fill-me="static">
+									<template data-texts="title" data-attributes="[type] [placeholder]">
+										<li class="pack-section__item">
+											<h3 class="pack-section__subtitle" title to-text="comment"></h3>
+											<input class="form_correct" type placeholder to-text>
+										</li>
+									</template>
+									<data hidden>
+										2.1.1.Text | text ,Введите текст...;
+										2.1.2.Password | password ,Введите пароль...;
+										2.1.3.Email | email ,Введите email...;
+										2.1.4.Search | search ,Введите запрос...
+									</data>
+								</ul>
+								<h3 class="pack-section_subtitle">2.2.Ввод описания</h3>
+								<p hidden to-text="comment">Textarea</p>
+								<textarea class="form_correct" cols="30" rows="10" placeholder="Введите текст..." to-text></textarea>
+								<h3 class="pack-section_subtitle">2.3.Ввод с помощью мышки</h3>
+								<ul class="pack-section__bordered-list input-list" fill-me="static">
+									<template data-texts="title" data-attributes="[type] [placeholder]" data-classes="input_selector">
+										<li class="pack-section__item">
+											<h3 class="pack-section__subtitle" title to-text="comment"></h3>
+											<input class="input_selector" type to-text>
+										</li>
+									</template>
+									<data hidden>
+										2.3.1.Checkbox|checkbox|;
+										2.3.2.Radio|radio|;
+										2.3.3.Range|range|;
+										2.3.4.Reset|reset|;
+										2.3.5.Submit|submit|main-btn large-item
+									</data>
+								</ul>
+							</form>
 						</div>
 				</section>
 			</main>
