@@ -1,14 +1,13 @@
-/*кнопки*/
-
+/*кнопки*
 /*кнопка по умолчанию*/
 .simple-btn, .main-btn{
 	border-radius: 10px;
 	padding:0px 10px;
 	font-size: 20px;
 	font-weight: 300;
-	color: var(--title-color);
+	height: 40px;
+	color: var(--contrast-color);
 	background: var(--main-color);
-	min-height: 40px;
 	text-align: center;
 	border:1px solid var(--contrast-color);
 	transition: .3s;
@@ -54,7 +53,7 @@
 	}
 }
 
-button[name='add']{
+.btn-add{
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
@@ -96,9 +95,11 @@ button.example-box{
 }
 
 /*Круглые,фирменные кнопки*/
+
 .round-btn{
 	background: var(--title-color);
 	background-image: url('/svg/svg_for_cards/arrow-back.svg');
+	background-size: 60px 60px;
 	border-radius: 50px;
 	width:50px;
 	padding:0px;
@@ -106,6 +107,7 @@ button.example-box{
 	&:hover{
 		background: var(--title-color);
 		background-image: url('/svg/svg_for_cards/arrow-back.svg');
+		background-size: 60px 60px;
 		transform:translate(2px,3px);
 		box-shadow: 2px 4px 0 -0.05em var(--main-color), 2px 4px var(--title-color);
 	}
@@ -130,29 +132,128 @@ button.example-box{
 
 
 /*Кнопки с изображениями*/
-.round-btn[name]{
+button[name]{
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
+	&:hover{
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+	}
+	&:not([class~=main-btn]){
+		aspect-ratio: 1;
+		height: 50px;
+		background-color: transparent;
+	}
 }
 /*Кнопка like*/
-.round-btn[name='like']{
+button[name='like']{
 	background-image: url('/svg/svg_for_cards/heart/heart.svg');
 	background-size: 30px 30px;
 	transition: all .2s,background-image 0.3s ;
+	&:hover{
+		background-image: url('/svg/svg_for_cards/heart/heart.svg');
+		background-size: 30px 30px;
+	}
 }
 
-.round-btn.fill-heart{
+button.fill-heart{
 	background-image: url('/svg/svg_for_cards/heart/heart-fill.svg');
+	&:hover{
+		background-image: url('/svg/svg_for_cards/heart/heart-fill.svg');
+	}
 }
 /*Кнопка like*/
 
 /*Кнопка delete*/
-.round-btn[name='delete']{
+button[name='delete']{
 	background-image: url('/svg/svg_for_cards/cross.svg');
 	background-size: 40px 40px;
+	&:hover{
+		background-image: url('/svg/svg_for_cards/cross.svg');
+		background-size: 40px 40px;
+	}
 }
 /*Кнопка delete*/
 /*Кнопки с изображениями*/
 /*Круглые,фирменные кнопки*/
+
+/*Маленькие,фирменные кнопки*/
+button[class*='_small']{
+	height: 25px;
+	&:hover{
+		transform:translate(2px,2px);
+	}
+	&:active{
+		transform:translate(4px,4px);
+	}
+}
+
+.main-btn_small{
+	padding:0px 9px;
+	border-radius: 7px;
+	font-size: 14px;
+	line-height: 25px;
+	font-weight: 500;
+  	box-shadow: 4px 4px 0 -0.05em var(--main-color), 4px 4px var(--user-color);
+	&:hover{
+		box-shadow: 2px 2px 0 -0.05em var(--main-color), 2px 2px var(--user-color);
+	}
+	&:active{
+		box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--user-color);
+	}
+}
+
+.round-btn_small{
+	background-size: 30px 30px;
+	width:25px;
+	padding:0px;
+	box-shadow: 4px 4px 0 -0.05em var(--main-color), 4px 4px var(--title-color);
+	&:hover{
+		background: var(--title-color);
+		background-image: url('/svg/svg_for_cards/arrow-back.svg');
+		background-size: 30px 30px;
+		box-shadow: 2px 2px 0 -0.05em var(--main-color), 2px 2px var(--title-color);
+	}
+	&:active{
+		box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--title-color);
+	}
+	
+}
+
+.round-btn_small.round-btn_red{
+	box-shadow: 4px 4px 0 -0.05em var(--main-color), 4px 4px var(--color-red);
+	&:hover{
+		background-color: var(--color-red);
+		box-shadow: 2px 2px 0 -0.05em var(--main-color), 2px 2px var(--color-red);
+	}
+	&:active{
+		box-shadow: 0px 0px 0 -0.05em var(--main-color), 0px 0px var(--color-red);
+	}
+}
+
+.round-btn_small[name='like']{
+	background-size: 15px 15px;
+	&:hover{
+		background-image: url('/svg/svg_for_cards/heart/heart.svg');
+		background-size: 15px 15px;
+	}
+	&.fill-heart{
+		background-image: url('/svg/svg_for_cards/heart/heart-fill.svg');
+	}
+}
+
+.round-btn_small[name='delete']{
+	background-size: 21px 21px;
+	&:hover{
+		background-image: url('/svg/svg_for_cards/cross.svg');
+		background-size: 21px 21px;
+	}
+	&.fill-heart{
+		background-image: url('/svg/svg_for_cards/cross.svg');
+	}
+}
+
+/*Маленькие,фирменные кнопки*/
+
 /*Фирменные кнопки*/
 /*кнопки*/

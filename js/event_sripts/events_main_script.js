@@ -11,7 +11,6 @@ function addListen(name,funcName,event='mousedown'){
     }
 }
 
-
 //Обьект хранящий данные для навешивания событий
 const tasksObj = {
     buttonsTask : [
@@ -21,7 +20,21 @@ const tasksObj = {
     ]
 }
 
-//Обходим обьект
-for (const [key, values] of Object.entries(tasksObj)) {
-    values.forEach(value=>addListen(...value))
+//Достаем имя документа
+const docName=document.location.href.match(/\/?(\w*\.html)/)[1]
+
+//Обьект хранящий данные доступв=а к событиям в документе
+const docTasksObj = {
+    'test.html':['buttonsTask'],
+    'pack_comElems.html':['buttonsTask'],
+    'defaultTasks':Object.keys(tasksObj)
+}
+
+//если в странице в списке прсваиваем перемнной нужные параметры,если нет-пресваиваем параметры по умолчанию(все)
+const tasks = docTasksObj.hasOwnProperty(docName)?docTasksObj[docName]:docTasksObj.defaultTasks
+
+//Обходим массив
+for (const iterator of tasks) {
+    let taskIterator = tasksObj[iterator]
+    taskIterator.forEach(task=>addListen(...task))
 }

@@ -30,11 +30,12 @@ h6,.h6{
 /*текст*/
 p{
 	font-weight: 400;
-	font-size:20px;
 	line-height:24px;
 }
 
 .description-text{
+	/*font-family: 'Noto Sans Display';с в макете*/
+	font-family: 'Noto Sans Display';
 	color:var(--description-color);
 	transition:0.3s;
 	&:hover{

@@ -13,7 +13,13 @@
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display&family=Noto+Sans:wght@100;200;300;400;700&display=swap" rel="stylesheet">-->
 		<!-- Адаптив -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-		<!-- Подключаем CSS -->
+		<!-- Подгружаем шрифт -->
+		<link rel="preload" href="/fonts/NotoSans/NotoSans-Light.ttf" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/fonts/NotoSans/NotoSans-Medium.ttf" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/fonts/NotoSans/NotoSans-Regular.ttf" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/fonts/NotoSans_Display/NotoSansDisplay-Medium.ttf" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/fonts/NotoSans_Display/NotoSansDisplay-Bold.ttf" as="font" type="font/woff2" crossorigin>
+		<!-- Подгружаем SVG -->
 		<link rel="preload" href="/svg/theme/sun.svg" as="image">
 		<link rel="preload" href="/svg/theme/moon.svg" as="image">
 		<!-- Подключаем CSS -->
@@ -21,6 +27,7 @@
 		<link rel="stylesheet" href="/css/pack-page-styles.css"/>
 		<!-- Подключаем JS -->
 		<script src="/js/tools/list-helper/static/static-listadder-script.js" type="module" defer></script> 
+		<script src="/js/event_sripts/events_main_script.js" type="module" defer></script>
 		<script src="/js/pack-script.js" defer></script>
 		<script src="/js/tools/textToCode_script.js" defer></script>
 		<script src="/js/tools/scroll/simpleBar/simplebar.js" defer></script>
@@ -124,7 +131,7 @@
 											<p class="simple-text">Ссылка</p>
 										</a>
 										<a href="#">
-											<p class="simple-text">Medium(500), 16px</p>
+											<p class="simple-text">Regular(400), (n)px</p>
 										</a>
 									</li>
 									<template data-texts="title description" data-classes="text_selector">
@@ -134,9 +141,9 @@
 										</li>
 									</template>
 									<data hidden>
-										Простой текст ,Display Regular(400), 20px|;
-										Текст описания ,Display Regular(400), 20px| description-text;
-										Текст примера ,Display Regular(300), 20px| example-text;
+										Описание страницы ,Display Regular(400), 20px| description-text;
+										Описание в форме ,Regular(400), 20px|;
+										Текст примера ,Regular(300), 20px| example-text;
 										Описание результата ,Regular(400),12px| result-text
 									</data>
 								</ul>
@@ -249,10 +256,89 @@
 						</div>
 					</div>
 				</section>
+				<section class="pack-section" name="buttons">
+					<div class="container">
+						<div class="pack-section__content">
+							<h3 class="pack-section__subtitle">5.Кнопки</h3>
+							<section class="pack-section__content" show-code>
+								<h3 class="pack-section__subtitle">5.1.Обычные</h3>
+								<ul class="pack-section__bordered-list" name='btn-list' fill-me="static">
+									<template data-texts="title description" data-classes="btn_selector">
+										<li class="pack-section__item">
+											<h3 class="pack-section__subtitle" title></h3>
+											<button class="btn_selector" description to-text></button>
+										</li>
+									</template>
+									<data hidden>
+										5.1.1.Обычная ,Обычная кнопка | simple-btn;
+										5.1.2.Большая ,Большая кнопка | simple-btn btn-large;
+										5.1.3.Добавить ,Добавить результат|simple-btn btn-add
+									</data>
+								</ul>
+							</section>
+							<section class="pack-section__content" show-code>
+								<h3 class="pack-section__subtitle" to-text="comment">5.2.Фирменные</h3>
+								<ul class="pack-section__bordered-list">
+									<li class="pack-section__item">
+										<h3 class="pack-section__subtitle">5.2.1.Обычные</h3>
+										<ul class="fl-box-btwn btn-list" name='btn-list' fill-me="static">
+											<template data-classes="btn_selector" data-attributes="[name]" data-texts="title">
+												<li>
+													<div>
+														<button class="btn_selector" name title to-text></button>
+													</div>
+												</li>
+											</template>
+											<data hidden>
+												main-btn| simple|Нажми на меня!!!;
+												main-btn round-btn|back|;
+												main-btn round-btn round-btn_red|like|;
+												main-btn round-btn round-btn_red|delete|
+											</data>
+										</ul>
+									</li>
+									<li class="pack-section__item">
+										<h3 class="pack-section__subtitle" to-text="comment">5.2.2.Маленькие</h3>
+										<ul class="fl-box-btwn btn-list" name='btn-list' fill-me="static">
+											<template data-classes="btn_selector" data-attributes="[name]" data-texts="title">
+												<li>
+													<div>
+														<button class="btn_selector" name title to-text></button>
+													</div>
+												</li>
+											</template>
+											<data hidden>
+												main-btn round-btn round-btn_small|back|;
+												main-btn main-btn_small| simple|Комменты;
+												main-btn round-btn round-btn_small round-btn_red|like|;
+												main-btn round-btn round-btn_small round-btn_red|delete|
+											</data>
+										</ul>
+									</li>
+									<li class="pack-section__item">
+										<h3 class="pack-section__subtitle" to-text="comment">5.2.3.Без фона</h3>
+										<ul class="fl-box-btwn btn-list" fill-me="static">
+											<template data-attributes="[name]">
+												<li>
+													<div>
+														<button name to-text></button>
+													</div>
+												</li>
+											</template>
+											<data hidden>
+												like;
+												delete
+											</data>
+										</ul>
+									</li>
+								</ul>
+							</section>
+						</div>
+					</div>
+				</section>
 			</main>
 		</div>
-		<script src="/js/tools/color_script.js">
-		</script>
+		<script src="/js/tools/color_script.js"></script>
 		<script src="/js/tools/scroll/smoothScrollbar/scroll.js"></script>
 		<script src="/js/tools/scroll/smoothScrollbar/scroll_params.js"></script>
 	</body>

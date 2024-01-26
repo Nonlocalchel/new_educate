@@ -44,7 +44,7 @@ svg.large{
     }
     &[name='close']:active{
         fill:var(--main-color);
-        background: var(--red-color);
+        background: var(--color-red);
     }
     &[name='show_more']:active{
         fill:var(--main-color);

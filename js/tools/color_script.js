@@ -21,6 +21,9 @@ function toggleTheme(){
 }
 
 function setTheme(theme){
+    if(theme==''){
+        return
+    }
     document.querySelector('body').classList=`${theme}-theme`
     $themeSVG?setSVG(theme):5
     localStorage.setItem('theme',theme)

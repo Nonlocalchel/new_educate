@@ -19,9 +19,9 @@
 
 /*тело сайта*/
 body{
-	zoom:100%;
 	height:100%;
-	color:var(--title-color);
+	color: var(--contrast-color);
+	font-size: 20px;
 	/*scroll-behavior: smooth;-сделать в js*/
 	::selection{
 		background: var(--user-color);
