@@ -20,6 +20,7 @@
 		<link rel="preload" href="/fonts/NotoSans_Display/NotoSansDisplay-Medium.ttf" as="font" type="font/woff2" crossorigin>
 		<link rel="preload" href="/fonts/NotoSans_Display/NotoSansDisplay-Bold.ttf" as="font" type="font/woff2" crossorigin>
 		<!-- Подгружаем SVG -->
+		<link rel="preload" href="/svg/svg_for_cards/heart/heart-fill.svg" as="image">
 		<link rel="preload" href="/svg/theme/sun.svg" as="image">
 		<link rel="preload" href="/svg/theme/moon.svg" as="image">
 		<!-- Подключаем CSS -->
@@ -27,7 +28,7 @@
 		<link rel="stylesheet" href="/css/pack-page-styles.css"/>
 		<!-- Подключаем JS -->
 		<script src="/js/tools/list-helper/static/static-listadder-script.js" type="module" defer></script> 
-		<script src="/js/event_sripts/events_main_script.js" type="module" defer></script>
+		<script src="/js/events/events_mainScript.js" type="module" defer></script>
 		<script src="/js/pack-script.js" defer></script>
 		<script src="/js/tools/textToCode_script.js" defer></script>
 		<script src="/js/tools/scroll/simpleBar/simplebar.js" defer></script>
@@ -327,7 +328,9 @@
 											</template>
 											<data hidden>
 												like;
-												delete
+												delete;
+												play;
+												volume
 											</data>
 										</ul>
 									</li>

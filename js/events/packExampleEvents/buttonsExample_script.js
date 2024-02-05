@@ -5,6 +5,7 @@ export function sendDeleteRequest(){
 }
 
 export function toggleClass(){
+    console.log(this)
     this.classList.toggle('fill-heart')
 }
 
@@ -12,3 +13,6 @@ export function alertMessage(){
     setTimeout(() => alert('Это же просто пример'), 100);
 }
 
+export function pauseOrPlay(){
+    this.classList.toggle('pause')
+}

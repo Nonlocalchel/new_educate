@@ -1,0 +1,5 @@
+1.background-blend-mode: overlay;-можно использоать для затенения изображений
+2.filter:brightness(0) saturate(100%) invert(13%) sepia(97%) saturate(7500%) hue-rotate(358deg) brightness(97%) contrast(108%); превращать белый цвет в красный,сайт https://cssfilterconverter.com/ */
+3..element {
+    background: filter(url(path/to/img.jpg), blur(5px));
+}-прмняет фильтр к изображению

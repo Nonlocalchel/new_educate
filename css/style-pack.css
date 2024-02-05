@@ -372,7 +372,7 @@ h1, h2, h3, h4, h5, h6 {
 /* скролл */
 /* default скролл */
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -383,7 +383,7 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb {
   background-color: #999999;
   border-radius: 10px;
-  border: 5px solid var(--main-color);
+  border: 2.5px solid var(--main-color);
 }
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--user-color);
@@ -741,6 +741,7 @@ button.example-box:hover::before {
 button[name] {
   background-repeat: no-repeat;
   background-position: 50% 50%;
+  /*Кнопки с изображениями без фона*/
 }
 button[name]:hover {
   background-repeat: no-repeat;
@@ -750,6 +751,19 @@ button[name]:not([class~=main-btn]) {
   aspect-ratio: 1;
   height: 50px;
   background-color: transparent;
+}
+button[name]:not([class]) {
+  background-size: 20px 20px;
+}
+button[name]:not([class]):hover {
+  background-size: 20px 20px;
+}
+
+button[name=delete]:not([class]) {
+  background-size: 28px 28px;
+}
+button[name=delete]:not([class]):hover {
+  background-size: 28px 28px;
 }
 
 /*Кнопка like*/
@@ -771,6 +785,26 @@ button.fill-heart:hover {
 }
 
 /*Кнопка like*/
+/*Кнопка play*/
+button[name=play] {
+  background-image: url("/svg/svg_for_cards/head/music_player/play.svg");
+}
+
+button[name=play].pause {
+  background-image: url("/svg/svg_for_cards/head/music_player/pause.svg");
+}
+
+/*Кнопка play*/
+/*Кнопка volume*/
+button[name=volume] {
+  background-image: url("/svg/svg_for_cards/head/music_player/volume.svg");
+}
+
+button[name=volume].off {
+  background-image: url("/svg/svg_for_cards/head/music_player/volume-off.svg");
+}
+
+/*Кнопка volume*/
 /*Кнопка delete*/
 button[name=delete] {
   background-image: url("/svg/svg_for_cards/cross.svg");
@@ -896,64 +930,43 @@ textarea.form_correct::-webkit-scrollbar-track { /*скролл сделать �
   margin-block: 1px;
 }
 
-input[type=submit] {
-  cursor: pointer;
+input[type=range] {
+  width: 200px;
+  text-transform: 34;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  height: 3px;
+  --progress-line:0% ;
 }
 
-input[type=reset] {
-  cursor: pointer;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-image: url("/svg/svg_for_cards/cross.svg");
-  background-size: 40px 40px;
-}
-
-input[type=checkbox] {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-}
-
-/*
-.brd-box{
-    transition: 0.45s;
-    &:focus-within{
-        border: 1px solid var(--user-color);
-        box-shadow:-2px 3px 10px 0px rgb(var(--root-user-color)/0.4);
-    }
-}
-*/
-/*input[type=range]  {
-    width: 200px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    outline: none;
-    height: 3px;
+input[type=range].music-box__volume {
+  --progress-line:75% ;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
-    height: 3px;
-    background: grey;
+  height: 3px;
+  background: linear-gradient(to right, var(--user-color) 0% var(--progress-line), grey var(--progress-line));
 }
 
 input[type=range]::-webkit-slider-thumb {
-    background: var(--user-color);
-    border: 1px solid var(--title-color);
-    border-radius: 150px;
-    cursor: pointer;
-    width:7px;
-    height: 7px;
-    -webkit-appearance: none;
-    margin-top: -2px;
-    transition: 0.3s;
-    &:hover{
-        transform: scale(1.5);
-    }
+  background: var(--user-color);
+  border: 1px solid var(--title-color);
+  border-radius: 150px;
+  cursor: pointer;
+  width: 7px;
+  height: 7px;
+  -webkit-appearance: none;
+  margin-top: -2px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
-*/
+input[type=range]::-webkit-slider-thumb:hover {
+  transform: scale(1.5);
+  cursor: pointer;
+}
+
 /*вводы*/
 /*svg иконки*/
 /*общие настройки*/

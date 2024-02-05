@@ -144,7 +144,23 @@ button[name]{
 		height: 50px;
 		background-color: transparent;
 	}
+	/*Кнопки с изображениями без фона*/
+	&:not([class]){
+		background-size: 20px 20px;
+		&:hover{
+			background-size: 20px 20px;
+		}
+	}
 }
+
+
+button[name='delete']:not([class]){
+	background-size: 28px 28px;
+	&:hover{
+		background-size: 28px 28px;
+	}
+}
+
 /*Кнопка like*/
 button[name='like']{
 	background-image: url('/svg/svg_for_cards/heart/heart.svg');
@@ -163,6 +179,26 @@ button.fill-heart{
 	}
 }
 /*Кнопка like*/
+
+/*Кнопка play*/
+button[name='play']{
+	background-image: url('/svg/svg_for_cards/head/music_player/play.svg');
+}
+
+button[name='play'].pause{
+	background-image: url('/svg/svg_for_cards/head/music_player/pause.svg');
+}
+/*Кнопка play*/
+
+/*Кнопка volume*/
+button[name='volume']{
+	background-image: url('/svg/svg_for_cards/head/music_player/volume.svg');
+}
+
+button[name='volume'].off{
+	background-image: url('/svg/svg_for_cards/head/music_player/volume-off.svg');
+}
+/*Кнопка volume*/
 
 /*Кнопка delete*/
 button[name='delete']{

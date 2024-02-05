@@ -30,51 +30,24 @@ textarea.form_correct{
     }
 }
 
-input[type=submit]{
-    cursor: pointer;
-
-}
-
-input[type=reset]{
-    cursor: pointer;
-    background-repeat: no-repeat;
-	background-position: 50% 50%;
-    background-image: url('/svg/svg_for_cards/cross.svg');
-	background-size: 40px 40px;
-}
-
-input[type=checkbox]{
-    position:absolute;
-    width:1px;
-    height:1px;
-    overflow: hidden;
-    clip:rect(0 0 0 0)
-    
-}
-/*
-.brd-box{
-    transition: 0.45s;
-    &:focus-within{
-        border: 1px solid var(--user-color);
-        box-shadow:-2px 3px 10px 0px rgb(var(--root-user-color)/0.4);
-    }
-}
-*/
-
-
-
-/*input[type=range]  {
+input[type=range] {
     width: 200px;
+    text-transform:34;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     outline: none;
     height: 3px;
+    --progress-line:0%
+}
+
+input[type=range].music-box__volume{
+    --progress-line:75%
 }
 
 input[type=range]::-webkit-slider-runnable-track {
     height: 3px;
-    background: grey;
+    background: linear-gradient(to right,var(--user-color) 0% var(--progress-line), grey var(--progress-line));
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -89,6 +62,6 @@ input[type=range]::-webkit-slider-thumb {
     transition: 0.3s;
     &:hover{
         transform: scale(1.5);
+        cursor: pointer;
     }
 }
-*/
